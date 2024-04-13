@@ -39,19 +39,11 @@ void rccInit(){
 
 void tickInit(){
 	RCC->APB1ENR |= RCC_APB1ENR_TIM2EN;
-	NVIC_EnableIRQ(TIM2_IRQn);
-	NVIC_SetPriority(TIM2_IRQn, 12);
-	
-	TIM2->PSC = 3600;
+	TIM2->PSC = 36;
 	TIM2->ARR = 2000;
-	//TIM2->CR1 |= TIM_CR1_URS;
 	TIM2->DIER |= TIM_DIER_UIE;
 	TIM2->CR1 |= TIM_CR1_CEN;
-	/*TIM2->EGR |= TIM_EGR_UG;*/
+	NVIC_EnableIRQ(TIM2_IRQn);
+	NVIC_SetPriority(TIM2_IRQn, 6);
 	
-}
-
-void TIM2_IRQHandler(){
-	int i = 1;
-	TIM2->SR &= ~TIM_SR_UIF;
 }

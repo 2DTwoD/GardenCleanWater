@@ -12,6 +12,8 @@ class SimpleInput{
 		SimpleInput(GPIO_TypeDef * gpio, uint8_t pin);
 	
 		uint8_t isActive();
+	
+		uint8_t isActiveDelayed();
 };
 
 #endif //SIMPLE_INPUT_H

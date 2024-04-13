@@ -4,7 +4,7 @@ extern Coil led;
 
 void ledTask(void *pvParameters){
 	while(1){
-		led.togglePin();
+		//led.togglePin();
 		vTaskDelay(1000);
 	}
 }
