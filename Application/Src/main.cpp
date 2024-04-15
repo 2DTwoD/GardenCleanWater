@@ -1,12 +1,26 @@
 #include "main.h"
 
 Coil led(GPIOC, 13);
-int counter = 0;
+SimpleInput button(GPIOA, 0);
+
+ProgrammSwitch ledSwitch;
+
+Delay ledDelay(&ledSwitch, 500);
+Delay buttonDelay(&button, 10);
+
+Delay *allTimers[] = {
+	&ledDelay,
+	&buttonDelay
+};
+
+uint8_t allTimersSize = sizeof(allTimers) / sizeof(*allTimers);
+
 int main(void)
 {
 	rccInit();
 	tickInit();
 	commonInit();
+	//ledSwitch = true;
 	xTaskCreate(ledTask, "ledTask", configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY + 1, NULL);
 	vTaskStartScheduler();
 	while(1);
@@ -15,10 +29,8 @@ int main(void)
 extern "C"{
 	void TIM2_IRQHandler(void){
 		TIM2->SR &= ~TIM_SR_UIF;
-		if(counter > 1000){
-			led.togglePin();
-			counter = 0;
+		for(int i = 0; i < allTimersSize; i++){
+			allTimers[i]->update();
 		}
-		counter++;
 	}
 }

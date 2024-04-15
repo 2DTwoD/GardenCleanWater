@@ -1,25 +1,24 @@
 #ifndef COIL_H
 #define COIL_H
 #include "stm32f10x.h"
+#include "interfaces.h"
+#include "gpio_common.h"
 
-class Coil {
-	private:
-		uint8_t pin;
-		GPIO_TypeDef * gpio;
+class Coil: public GPIOcommon, public ISwitch {
   public:
 		Coil(GPIO_TypeDef * gpio, uint8_t pin);
 	
-		uint8_t isActive();
+		bool isActive();
 	
 		void setPin();
 		
 		void resetPin();
 	
-		void setValue(uint8_t value);
+		void setValue(bool value);
 		
 		void togglePin();
 	
-		Coil& operator=(int8_t value);
+		Coil& operator=(bool value);
 };
 
 #endif //COIL_H

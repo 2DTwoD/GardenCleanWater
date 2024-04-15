@@ -8,6 +8,9 @@
 #include "all_tasks.h"
 #include "common.h"
 #include "coil.h"
+#include "custom_timer.h"
+#include "programm_switch.h"
+#include "simple_input.h"
 
 extern "C"{
 	void vApplicationIdleHook ( void ){
@@ -29,8 +32,7 @@ extern "C"{
 }
 
 void badTimeOut(){
-	int i = 0;
-	for(i = 0; i < 1000000; i++);
+	for(int i = 0; i < 10000000; i++);
 }
 
 #endif //MAIN_H

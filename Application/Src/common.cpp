@@ -45,5 +45,4 @@ void tickInit(){
 	TIM2->CR1 |= TIM_CR1_CEN;
 	NVIC_EnableIRQ(TIM2_IRQn);
 	NVIC_SetPriority(TIM2_IRQn, 6);
-	
 }

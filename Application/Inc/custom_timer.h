@@ -1,17 +1,24 @@
 #ifndef CUSTOM_TIMER_H
 #define CUSTOM_TIMER_H
 #include "stdint.h"
+#include "interfaces.h"
 
-class Timer{
+class Delay{
 	private:
 		uint16_t period;
 	
 		uint16_t curTime;
+		
+		bool fin;
 	
-		uint8_t go;
+		bool impulse;
+		
+		ISwitch *swtch;
+		
+		void updateFin();
 	
 	public:
-		Timer(uint16_t period);
+		Delay(ISwitch *swtch, uint16_t period);
 		
 		uint16_t getPeriod();
 		
@@ -21,13 +28,13 @@ class Timer{
 		
 		void setCurrentTime(uint16_t value);
 		
-		void start();
-		
-		void stop();
-		
 		void reset();
 		
-		uint8_t started();
+		bool started();
+		
+		bool finished();
+	
+		bool finishedImpulse();
 		
 		void update();
 };

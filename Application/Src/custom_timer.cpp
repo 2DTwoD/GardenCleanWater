@@ -1,29 +1,59 @@
 #include "custom_timer.h"
 
-Timer::Timer(uint16_t period){
+Delay::Delay(ISwitch *swtch, uint16_t period){
+	this->swtch = swtch;
 	this->period = period;
 }
 
-uint16_t Timer::getPeriod(){
+void Delay::updateFin(){
+	fin = curTime >= period;
+}
+
+uint16_t Delay::getPeriod(){
 	return period;
 }
 
-void Timer::setPeriod(uint16_t value){}
+void Delay::setPeriod(uint16_t value){
+	period = value;
+	updateFin();
+}
 
-uint16_t Timer::getCurrentTime(){
+uint16_t Delay::getCurrentTime(){
 	return curTime;
 }
 
-void Timer::setCurrentTime(uint16_t value){}
-
-void Timer::start(){}
-
-void Timer::stop(){}
-
-void Timer::reset(){}
-
-uint8_t Timer::started(){
-	return go;
+void Delay::setCurrentTime(uint16_t value){
+	curTime = value;
+	updateFin();
 }
 
-void Timer::update(){}
+void Delay::reset(){
+	curTime = 0;
+	updateFin();
+}
+
+bool Delay::started(){
+	return curTime > 0;
+}
+
+bool Delay::finished(){
+	return fin;
+}
+
+bool Delay::finishedImpulse(){
+	bool result = fin && !impulse;
+	if (fin) impulse = true;
+	return result;
+}
+
+void Delay::update(){
+	if(swtch->isActive()){
+		updateFin();
+		if(fin) return;
+		curTime++;
+		return;
+	}
+	impulse = false;
+	fin = false;
+	curTime = 0;
+}

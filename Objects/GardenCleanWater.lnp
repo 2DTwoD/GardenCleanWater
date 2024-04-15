@@ -4,6 +4,8 @@
 ".\objects\common.o"
 ".\objects\simple_input.o"
 ".\objects\custom_timer.o"
+".\objects\programm_switch.o"
+".\objects\gpio_common.o"
 ".\objects\port.o"
 ".\objects\croutine.o"
 ".\objects\event_groups.o"
