@@ -15,11 +15,14 @@ Delay *allTimers[] = {
 
 uint8_t allTimersSize = sizeof(allTimers) / sizeof(*allTimers);
 
+uint16_t adcValues[2] = {44, 43};
+
 int main(void)
 {
 	rccInit();
 	tickInit();
 	commonInit();
+	adcInit();
 	//ledSwitch = true;
 	xTaskCreate(ledTask, "ledTask", configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY + 1, NULL);
 	vTaskStartScheduler();
@@ -33,4 +36,10 @@ extern "C"{
 			allTimers[i]->update();
 		}
 	}
+	
+	/*void ADC1_2_IRQHandler(void){
+		if(ADC1->SR & ADC_SR_EOC){
+			uint16_t val = ADC1->DR;
+		}
+	}*/
 }

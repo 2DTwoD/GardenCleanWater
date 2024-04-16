@@ -8,5 +8,6 @@ void setRegister(volatile uint16_t *const reg, uint16_t mask, uint16_t value);
 void commonInit();
 void rccInit();
 void tickInit();
+void adcInit();
 
 #endif //COMMON_H
