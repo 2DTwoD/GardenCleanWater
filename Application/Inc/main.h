@@ -30,9 +30,4 @@ extern "C"{
 		while(1);
 	}
 }
-
-void badTimeOut(){
-	for(int i = 0; i < 10000000; i++);
-}
-
 #endif //MAIN_H

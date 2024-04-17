@@ -15,7 +15,7 @@ Delay *allTimers[] = {
 
 uint8_t allTimersSize = sizeof(allTimers) / sizeof(*allTimers);
 
-uint16_t adcValues[2] = {44, 43};
+volatile uint16_t adcValues[2] = {44, 43};
 
 int main(void)
 {
