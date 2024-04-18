@@ -410,11 +410,6 @@
               <FilePath>.\Application\Src\custom_timer.cpp</FilePath>
             </File>
             <File>
-              <FileName>programm_switch.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\Application\Src\programm_switch.cpp</FilePath>
-            </File>
-            <File>
               <FileName>gpio_common.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\Application\Src\gpio_common.cpp</FilePath>

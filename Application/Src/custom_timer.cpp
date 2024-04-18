@@ -45,8 +45,8 @@ bool CommonDelay::finished(){
  return curTime >= period;
 }
 bool CommonDelay::finishedImpulse(){
-	bool result = fin && !impulse;
-	if (fin) impulse = true;
+	bool result = finished() && !impulse;
+	if (finished()) impulse = true;
 	return result;
 }
 void CommonDelay::update(){

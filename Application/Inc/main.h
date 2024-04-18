@@ -9,7 +9,6 @@
 #include "common.h"
 #include "coil.h"
 #include "custom_timer.h"
-#include "programm_switch.h"
 #include "simple_input.h"
 
 extern "C"{

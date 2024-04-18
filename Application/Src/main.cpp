@@ -3,7 +3,7 @@
 Coil led(GPIOC, 13);
 SimpleInput button(GPIOA, 0);
 
-ProgrammSwitch ledSwitch;
+ProgrammCoil ledSwitch;
 
 DIDelay ledDelay(&ledSwitch, 500);
 DIDelay buttonDelay(&button, 10);

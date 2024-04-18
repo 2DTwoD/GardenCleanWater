@@ -2,7 +2,6 @@
 #define CUSTOM_TIMER_H
 #include "stdint.h"
 #include "interfaces.h"
-#include "programm_switch.h"
 
 class CommonDelay {
 	protected:
