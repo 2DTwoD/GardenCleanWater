@@ -9,7 +9,7 @@ class SimpleInput: public GPIOcommon, public ISwitch{
 	public:
 		SimpleInput(GPIO_TypeDef * gpio, uint8_t pin);
 	
-		bool isActive();
+		bool isActive() override;
 };
 
 #endif //SIMPLE_INPUT_H

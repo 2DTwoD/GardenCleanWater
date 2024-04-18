@@ -1,54 +1,57 @@
 #include "custom_timer.h"
 
-Delay::Delay(ISwitch *swtch, uint16_t period){
-	this->swtch = swtch;
+//CommonDelay implementation
+CommonDelay::CommonDelay(uint16_t period){
 	this->period = period;
 }
-
-void Delay::updateFin(){
-	fin = curTime >= period;
-}
-
-uint16_t Delay::getPeriod(){
+uint16_t CommonDelay::getPeriod(){
 	return period;
 }
-
-void Delay::setPeriod(uint16_t value){
+void CommonDelay::setPeriod(uint16_t value){
 	period = value;
-	updateFin();
 }
-
-uint16_t Delay::getCurrentTime(){
+uint16_t CommonDelay::getCurrentTime(){
 	return curTime;
 }
-
-void Delay::setCurrentTime(uint16_t value){
+void CommonDelay::setCurrentTime(uint16_t value){
 	curTime = value;
-	updateFin();
 }
-
-void Delay::reset(){
+void CommonDelay::start(){
+	go = true;
+}
+void CommonDelay::pause(){
+	if(finished()) return;
+	go = false;
+}
+void CommonDelay::stop(){
+	go = false;
+	reset();
+}
+void CommonDelay::reset(){
 	curTime = 0;
-	updateFin();
+	impulse = false;
 }
-
-bool Delay::started(){
-	return curTime > 0;
+void CommonDelay::prepareAndStart(){
+	stop();
+	start();
 }
-
-bool Delay::finished(){
-	return fin;
+bool CommonDelay::started(){
+	return go;
 }
-
-bool Delay::finishedImpulse(){
+bool CommonDelay::notFinished(){
+ return curTime < period;
+}
+bool CommonDelay::finished(){
+ return curTime >= period;
+}
+bool CommonDelay::finishedImpulse(){
 	bool result = fin && !impulse;
 	if (fin) impulse = true;
 	return result;
 }
-
-void Delay::update(){
-	if(swtch->isActive()){
-		updateFin();
+void CommonDelay::update(){
+	if(started()){
+		fin = curTime >= period;
 		if(fin) return;
 		curTime++;
 		return;
@@ -56,4 +59,12 @@ void Delay::update(){
 	impulse = false;
 	fin = false;
 	curTime = 0;
+}
+
+//DIDelay implementation
+DIDelay::DIDelay(ISwitch *swtch, uint16_t period): CommonDelay(period){
+	this->swtch = swtch;
+}
+bool DIDelay::started(){
+	return CommonDelay::started() || swtch->isActive();
 }

@@ -12,6 +12,10 @@ void ProgrammSwitch::setValue(bool value){
 	status = value;
 }
 
+void ProgrammSwitch::toggle(){
+	status = !status;
+}
+
 bool ProgrammSwitch::isActive(){
 	return status;
 }

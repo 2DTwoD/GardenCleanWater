@@ -1,5 +1,6 @@
 #include "common.h"
 extern volatile uint16_t adcValues[];
+extern CommonDelay delay;
 
 void setRegister(volatile uint32_t * const reg, uint32_t mask, uint32_t value){
 	*reg &= ~mask;
@@ -100,7 +101,8 @@ void adcInit(){
 	//A/D converter ON again
 	ADC1->CR2 |= ADC_CR2_ADON;
 	//ADC calibration
-	badTimeOut(100000);
+	delay.prepareAndStart();
+	while(delay.notFinished());
 	ADC1->CR2 |= ADC_CR2_CAL;
 	
 	//periphery address

@@ -11,9 +11,11 @@ class ProgrammSwitch: public ISwitch{
 	
 		void reset();
 	
+		void toggle();
+	
 		void setValue(bool value);
 	
-		bool isActive();
+		bool isActive() override;
 		
 		ProgrammSwitch& operator=(bool value);
 };

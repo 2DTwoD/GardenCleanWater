@@ -5,17 +5,19 @@ SimpleInput button(GPIOA, 0);
 
 ProgrammSwitch ledSwitch;
 
-Delay ledDelay(&ledSwitch, 500);
-Delay buttonDelay(&button, 10);
+DIDelay ledDelay(&ledSwitch, 500);
+DIDelay buttonDelay(&button, 10);
+CommonDelay delay(10);
 
-Delay *allTimers[] = {
+CommonDelay *allTimers[] = {
 	&ledDelay,
-	&buttonDelay
+	&buttonDelay,
+	&delay
 };
 
 uint8_t allTimersSize = sizeof(allTimers) / sizeof(*allTimers);
 
-volatile uint16_t adcValues[2] = {44, 43};
+volatile uint16_t adcValues[2] = {0, 0};
 
 int main(void)
 {
@@ -23,7 +25,7 @@ int main(void)
 	tickInit();
 	commonInit();
 	adcInit();
-	//ledSwitch = true;
+	ledSwitch = true;
 	xTaskCreate(ledTask, "ledTask", configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY + 1, NULL);
 	vTaskStartScheduler();
 	while(1);
