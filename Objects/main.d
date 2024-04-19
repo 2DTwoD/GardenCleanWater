@@ -20,4 +20,5 @@
   FreeRTOS\Inc\task.h FreeRTOS\Inc\list.h Tasks\Inc\all_tasks.h \
   Application\Inc\coil.h Application\Inc\interfaces.h \
   Application\Inc\gpio_common.h Application\Inc\custom_timer.h \
-  Application\Inc\simple_input.h Application\Inc\common.h
+  Application\Inc\simple_input.h Application\Inc\common.h \
+  Application\Inc\analog_monitor.h

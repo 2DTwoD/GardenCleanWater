@@ -10,6 +10,7 @@
 #include "coil.h"
 #include "custom_timer.h"
 #include "simple_input.h"
+#include "analog_monitor.h"
 
 extern "C"{
 	void vApplicationIdleHook ( void ){
