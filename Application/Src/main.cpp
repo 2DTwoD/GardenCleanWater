@@ -9,19 +9,23 @@ DIDelay ledDelay(&ledSwitch, 500);
 DIDelay buttonDelay(&button, 10);
 CommonDelay delay(10);
 
-CommonDelay *allTimers[] = {
-	&ledDelay,
-	&buttonDelay,
-	&delay
-};
-
-uint8_t allTimersSize = sizeof(allTimers) / sizeof(*allTimers);
-
 volatile uint16_t adcValues[2] = {0, 0};
 AnalogMonitor adcMonitor(12, adcValues);
 
+
+IUpdated *updateObjects[] = {
+	&ledDelay,
+	&buttonDelay,
+	&delay,
+	&adcMonitor
+};
+
+uint8_t allTimersSize = sizeof(updateObjects) / sizeof(*updateObjects);
+
+
 int main(void)
 {
+	adcMonitor.setTresDelays(LL, 5000);
 	rccInit();
 	tickInit();
 	commonInit();
@@ -36,7 +40,7 @@ extern "C"{
 	void TIM2_IRQHandler(void){
 		TIM2->SR &= ~TIM_SR_UIF;
 		for(int i = 0; i < allTimersSize; i++){
-			allTimers[i]->update();
+			updateObjects[i]->update();
 		}
 	}
 	

@@ -1,14 +1,24 @@
 #ifndef ANALOG_MONITOR_H
 #define ANALOG_MONITOR_H
 #include "stdint.h"
+#include "interfaces.h"
+#include "custom_timer.h"
 
-class AnalogMonitor{
+enum TRES_TYPE {
+	LL = 0, 
+	HL, 
+	LH, 
+	HH	
+};
+
+class AnalogMonitor: public IUpdated{
 	private:
 		volatile uint16_t *rawValue;
 		float value;
 		volatile uint16_t rawLimits[2]{0, 0};
 		float valueLimits[2]{0.0, 100.0};
 		float tresholds[4]{5.0, 10.0, 90.0, 95.0};
+		CommonDelay* tresDelays[4];
 		template<typename T>
 		T getRange(const T *const limits);
 		template<typename T>
@@ -16,10 +26,12 @@ class AnalogMonitor{
 	public:
 		AnalogMonitor(uint8_t adcCapacity, volatile uint16_t *const rawValue);
 		AnalogMonitor(uint8_t adcCapacity, volatile uint16_t *const rawValue, float valueMin, float valueMax);
-		void update();
+		~AnalogMonitor();
+		void update() override;
 		float getValue();
 		void setValueLimits(const float *const limits);
 		void setTresholds(const float *const tresholds);
+		void setTresDelays(TRES_TYPE tresType, uint16_t del);
 		bool isHighAlarm();
 		bool isHighWarn();
 		bool isLowWarn();
