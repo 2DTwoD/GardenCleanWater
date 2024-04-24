@@ -419,6 +419,11 @@
               <FileType>8</FileType>
               <FilePath>.\Application\Src\analog_monitor.cpp</FilePath>
             </File>
+            <File>
+              <FileName>analog_out.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Application\Src\analog_out.cpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

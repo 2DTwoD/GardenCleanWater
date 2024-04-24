@@ -2,26 +2,21 @@
 extern volatile uint16_t adcValues[];
 extern CommonDelay delay;
 
-void setRegister(volatile uint32_t * const reg, uint32_t mask, uint32_t value){
-	*reg &= ~mask;
-	*reg |= value;
-}
-
-void setRegister(volatile uint16_t * const reg, uint16_t mask, uint16_t value){
+template<typename T>
+void setRegister(T * const reg, uint32_t mask, uint32_t value){
 	*reg &= ~mask;
 	*reg |= value;
 }
 
 int8_t getPosition(uint32_t mask){
-	int i = 0;
-	while(i < 32){
+	for(int i = 0; i < 32; i++){
 		if(mask & (1<<i)) return i;
-		i++;
 	}
 	return -1;
 }
 
-void setBitsInRegister(volatile uint32_t * const reg, uint32_t mask, uint32_t value){
+template<typename T>
+void setBitsInRegister(T * const reg, uint32_t mask, uint32_t value){
 	int8_t pos = getPosition(mask);
 	if(pos < 0) return;
 	*reg &= ~mask;
@@ -78,8 +73,8 @@ void adcInit(){
 	//Enable DMA
 	RCC->AHBENR |= RCC_AHBENR_DMA1EN;
 	//GPIO set for ADC
-	setBitsInRegister(&GPIOA->CRL, GPIO_CRL_MODE5 | GPIO_CRL_CNF5, 0b0000);
-	setBitsInRegister(&GPIOA->CRL, GPIO_CRL_MODE6 | GPIO_CRL_CNF6, 0b0000);
+	setBitsInRegister(&GPIOA->CRL, GPIO_CRL_CNF5 | GPIO_CRL_MODE5, 0b0000);
+	setBitsInRegister(&GPIOA->CRL, GPIO_CRL_CNF6 | GPIO_CRL_MODE6, 0b0000);
 	
 	//Enable interrupt
 	/*ADC1->CR1 |= ADC_CR1_EOCIE;
@@ -117,6 +112,22 @@ void adcInit(){
 	setBitsInRegister(&DMA1_Channel1->CCR, DMA_CCR1_PSIZE, 0b01);
 	//dma enable;
 	DMA1_Channel1->CCR |= DMA_CCR1_EN;
-	
 }
 
+void pwmInit(){
+	RCC->APB1ENR |= RCC_APB1ENR_TIM3EN;
+	RCC->APB2ENR |= RCC_APB2ENR_IOPBEN | RCC_APB2ENR_AFIOEN;
+	setBitsInRegister(&GPIOB->CRL, GPIO_CRL_CNF0 | GPIO_CRL_MODE0, 0b1011);
+	
+	TIM3->CCER |= TIM_CCER_CC3E;
+	TIM3->CR1 |= TIM_CR1_ARPE;
+	setBitsInRegister(&TIM3->CCMR2, TIM_CCMR2_OC3M, 0b110);
+	TIM3->CCMR2 |= TIM_CCMR2_OC3PE;
+	
+	TIM3->PSC = 72;
+	TIM3->ARR = 1000;
+	TIM3->CCR3 = 667;
+	
+	TIM3->EGR |= TIM_EGR_UG;
+	TIM3->CR1 |= TIM_CR1_CEN;
+}

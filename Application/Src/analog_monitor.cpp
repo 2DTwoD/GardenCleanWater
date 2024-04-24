@@ -30,7 +30,7 @@ void AnalogMonitor::copyArrays(const T *const src, T *const dst, uint8_t len){
 	}
 }
 void AnalogMonitor::update(){
-	value = valueLimits[0] + getRange(valueLimits) / getRange(rawLimits) * (*rawValue + rawLimits[0]);
+	value = valueLimits[0] + getRange(valueLimits) / getRange(rawLimits) * (*rawValue - rawLimits[0]);
 	*tresDelays[0] = value * 100 / getRange(valueLimits) <= tresholds[0];
 	*tresDelays[1] = value * 100 / getRange(valueLimits) <= tresholds[1];
 	*tresDelays[2] = value * 100 / getRange(valueLimits) >= tresholds[2];

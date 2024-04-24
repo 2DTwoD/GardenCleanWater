@@ -30,6 +30,7 @@ int main(void)
 	tickInit();
 	commonInit();
 	adcInit();
+	pwmInit();
 	ledSwitch = true;
 	xTaskCreate(ledTask, "ledTask", configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY + 1, NULL);
 	vTaskStartScheduler();
