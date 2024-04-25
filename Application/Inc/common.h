@@ -2,13 +2,15 @@
 #define COMMON_H
 #include "stdint.h"
 
+void badTimeOut(uint32_t);
+
+int8_t getPosition(volatile uint32_t mask);
+
 template<typename T>
 void setRegister(T * const reg, uint32_t mask, uint32_t value){
 	*reg &= ~mask;
 	*reg |= value;
 }
-
-int8_t getPosition(volatile uint32_t mask);
 
 template<typename T>
 void setBitsInRegister(T * const reg, uint32_t mask, uint32_t value){
@@ -17,8 +19,6 @@ void setBitsInRegister(T * const reg, uint32_t mask, uint32_t value){
 	*reg &= ~mask;
 	*reg |= (value << pos);
 }
-
-void badTimeOut(uint32_t);
 
 template<typename T>
 T max(T val1, T val2){

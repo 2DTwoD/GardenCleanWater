@@ -86,8 +86,8 @@ Section Cross References
     coil.o(.rodata._ZTV4Coil) refers to coil.o(.text._ZN4Coil8setValueEb) for Coil::setValue(bool)
     coil.o(.rodata._ZTV12ProgrammCoil) refers to coil.o(.text._ZN12ProgrammCoil8isActiveEv) for ProgrammCoil::isActive()
     coil.o(.rodata._ZTV12ProgrammCoil) refers to coil.o(.text._ZN12ProgrammCoil8setValueEb) for ProgrammCoil::setValue(bool)
-    common.o(.ARM.exidx.text._Z11getPositionj) refers to common.o(.text._Z11getPositionj) for [Anonymous Symbol]
     common.o(.ARM.exidx.text._Z10badTimeOutj) refers to common.o(.text._Z10badTimeOutj) for [Anonymous Symbol]
+    common.o(.ARM.exidx.text._Z11getPositionj) refers to common.o(.text._Z11getPositionj) for [Anonymous Symbol]
     simple_input.o(.text._ZN11SimpleInputC2EP12GPIO_TypeDefh) refers to gpio_common.o(.text._ZN10GPIOcommonC2EP12GPIO_TypeDefh) for GPIOcommon::GPIOcommon__sub_object(GPIO_TypeDef*, unsigned char)
     simple_input.o(.text._ZN11SimpleInputC2EP12GPIO_TypeDefh) refers to main.o(.text._ZN7ISwitchC2Ev) for ISwitch::ISwitch__sub_object()
     simple_input.o(.text._ZN11SimpleInputC2EP12GPIO_TypeDefh) refers to simple_input.o(.rodata._ZTV11SimpleInput) for vtable for SimpleInput
@@ -1402,9 +1402,9 @@ Removing Unused input sections from the image.
     Removing coil.o(.ARM.exidx.text._ZN4Coil8setValueEb), (8 bytes).
     Removing coil.o(.ARM.exidx.text._ZN4CoilaSEb), (8 bytes).
     Removing common.o(.text), (0 bytes).
-    Removing common.o(.ARM.exidx.text._Z11getPositionj), (8 bytes).
     Removing common.o(.text._Z10badTimeOutj), (34 bytes).
     Removing common.o(.ARM.exidx.text._Z10badTimeOutj), (8 bytes).
+    Removing common.o(.ARM.exidx.text._Z11getPositionj), (8 bytes).
     Removing simple_input.o(.text), (0 bytes).
     Removing simple_input.o(.ARM.exidx.text._ZN11SimpleInputC2EP12GPIO_TypeDefh), (8 bytes).
     Removing simple_input.o(.ARM.exidx.text._ZN11SimpleInput8isActiveEv), (8 bytes).
@@ -2901,7 +2901,7 @@ Memory Map of the image
     0x08000ac4   0x08000ac4   0x00000024   Code   RO           30    .text._GLOBAL__sub_I_main.cpp  main.o
     0x08000ae8   0x08000ae8   0x0000000e   Code   RO          240    .text._Z10commonInitv  init.o
     0x08000af6   0x08000af6   0x00000002   PAD
-    0x08000af8   0x08000af8   0x00000040   Code   RO           89    .text._Z11getPositionj  common.o
+    0x08000af8   0x08000af8   0x00000040   Code   RO           91    .text._Z11getPositionj  common.o
     0x08000b38   0x08000b38   0x00000020   Code   RO          111    .text._Z11setRegisterIVjEvPT_jj  simple_input.o
     0x08000b58   0x08000b58   0x00000044   Code   RO          262    .text._Z17setBitsInRegisterIVjEvPT_jj  init.o
     0x08000b9c   0x08000b9c   0x00000044   Code   RO          264    .text._Z17setBitsInRegisterIVtEvPT_jj  init.o
@@ -3217,24 +3217,24 @@ Image component sizes
        824          0         12          0          0       5870   analog_monitor.o
        526          0         12          0          0       4377   analog_out.o
        346          0         32          0          0       4221   coil.o
-        64          0          0          0          0       1804   common.o
+        64          0          0          0          0       1806   common.o
        536          0         44          0          0       5415   custom_timer.o
        226          0          0          0          0       2288   gpio_common.o
        880          0          0          0      10268       4068   heap_4.o
-      1132          0          0          0          0       7822   init.o
+      1132          0          0          0          0       7824   init.o
        216          0          0          0          0       1901   led_task.o
        238          0          0          0          0       2050   list.o
        514          0         24         21        168       6261   main.o
        510         12          0          4          0       2489   port.o
       1124          0          0          0          0      12159   queue.o
-       202          0         12          0          0       3083   simple_input.o
+       202          0         12          0          0       3085   simple_input.o
         64         26        236          0       1536        824   startup_stm32f10x_md.o
        690          0         16          4          0       2944   system_stm32f10x.o
       3694          0          9          0        260      21776   tasks.o
       1148         10          8          0         60       7648   timers.o
 
     ----------------------------------------------------------------------
-     13090         60        442         32      12292      97000   Object Totals
+     13090         60        442         32      12292      97006   Object Totals
          0          0         32          0          0          0   (incl. Generated)
        156         12          5          3          0          0   (incl. Padding)
 
@@ -3336,8 +3336,8 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     17578        476        442         32      12392      99188   Grand Totals
-     17578        476        442         32      12392      99188   ELF Image Totals
+     17578        476        442         32      12392      99194   Grand Totals
+     17578        476        442         32      12392      99194   ELF Image Totals
      17578        476        442         32          0          0   ROM Totals
 
 ==============================================================================
