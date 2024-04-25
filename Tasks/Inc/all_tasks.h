@@ -8,6 +8,7 @@
 #include "custom_timer.h"
 #include "simple_input.h"
 #include "analog_monitor.h"
+#include "analog_out.h"
 
 void ledTask(void *pvParameters);
 

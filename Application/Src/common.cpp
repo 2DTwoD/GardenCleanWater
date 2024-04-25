@@ -126,7 +126,7 @@ void pwmInit(){
 	
 	TIM3->PSC = 72;
 	TIM3->ARR = 1000;
-	TIM3->CCR3 = 667;
+	//TIM3->CCR3 = 667;
 	
 	TIM3->EGR |= TIM_EGR_UG;
 	TIM3->CR1 |= TIM_CR1_CEN;

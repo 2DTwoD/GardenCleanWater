@@ -20,4 +20,5 @@
   C:\Users\VNT\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include\system_stm32f10x.h \
   Application\Inc\interfaces.h Application\Inc\gpio_common.h \
   Application\Inc\custom_timer.h Application\Inc\simple_input.h \
-  Application\Inc\common.h Application\Inc\analog_monitor.h
+  Application\Inc\common.h Application\Inc\analog_monitor.h \
+  Application\Inc\analog_out.h

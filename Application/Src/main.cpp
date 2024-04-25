@@ -11,13 +11,15 @@ CommonDelay delay(10);
 
 volatile uint16_t adcValues[2] = {0, 0};
 AnalogMonitor adcMonitor(12, adcValues);
+AnalogOut analogOut(&TIM3->CCR3, 1000);
 
 
 IUpdated *updateObjects[] = {
 	&ledDelay,
 	&buttonDelay,
 	&delay,
-	&adcMonitor
+	&adcMonitor,
+	&analogOut
 };
 
 uint8_t allTimersSize = sizeof(updateObjects) / sizeof(*updateObjects);
