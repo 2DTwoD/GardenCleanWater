@@ -5,8 +5,9 @@
 #include "FreeRTOS.h"
 #include "task.h"
 
-#include "all_tasks.h"
 #include "common.h"
+#include "init.h"
+#include "all_tasks.h"
 #include "coil.h"
 #include "custom_timer.h"
 #include "simple_input.h"

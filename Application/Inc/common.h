@@ -1,16 +1,49 @@
 #ifndef COMMON_H
 #define COMMON_H
+#include "stdint.h"
 
-#include "stm32f10x.h"
-#include "custom_timer.h"
 template<typename T>
-void setRegister(T *const reg, uint32_t mask, uint32_t value);
+void setRegister(T * const reg, uint32_t mask, uint32_t value){
+	*reg &= ~mask;
+	*reg |= value;
+}
+
+int8_t getPosition(volatile uint32_t mask);
+
 template<typename T>
-void setBitsInRegister(T * const reg, uint32_t mask, uint32_t value);
-void commonInit();
-void rccInit();
-void tickInit();
-void adcInit();
-void pwmInit();
+void setBitsInRegister(T * const reg, uint32_t mask, uint32_t value){
+	int8_t pos = getPosition(mask);
+	if(pos < 0) return;
+	*reg &= ~mask;
+	*reg |= (value << pos);
+}
+
+void badTimeOut(uint32_t);
+
+template<typename T>
+T max(T val1, T val2){
+	if(val1 > val2){
+		 return val1;
+	}
+	return val2;
+}
+
+template<typename T>
+T min(T val1, T val2){
+	if(val1 < val2){
+		 return val1;
+	}
+	return val2;
+}
+
+template<typename T>
+T limit(T value, T min, T max){
+	if(value < min){
+		value = min;
+	} else if(value > max){
+		value = max;
+	}
+	return value;
+}
 
 #endif //COMMON_H

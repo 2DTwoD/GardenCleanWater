@@ -17,8 +17,9 @@
   FreeRTOS\Inc\FreeRTOSConfig.h FreeRTOS\Inc\projdefs.h \
   FreeRTOS\Inc\portable.h FreeRTOS\Inc\deprecated_definitions.h \
   FreeRTOS\ARM_CM3\portmacro.h FreeRTOS\Inc\mpu_wrappers.h \
-  FreeRTOS\Inc\task.h FreeRTOS\Inc\list.h Tasks\Inc\all_tasks.h \
-  Application\Inc\coil.h Application\Inc\interfaces.h \
-  Application\Inc\gpio_common.h Application\Inc\custom_timer.h \
-  Application\Inc\simple_input.h Application\Inc\common.h \
-  Application\Inc\analog_monitor.h Application\Inc\analog_out.h
+  FreeRTOS\Inc\task.h FreeRTOS\Inc\list.h Application\Inc\common.h \
+  Application\Inc\init.h Application\Inc\custom_timer.h \
+  Application\Inc\interfaces.h Tasks\Inc\all_tasks.h \
+  Application\Inc\coil.h Application\Inc\gpio_common.h \
+  Application\Inc\simple_input.h Application\Inc\analog_monitor.h \
+  Application\Inc\analog_out.h

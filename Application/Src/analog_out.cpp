@@ -29,11 +29,7 @@ float AnalogOut::getOut(){
 	return out;
 }
 void AnalogOut::setSP(float value){
-	if(value < 0.0){
-		value = 0.0;
-	} else if(value > 100.0){
-		value = 100.0;
-	}
+	value = limit(value, 0.0f, 100.0f);
 	this->sp = value;
 }
 bool AnalogOut::isReverse(){

@@ -424,6 +424,11 @@
               <FileType>8</FileType>
               <FilePath>.\Application\Src\analog_out.cpp</FilePath>
             </File>
+            <File>
+              <FileName>init.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Application\Src\init.cpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

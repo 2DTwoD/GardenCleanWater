@@ -1,7 +1,10 @@
 #ifndef ANALOG_OUT_H
 #define ANALOG_OUT_H
+
+#include <stdint.h>
+
 #include "interfaces.h"
-#include "stdint.h"
+#include "common.h"
 
 class AnalogOut: public IUpdated{
 	private:
