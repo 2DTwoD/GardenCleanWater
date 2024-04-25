@@ -9,6 +9,7 @@
 class AnalogOut: public IUpdated{
 	private:
 		float out;
+		float reverseOut;
 		float sp;
 		float step;
 		volatile uint16_t * const rawValue;

@@ -11,7 +11,7 @@ CommonDelay delay(10);
 
 volatile uint16_t adcValues[2] = {0, 0};
 AnalogMonitor adcMonitor(12, adcValues);
-AnalogOut analogOut(&TIM3->CCR3, 1000);
+AnalogOut analogOut(&TIM3->CCR3, 1000, 15000, true);
 
 
 IUpdated *updateObjects[] = {

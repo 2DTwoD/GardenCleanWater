@@ -17,12 +17,14 @@ void AnalogOut::update(){
 		out -= step;
 		if (out < sp) out = sp;
 	}
+	reverseOut = 100.0 - out;
 	updateRawValue();
 }
 void AnalogOut::updateRawValue(){
-	*rawValue = (uint16_t)(out * rawRange / 100.0);
 	if(reverse){
-		*rawValue = rawRange - *rawValue;
+		*rawValue = (uint16_t)(reverseOut * rawRange / 100.0);
+	} else {
+		*rawValue = (uint16_t)(out * rawRange / 100.0);
 	}
 }
 float AnalogOut::getOut(){
@@ -42,8 +44,8 @@ uint32_t AnalogOut::getFullRangeTime(){
 	return fullRangeTime;
 }
 void AnalogOut::setFullRangeTime(uint32_t value){
-	if(fullRangeTime > 0){
-		step = 100.0 / fullRangeTime;
+	if(value > 0){
+		step = 100.0 / value;
 	} else {
 		step = 0;
 	}
