@@ -434,6 +434,11 @@
               <FileType>8</FileType>
               <FilePath>.\Application\Src\ramp.cpp</FilePath>
             </File>
+            <File>
+              <FileName>pid.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Application\Src\pid.cpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

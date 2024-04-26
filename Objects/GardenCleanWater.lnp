@@ -9,6 +9,7 @@
 ".\objects\analog_out.o"
 ".\objects\init.o"
 ".\objects\ramp.o"
+".\objects\pid.o"
 ".\objects\port.o"
 ".\objects\croutine.o"
 ".\objects\event_groups.o"

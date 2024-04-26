@@ -57,4 +57,12 @@ void copyArrays(const T *const src, T *const dst, uint8_t len){
 		dst[i] = src[i];
 	}
 }
+
+template<typename T>
+T abs(T value){
+	if(value < 0){
+		value *= -1;
+	}
+	return value;
+}
 #endif //COMMON_H

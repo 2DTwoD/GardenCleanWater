@@ -1,5 +1,6 @@
 #ifndef ANALOG_MONITOR_H
 #define ANALOG_MONITOR_H
+
 #include "stdint.h"
 #include "interfaces.h"
 #include "custom_timer.h"
