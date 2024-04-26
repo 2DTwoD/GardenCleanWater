@@ -5,27 +5,19 @@
 
 #include "interfaces.h"
 #include "common.h"
+#include "ramp.h"
 
-class AnalogOut: public IUpdated{
+class AnalogOut: public Ramp{
 	private:
-		float out;
-		float reverseOut;
-		float sp;
-		float step;
 		volatile uint16_t * const rawValue;
 		uint16_t rawRange;
 		bool reverse;
-		uint32_t fullRangeTime;
-		void updateRawValue();
 	public:
-		AnalogOut(volatile uint16_t *const rawValue, uint16_t rawRange, uint32_t fullRangeTime = 0, bool reverse = false);
+		AnalogOut(volatile uint16_t *const rawValue, uint16_t rawRange, uint32_t fullRangeTime = 0, bool reverse = false,
+													float outMin = 0.0f, float outMax = 100.0f, float limitMin = 0.0f, float limitMax = 100.0f);
 		void update() override;
-		float getOut();
-		void setSP(float value);
 		bool isReverse();
 		void setReverse(bool value);
-		uint32_t getFullRangeTime();
-		void setFullRangeTime(uint32_t value);
 		AnalogOut& operator=(float value);
 };
 

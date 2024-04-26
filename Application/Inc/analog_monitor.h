@@ -3,6 +3,7 @@
 #include "stdint.h"
 #include "interfaces.h"
 #include "custom_timer.h"
+#include "common.h"
 
 enum TRES_TYPE {
 	LL = 0, 
@@ -16,22 +17,19 @@ class AnalogMonitor: public IUpdated{
 		volatile uint16_t *rawValue;
 		float value;
 		volatile uint16_t rawLimits[2]{0, 0};
-		float valueLimits[2]{0.0, 100.0};
-		float tresholds[4]{5.0, 10.0, 90.0, 95.0};
+		float valueLimits[2]{0.0f, 100.0f};
+		float tresholds[4]{5.0f, 10.0f, 90.0f, 95.0f};
 		CommonDelay* tresDelays[4];
-		template<typename T>
-		T getRange(const T *const limits);
-		template<typename T>
-		void copyArrays(const T *const src, T *const dst, uint8_t len);
 	public:
 		AnalogMonitor(uint8_t adcCapacity, volatile uint16_t *const rawValue);
 		AnalogMonitor(uint8_t adcCapacity, volatile uint16_t *const rawValue, float valueMin, float valueMax);
 		~AnalogMonitor();
 		void update() override;
 		float getValue();
-		void setValueLimits(const float *const limits);
-		void setTresholds(const float *const tresholds);
-		void setTresDelays(TRES_TYPE tresType, uint16_t del);
+		void setValueMax(float limit);
+		void setValueMin(float limit);
+		void setTreshold(TRES_TYPE tresType, uint16_t value);
+		void setTresDelay(TRES_TYPE tresType, uint16_t del);
 		bool isHighAlarm();
 		bool isHighWarn();
 		bool isLowWarn();

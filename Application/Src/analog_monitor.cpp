@@ -12,21 +12,11 @@ AnalogMonitor::AnalogMonitor(uint8_t adcCapacity, volatile uint16_t *const rawVa
 }
 AnalogMonitor::AnalogMonitor(uint8_t adcCapacity, volatile uint16_t *const rawValue, float valueMin, float valueMax): AnalogMonitor(adcCapacity, rawValue){
 	valueLimits[0] = valueMin;
-	valueLimits[1] = valueMax;
+	setValueMax(valueMax);
 }
 AnalogMonitor::~AnalogMonitor(){
 	for(int i = 0; i < 4; i++){
 		delete tresDelays[i];
-	}
-}
-template<typename T>
-T AnalogMonitor::getRange(const T *const limits){
-	return limits[1] - limits[0];
-}
-template<typename T>
-void AnalogMonitor::copyArrays(const T *const src, T *const dst, uint8_t len){
-	for(int i = 0; i < len; i++){
-		dst[i] = src[i];
 	}
 }
 void AnalogMonitor::update(){
@@ -42,13 +32,16 @@ void AnalogMonitor::update(){
 float AnalogMonitor::getValue(){
 	return value;
 }
-void AnalogMonitor::setValueLimits(const float *const limits){
-	copyArrays(limits, valueLimits, 2);
+void AnalogMonitor::setValueMin(float limit){
+	valueLimits[0] = min(limit, valueLimits[1]);
 }
-void AnalogMonitor::setTresholds(const float *const tresholds){
-	copyArrays(tresholds, this->tresholds, 4);
+void AnalogMonitor::setValueMax(float limit){
+	valueLimits[1] = max(limit, valueLimits[0]);
 }
-void AnalogMonitor::setTresDelays(TRES_TYPE tresType, uint16_t del){
+void AnalogMonitor::setTreshold(TRES_TYPE tresType, uint16_t value){
+	tresholds[tresType] = value;
+}
+void AnalogMonitor::setTresDelay(TRES_TYPE tresType, uint16_t del){
 	tresDelays[tresType]->setPeriod(del);
 }
 bool AnalogMonitor::isHighAlarm(){

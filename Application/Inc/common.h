@@ -46,4 +46,15 @@ T limit(T value, T min, T max){
 	return value;
 }
 
+template<typename T>
+T getRange(const T *const limits){
+	return limits[1] - limits[0];
+}
+
+template<typename T>
+void copyArrays(const T *const src, T *const dst, uint8_t len){
+	for(int i = 0; i < len; i++){
+		dst[i] = src[i];
+	}
+}
 #endif //COMMON_H

@@ -10,8 +10,8 @@ DIDelay buttonDelay(&button, 10);
 CommonDelay delay(10);
 
 volatile uint16_t adcValues[2] = {0, 0};
-AnalogMonitor adcMonitor(12, adcValues);
-AnalogOut analogOut(&TIM3->CCR3, 1000, 15000, true);
+AnalogMonitor adcMonitor(12, adcValues, -100, 100);
+AnalogOut analogOut(&TIM3->CCR3, 1000, 15000, true, -100, 100, -100, 100);
 
 
 IUpdated *updateObjects[] = {
@@ -27,7 +27,7 @@ uint8_t allTimersSize = sizeof(updateObjects) / sizeof(*updateObjects);
 
 int main(void)
 {
-	adcMonitor.setTresDelays(LL, 5000);
+	adcMonitor.setTresDelay(LL, 5000);
 	rccInit();
 	tickInit();
 	commonInit();
