@@ -14,6 +14,7 @@
 #include "analog_monitor.h"
 #include "analog_out.h"
 #include "pid.h"
+#include "scale.h"
 
 extern "C"{
 	void vApplicationIdleHook ( void ){

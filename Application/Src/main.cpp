@@ -14,6 +14,10 @@ AnalogMonitor adcMonitor(12, adcValues, 40, 60);
 AnalogOut analogOut(&TIM3->CCR3, 1000, 15000, true, 40, 60, 40, 60);
 float pidPv = 0.0;
 PIDreg pid(&pidPv, 20);
+float tmp1 = 0.0f;
+int32_t tmp2 = 0;
+Scale scale(0.0f, 100.0f, 0, 200, &tmp1, &tmp2);
+Scale scale2(0, 200, 0, 1000);
 
 
 IUpdated *updateObjects[] = {
@@ -21,7 +25,8 @@ IUpdated *updateObjects[] = {
 	&buttonDelay,
 	&delay,
 	&adcMonitor,
-	&analogOut
+	&analogOut,
+	&scale
 };
 
 uint8_t allTimersSize = sizeof(updateObjects) / sizeof(*updateObjects);

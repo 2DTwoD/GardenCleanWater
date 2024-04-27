@@ -10,4 +10,5 @@ class IUpdated {
 	public:
 		virtual void update() = 0;
 };
+
 #endif //INTERFACES_H

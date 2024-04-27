@@ -507,6 +507,16 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>Misc</GroupName>
+          <Files>
+            <File>
+              <FileName>scale.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Application\Src\scale.cpp</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>::CMSIS</GroupName>
         </Group>
         <Group>
