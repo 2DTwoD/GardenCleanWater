@@ -20,6 +20,7 @@
 ".\objects\tasks.o"
 ".\objects\timers.o"
 ".\objects\led_task.o"
+".\objects\pidtask.o"
 ".\objects\startup_stm32f10x_md.o"
 ".\objects\system_stm32f10x.o"
 --strict --scatter ".\Objects\GardenCleanWater.sct"

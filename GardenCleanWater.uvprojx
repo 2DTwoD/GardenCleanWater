@@ -499,6 +499,11 @@
               <FileType>8</FileType>
               <FilePath>.\Tasks\Src\led_task.cpp</FilePath>
             </File>
+            <File>
+              <FileName>pidTask.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Application\Src\pidTask.cpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

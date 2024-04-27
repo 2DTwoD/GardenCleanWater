@@ -10,8 +10,10 @@ DIDelay buttonDelay(&button, 10);
 CommonDelay delay(10);
 
 volatile uint16_t adcValues[2] = {0, 0};
-AnalogMonitor adcMonitor(12, adcValues, -100, 100);
-AnalogOut analogOut(&TIM3->CCR3, 1000, 15000, true, -100, 100, -100, 100);
+AnalogMonitor adcMonitor(12, adcValues, 40, 60);
+AnalogOut analogOut(&TIM3->CCR3, 1000, 15000, true, 40, 60, 40, 60);
+float pidPv = 0.0;
+PIDreg pid(&pidPv, 20);
 
 
 IUpdated *updateObjects[] = {
@@ -35,6 +37,7 @@ int main(void)
 	pwmInit();
 	ledSwitch = true;
 	xTaskCreate(ledTask, "ledTask", configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY + 1, NULL);
+	xTaskCreate(pidTask, "pidTask", configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY + 1, NULL);
 	vTaskStartScheduler();
 	while(1);
 }

@@ -165,6 +165,11 @@
           <WinNumber>1</WinNumber>
           <ItemText>adcMonitor</ItemText>
         </Ww>
+        <Ww>
+          <count>3</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>pid</ItemText>
+        </Ww>
       </WatchWindow1>
       <Tracepoint>
         <THDelay>0</THDelay>
@@ -507,6 +512,18 @@
       <bDave2>0</bDave2>
       <PathWithFileName>.\Tasks\Src\led_task.cpp</PathWithFileName>
       <FilenameWithoutPath>led_task.cpp</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>3</GroupNumber>
+      <FileNumber>22</FileNumber>
+      <FileType>8</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>.\Application\Src\pidTask.cpp</PathWithFileName>
+      <FilenameWithoutPath>pidTask.cpp</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>

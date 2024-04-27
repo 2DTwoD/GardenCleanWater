@@ -13,6 +13,7 @@
 #include "simple_input.h"
 #include "analog_monitor.h"
 #include "analog_out.h"
+#include "pid.h"
 
 extern "C"{
 	void vApplicationIdleHook ( void ){

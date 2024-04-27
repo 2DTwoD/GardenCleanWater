@@ -9,7 +9,9 @@
 #include "simple_input.h"
 #include "analog_monitor.h"
 #include "analog_out.h"
+#include "pid.h"
 
 void ledTask(void *pvParameters);
+void pidTask(void *pvParameters);
 
 #endif //ALL_TASKS_H

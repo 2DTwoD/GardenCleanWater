@@ -37,14 +37,14 @@ float Ramp::getReverseOut(){
 	return reverseOut;
 }
 void Ramp::setSP(float value){
-	this->sp = limit(value, outRange[0], outRange[1]);
+	sp = limit(value, outRange[0], outRange[1]);
 }
 uint32_t Ramp::getFullRangeTime(){
 	return fullRangeTime;
 }
 void Ramp::setFullRangeTime(uint32_t value){
 	if(value > 0){
-		step = (getOutRange() - outRange[0]) / value;
+		step = getOutRange() / value;
 	} else {
 		step = 0;
 	}
