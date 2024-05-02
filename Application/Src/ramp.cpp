@@ -15,6 +15,9 @@ Ramp::Ramp(uint32_t fullRangeTime): Ramp(fullRangeTime, 0.0f, 100.0f, 0.0f, 100.
 float Ramp::getOutMin(){
 	return outRange[0];
 }
+float Ramp::getOutRange(){
+	return getRange(outRange);
+}
 void Ramp::update(){
 	if(!step){
 		out = sp;
@@ -27,16 +30,16 @@ void Ramp::update(){
 			if (out < sp) out = sp;
 		}
 	}
-	reverseOut = limit(getOutRange() + 2 * outRange[0] - out, outLimits[0], outLimits[1]);
+	//reverseOut = limit(getOutRange() + 2 * outRange[0] - out, outLimits[0], outLimits[1]);
 	out = limit(out, outLimits[0], outLimits[1]);
 }
-float Ramp::getOut(){
+float Ramp::get(){
 	return out;
 }
-float Ramp::getReverseOut(){
+/*float Ramp::getReverseOut(){
 	return reverseOut;
-}
-void Ramp::setSP(float value){
+}*/
+void Ramp::set(float value){
 	sp = limit(value, outRange[0], outRange[1]);
 }
 uint32_t Ramp::getFullRangeTime(){
@@ -62,10 +65,7 @@ void Ramp::setLimMin(float value){
 void Ramp::setLimMax(float value){
 	outLimits[1] = max(value, outLimits[0]);
 }
-float Ramp::getOutRange(){
-	return outRange[1] - outRange[0];
-}
 Ramp& Ramp::operator=(float value){
-	setSP(value);
+	set(value);
 	return *this;
 }

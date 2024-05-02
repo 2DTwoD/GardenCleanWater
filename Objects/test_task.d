@@ -1,4 +1,4 @@
-./objects/pidtask.o: Application\Src\pidTask.cpp Tasks\Inc\all_tasks.h \
+./objects/test_task.o: Tasks\Src\test_task.cpp Tasks\Inc\all_tasks.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\stdint.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\__config \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdint.h \

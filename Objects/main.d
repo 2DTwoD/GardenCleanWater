@@ -22,5 +22,6 @@
   Application\Inc\interfaces.h Tasks\Inc\all_tasks.h \
   Application\Inc\coil.h Application\Inc\gpio_common.h \
   Application\Inc\simple_input.h Application\Inc\analog_monitor.h \
+  Application\Inc\monitor.h Application\Inc\scale.h \
   Application\Inc\analog_out.h Application\Inc\ramp.h \
-  Application\Inc\pid.h Application\Inc\scale.h
+  Application\Inc\pid.h

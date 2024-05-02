@@ -1,5 +1,6 @@
 #ifndef ALL_TASKS_H
 #define ALL_TASKS_H
+#include "stdint.h"
 
 #include "FreeRTOS.h"
 #include "task.h"
@@ -10,8 +11,10 @@
 #include "analog_monitor.h"
 #include "analog_out.h"
 #include "pid.h"
+#include "scale.h"
 
 void ledTask(void *pvParameters);
 void pidTask(void *pvParameters);
+void testTask(void *pvParameters);
 
 #endif //ALL_TASKS_H

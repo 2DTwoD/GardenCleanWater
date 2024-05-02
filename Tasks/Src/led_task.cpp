@@ -6,6 +6,8 @@ extern DIDelay buttonDelay;
 extern ProgrammCoil ledSwitch;
 extern AnalogMonitor adcMonitor;
 extern AnalogOut analogOut;
+extern Scale<float, uint16_t> scale;
+extern volatile uint16_t adcValues[];
 
 void ledTask(void *pvParameters){
 	while(1){
@@ -21,7 +23,7 @@ void ledTask(void *pvParameters){
 		if(adcMonitor.isLowAlarm()){
 			__NOP();
 		}
-		analogOut = adcMonitor.getValue();
+		analogOut = adcMonitor.get();
 		taskENTER_CRITICAL();
 		if(ledDelay.finishedImpulse()){
 			led = !led.isActive();
@@ -31,6 +33,8 @@ void ledTask(void *pvParameters){
 		if(buttonDelay.finishedImpulse()){
 			led.toggle();
 		}
+		adcMonitor.set(adcValues[0]);
+		scale.set(adcMonitor.get());
 		vTaskDelay(1);
 	}
 }

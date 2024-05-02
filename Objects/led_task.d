@@ -1,11 +1,11 @@
 ./objects/led_task.o: Tasks\Src\led_task.cpp Tasks\Inc\all_tasks.h \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\stdint.h \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\__config \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdint.h \
   FreeRTOS\Inc\FreeRTOS.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\stddef.h \
-  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\__config \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stddef.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\__nullptr \
-  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\stdint.h \
-  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdint.h \
   FreeRTOS\Inc\FreeRTOSConfig.h FreeRTOS\Inc\projdefs.h \
   FreeRTOS\Inc\portable.h FreeRTOS\Inc\deprecated_definitions.h \
   FreeRTOS\ARM_CM3\portmacro.h FreeRTOS\Inc\mpu_wrappers.h \
@@ -21,5 +21,6 @@
   Application\Inc\interfaces.h Application\Inc\gpio_common.h \
   Application\Inc\custom_timer.h Application\Inc\simple_input.h \
   Application\Inc\common.h Application\Inc\analog_monitor.h \
+  Application\Inc\monitor.h Application\Inc\scale.h \
   Application\Inc\analog_out.h Application\Inc\ramp.h \
   Application\Inc\pid.h

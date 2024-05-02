@@ -10,7 +10,7 @@ void pidTask(void *pvParameters){
 	pid.setTd(1.0f);
 	pid.setAuto(true);
 	while(1){
-		pidPv = analogOut.getOut();
+		pidPv = analogOut.get();
 		pid.update();
 		vTaskDelay(pid.getT());
 	}

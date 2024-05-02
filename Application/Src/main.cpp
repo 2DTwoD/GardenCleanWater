@@ -10,14 +10,12 @@ DIDelay buttonDelay(&button, 10);
 CommonDelay delay(10);
 
 volatile uint16_t adcValues[2] = {0, 0};
-AnalogMonitor adcMonitor(12, adcValues, 40, 60);
-AnalogOut analogOut(&TIM3->CCR3, 1000, 15000, true, 40, 60, 40, 60);
+AnalogMonitor adcMonitor(12, 0, 100);
+AnalogOut analogOut(1000, 15000, true, 0, 100, 0, 100);
 float pidPv = 0.0;
 PIDreg pid(&pidPv, 20);
-float tmp1 = 0.0f;
-int32_t tmp2 = 0;
-Scale scale(0.0f, 100.0f, 0, 200, &tmp1, &tmp2);
-Scale scale2(0, 200, 0, 1000);
+Scale<float, int16_t> scale(0.0f, 100.0f, (int16_t)0, (int16_t)100);
+Ramp ramp(15000);
 
 
 IUpdated *updateObjects[] = {
@@ -26,7 +24,7 @@ IUpdated *updateObjects[] = {
 	&delay,
 	&adcMonitor,
 	&analogOut,
-	&scale
+	&ramp
 };
 
 uint8_t allTimersSize = sizeof(updateObjects) / sizeof(*updateObjects);
@@ -43,6 +41,7 @@ int main(void)
 	ledSwitch = true;
 	xTaskCreate(ledTask, "ledTask", configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY + 1, NULL);
 	xTaskCreate(pidTask, "pidTask", configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY + 1, NULL);
+	xTaskCreate(testTask, "testTask", configMINIMAL_STACK_SIZE, NULL, tskIDLE_PRIORITY + 1, NULL);
 	vTaskStartScheduler();
 	while(1);
 }

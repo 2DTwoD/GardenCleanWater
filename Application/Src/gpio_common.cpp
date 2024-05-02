@@ -4,7 +4,6 @@ GPIOcommon::GPIOcommon(GPIO_TypeDef * gpio, uint8_t pin): gpio(gpio), pin(pin){
 	if(pin > 15){
 		pin = 0;
 	}
-	
 	if(gpio == GPIOA){
 		RCC->APB2ENR |= RCC_APB2ENR_IOPAEN;
 	} else if(gpio == GPIOB){

@@ -6,34 +6,27 @@
 #include "common.h"
 
 template<typename T, typename R>
-class Scale: public IUpdated{
+class Scale{
 	private:
 		T in;
-		T *inRef;
 		T minIn;
 		T maxIn;
 		R out;
-		R *outRef;
 		R minOut;
 		R maxOut;
 	public:
-		Scale(T minIn, T maxIn, R minOut, R maxOut, T *inRef = nullptr, R *outRef = nullptr): minIn(minIn), maxIn(maxIn), minOut(minOut), maxOut(maxOut), inRef(inRef), outRef(outRef){
+		Scale(T minIn, T maxIn, R minOut, R maxOut): minIn(minIn), maxIn(maxIn), minOut(minOut), maxOut(maxOut){
 		}
-		void update() override {
-			if(inRef) in = *inRef;
-			in = limit(in, minIn, maxIn);
+		void set(T value){
+			in = limit(value, minIn, maxIn);
 			out = (maxOut - minOut) * (in - minIn) / (maxIn - minIn) + minOut;
-			if(outRef) *outRef = out;
 		}
-		void setIn(T value){
-			in = value;
-		}
-		void setInUpdate(T value){
-			setIn(value);
-			update();
-		}
-		R getOut(){
+		R get(){
 			return out;
+		}
+		Scale<T, R>& operator=(T value){
+			set(value);
+			return *this;
 		}
 };
 

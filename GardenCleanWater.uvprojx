@@ -439,6 +439,11 @@
               <FileType>8</FileType>
               <FilePath>.\Application\Src\pid.cpp</FilePath>
             </File>
+            <File>
+              <FileName>monitor.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Application\Src\monitor.cpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -504,17 +509,15 @@
               <FileType>8</FileType>
               <FilePath>.\Application\Src\pidTask.cpp</FilePath>
             </File>
+            <File>
+              <FileName>test_task.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Tasks\Src\test_task.cpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
           <GroupName>Misc</GroupName>
-          <Files>
-            <File>
-              <FileName>scale.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\Application\Src\scale.cpp</FilePath>
-            </File>
-          </Files>
         </Group>
         <Group>
           <GroupName>::CMSIS</GroupName>

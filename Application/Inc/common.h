@@ -37,11 +37,17 @@ T min(T val1, T val2){
 }
 
 template<typename T>
-T limit(T value, T min, T max){
-	if(value < min){
-		value = min;
-	} else if(value > max){
-		value = max;
+T limit(T value, T valMin, T valMax){
+	if(valMin > valMax){
+		T toggle;
+		toggle = valMin;
+		valMin = valMax;
+		valMax = toggle;
+	}
+	if(value < valMin){
+		value = valMin;
+	} else if(value > valMax){
+		value = valMax;
 	}
 	return value;
 }
