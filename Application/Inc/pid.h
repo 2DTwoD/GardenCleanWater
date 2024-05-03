@@ -1,12 +1,12 @@
-#ifndef PID_H
-#define PID_H
+#ifndef _PID_H
+#define _PID_H
 
 #include "stdint.h"
 
 #include "interfaces.h"
 #include "common.h"
 
-class PIDreg: public IUpdated{
+class PIDreg: public IUpdatedInCycle{
 	private:
 		float *pv;
 		float t = 1.0f;
@@ -52,9 +52,11 @@ class PIDreg: public IUpdated{
 		bool isAUTO();
 		void setInverse(bool);
 		bool isInverse();
-		void update() override;
+		void updateInCycle() override;
 		void reset();
 		void updateKoef();
+		float *const getSpRef();
+		float *const getOutRef();
 };
 
-#endif //PID_H
+#endif //_PID_H

@@ -6,7 +6,7 @@
 #include "common.h"
 
 template<typename T, typename R>
-class Scale{
+	class Scale{
 	private:
 		T in;
 		T minIn;
@@ -19,14 +19,23 @@ class Scale{
 		}
 		void set(T value){
 			in = limit(value, minIn, maxIn);
-			out = (maxOut - minOut) * (in - minIn) / (maxIn - minIn) + minOut;
+			update();
 		}
 		R get(){
 			return out;
 		}
+		void update(){
+			out = (maxOut - minOut) * (in - minIn) / (maxIn - minIn) + minOut;
+		}
 		Scale<T, R>& operator=(T value){
 			set(value);
 			return *this;
+		}
+		T *const getInRef(){
+			return &in;
+		}
+		R *const getOutRef(){
+			return &out;
 		}
 };
 

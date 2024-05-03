@@ -79,7 +79,7 @@ void PIDreg::setInverse(bool value){
 bool PIDreg::isInverse(){
 	return inverse;
 }
-void PIDreg::update(){
+void PIDreg::updateInCycle(){
 	if(!AUTO) return;
 	float deviation = inverse? (*pv - sp): (sp - *pv);
 	if(abs(deviation) < db) return;
@@ -104,4 +104,10 @@ void PIDreg::updateKoef(){
 	}
 	g1 = kp * (-1.0f - 2.0f * td / t);
 	g2 = kp * td / t;
+}
+float *const PIDreg::getSpRef(){
+	return &sp;
+}
+float *const PIDreg::getOutRef(){
+	return &out;
 }

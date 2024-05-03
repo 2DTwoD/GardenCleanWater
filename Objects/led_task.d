@@ -23,4 +23,7 @@
   Application\Inc\common.h Application\Inc\analog_monitor.h \
   Application\Inc\monitor.h Application\Inc\scale.h \
   Application\Inc\analog_out.h Application\Inc\ramp.h \
-  Application\Inc\pid.h
+  Application\Inc\pid.h Application\Inc\moving_avg.h \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\cstring \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\string.h \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h

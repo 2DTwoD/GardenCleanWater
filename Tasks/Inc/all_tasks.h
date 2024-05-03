@@ -12,6 +12,7 @@
 #include "analog_out.h"
 #include "pid.h"
 #include "scale.h"
+#include "moving_avg.h"
 
 void ledTask(void *pvParameters);
 void pidTask(void *pvParameters);

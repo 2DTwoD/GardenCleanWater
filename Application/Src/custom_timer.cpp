@@ -4,7 +4,7 @@
 CommonDelay::CommonDelay(uint16_t period){
 	this->period = period;
 }
-void CommonDelay::update(){
+void CommonDelay::updateInCycle(){
 	if(started()){
 		fin = curTime >= period;
 		if(fin) return;

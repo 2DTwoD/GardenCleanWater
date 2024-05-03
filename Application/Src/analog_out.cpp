@@ -1,30 +1,29 @@
 #include "analog_out.h"
 
-AnalogOut::AnalogOut(uint16_t rawRange, uint32_t fullRangeTime, bool reverse, float outMin, float outMax, float limitMin, float limitMax)
-	: Ramp(fullRangeTime, outMin, outMax, limitMin, limitMax), reverse(reverse){
-		scale = new Scale(outMin, outMax, (uint16_t)0, rawRange);
+AnalogOut::AnalogOut(uint16_t rawRange, uint32_t fullRangeTime, float outMin, float outMax, float limitMin, float limitMax):
+	Ramp(fullRangeTime, outMin, outMax, outMin, outMax){
+	scale = new Scale(outMin, outMax, (uint16_t)0, rawRange);
 }
-void AnalogOut::update(){
-	Ramp::update();
-	if(reverse){
-		//rawValue = (uint16_t)((getReverseOut() - getOutMin()) * rawRange / getOutRange());
-	} else {
-		rawValue = (uint16_t)((get() - getOutMin()) * rawRange / getOutRange());
-	}
+void AnalogOut::updateInCycle(){
+	Ramp::updateInCycle();
+	scale->set(Ramp::get());
 }
 AnalogOut::~AnalogOut(){
 	delete scale;
 }
-void AnalogOut::set(uint16_t value){
+void AnalogOut::set(float value){
 	Ramp::set(value);
 }
-bool AnalogOut::isReverse(){
-	return reverse;
-}
-void AnalogOut::setReverse(bool value){
-	reverse = value;
+uint16_t AnalogOut::get(){
+	return Ramp::get();
 }
 AnalogOut& AnalogOut::operator=(float value){
-	set(value);
+	Ramp::set(value);
 	return *this;
+}
+float *const AnalogOut::getInRef(){
+	return getSpRef();
+}
+uint16_t *const AnalogOut::getOutRef(){
+	return scale->getOutRef();
 }

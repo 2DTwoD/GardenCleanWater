@@ -1,8 +1,14 @@
 #include "ramp.h"
 
 Ramp::Ramp(uint32_t fullRangeTime, float outMin, float outMax, float limitMin, float limitMax){
+	if(outMin > outMax){
+		toggle(&outMin, &outMax);
+	}
+	if(limitMin > limitMax){
+		toggle(&limitMin, &limitMax);
+	}
 	outRange[0] = outMin;
-	setOutMax(outMax);
+	outRange[1] = outMax;
 	outLimits[0] = limitMin;
 	setLimMax(limitMax);
 	setFullRangeTime(fullRangeTime);
@@ -18,7 +24,7 @@ float Ramp::getOutMin(){
 float Ramp::getOutRange(){
 	return getRange(outRange);
 }
-void Ramp::update(){
+void Ramp::updateInCycle(){
 	if(!step){
 		out = sp;
 	} else {
@@ -30,15 +36,11 @@ void Ramp::update(){
 			if (out < sp) out = sp;
 		}
 	}
-	//reverseOut = limit(getOutRange() + 2 * outRange[0] - out, outLimits[0], outLimits[1]);
 	out = limit(out, outLimits[0], outLimits[1]);
 }
 float Ramp::get(){
 	return out;
 }
-/*float Ramp::getReverseOut(){
-	return reverseOut;
-}*/
 void Ramp::set(float value){
 	sp = limit(value, outRange[0], outRange[1]);
 }
@@ -53,12 +55,6 @@ void Ramp::setFullRangeTime(uint32_t value){
 	}
 	this->fullRangeTime = value;
 }
-void Ramp::setOutMin(float value){
-	outRange[0] = min(value, outRange[1]);
-}
-void Ramp::setOutMax(float value){
-	outRange[1] = max(value, outRange[0]);
-}
 void Ramp::setLimMin(float value){
 	outLimits[0] = min(value, outLimits[1]);
 }
@@ -68,4 +64,10 @@ void Ramp::setLimMax(float value){
 Ramp& Ramp::operator=(float value){
 	set(value);
 	return *this;
+}
+float *const Ramp::getSpRef(){
+	return &sp;
+}
+float *const Ramp::getOutRef(){
+	return &out;
 }

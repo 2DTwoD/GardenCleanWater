@@ -11,18 +11,16 @@
 class AnalogOut: public Ramp{
 	private:
 		Scale<float, uint16_t> *scale = nullptr;
-		uint16_t rawValue;
-		uint16_t rawRange;
-		bool reverse;
 	public:
-		AnalogOut(uint16_t rawRange, uint32_t fullRangeTime = 0, bool reverse = false,
+		AnalogOut(uint16_t rawRange, uint32_t fullRangeTime = 0,
 							float outMin = 0.0f, float outMax = 100.0f, float limitMin = 0.0f, float limitMax = 100.0f);
 		~AnalogOut();
-		void set(uint16_t value);
-		void update() override;
-		bool isReverse();
-		void setReverse(bool value);
+		void set(float value);
+		uint16_t get();
+		void updateInCycle() override;
 		AnalogOut& operator=(float value);
+		float *const getInRef();
+		uint16_t *const getOutRef();
 };
 
 #endif //ANALOG_OUT_H

@@ -3,7 +3,7 @@
 #include "stdint.h"
 #include "interfaces.h"
 
-class CommonDelay: public IUpdated {
+class CommonDelay: public IUpdatedInCycle {
 	protected:
 		uint16_t period;
 		uint16_t curTime;
@@ -12,7 +12,7 @@ class CommonDelay: public IUpdated {
 		bool impulse;
 	public:
 		CommonDelay(uint16_t period);
-		void update() override;
+		void updateInCycle() override;
 		uint16_t getPeriod();
 		void setPeriod(uint16_t value);
 		uint16_t getCurrentTime();

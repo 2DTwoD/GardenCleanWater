@@ -1,14 +1,18 @@
-#ifndef INTERFACES_H
-#define INTERFACES_H
+#ifndef _INTERFACES_H
+#define _INTERFACES_H
 
 class ISwitch {
 	public:
 		virtual bool isActive() = 0;
 };
 
-class IUpdated {
+class IUpdatedInCycle {
 	public:
-		virtual void update() = 0;
+		virtual void updateInCycle() = 0;
 };
 
-#endif //INTERFACES_H
+class IUpdatedSomewhere {
+	public:
+		virtual void updateSomewhere() = 0;
+};
+#endif //_INTERFACES_H

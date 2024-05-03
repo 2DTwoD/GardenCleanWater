@@ -13,10 +13,10 @@ enum TRES_TYPE {
 	HH	
 };
 
-class Monitor: public IUpdated{
+class Monitor: public IUpdatedInCycle{
 	private:
-		float value;
-		float valueLimits[2]{0.0f, 100.0f};
+		float in;
+		float inLimits[2]{0.0f, 100.0f};
 		float tresholds[4]{5.0f, 10.0f, 90.0f, 95.0f};
 		CommonDelay* tresDelays[4];
 		void setValueMax(float limit);
@@ -24,7 +24,7 @@ class Monitor: public IUpdated{
 	public:
 		Monitor(float valueMin, float valueMax);
 		~Monitor();
-		void update() override;
+		void updateInCycle() override;
 		void set(float value);
 		float get();
 		void setTreshold(TRES_TYPE tresType, uint16_t value);
@@ -34,6 +34,7 @@ class Monitor: public IUpdated{
 		bool isLowWarn();
 		bool isLowAlarm();
 		Monitor& operator=(float value);
+		float *const getInRef();
 };
 
 #endif //_MONITOR_H

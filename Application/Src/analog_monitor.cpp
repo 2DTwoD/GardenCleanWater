@@ -7,10 +7,20 @@ AnalogMonitor::AnalogMonitor(uint8_t adcCapacity, float valueMin, float valueMax
 	}
 	analogScale = new Scale((uint16_t)0, adcMax, valueMin, valueMax);
 }
+
 AnalogMonitor::~AnalogMonitor(){
 	delete analogScale;
 }
+
 void AnalogMonitor::set(uint16_t value) {
 	*analogScale = value;
 	Monitor::set(analogScale->get());
-};
+}
+
+uint16_t *const AnalogMonitor::getInRef(){
+	return analogScale->getInRef();
+}
+
+float *const AnalogMonitor::getOutRef(){
+	return analogScale->getOutRef();
+}

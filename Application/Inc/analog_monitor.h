@@ -15,6 +15,8 @@ class AnalogMonitor: public Monitor{
 		AnalogMonitor(uint8_t adcCapacity, float valueMin = 0.0f, float valueMax = 0.0f);
 		~AnalogMonitor();
 		void set(uint16_t value);
+		uint16_t *const getInRef();
+		float *const getOutRef();
 };
 
 #endif //_ANALOG_MONITOR_H

@@ -37,12 +37,17 @@ T min(T val1, T val2){
 }
 
 template<typename T>
+void toggle(T *const val1, T *const val2){
+	T toggle;
+	toggle = *val1;
+	*val1 = *val2;
+	*val2 = toggle;
+}
+
+template<typename T>
 T limit(T value, T valMin, T valMax){
 	if(valMin > valMax){
-		T toggle;
-		toggle = valMin;
-		valMin = valMax;
-		valMax = toggle;
+		toggle(&valMin, &valMax);
 	}
 	if(value < valMin){
 		value = valMin;

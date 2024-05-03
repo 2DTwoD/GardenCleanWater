@@ -6,17 +6,14 @@
 #include "interfaces.h"
 #include "common.h"
 
-class Ramp: public IUpdated{
+class Ramp: public IUpdatedInCycle{
 	private:
 		float out;
-		float reverseOut;
 		float sp;
 		float step;
 		uint32_t fullRangeTime;
 		float outRange[2];
 		float outLimits[2];
-		void setOutMin(float value);
-		void setOutMax(float value);
 	protected:
 		float getOutMin();
 		float getOutRange();
@@ -24,7 +21,7 @@ class Ramp: public IUpdated{
 		Ramp(uint32_t fullRangeTime = 0);
 		Ramp(uint32_t fullRangeTime, float outMin, float outMax);
 		Ramp(uint32_t fullRangeTime, float outMin, float outMax, float limitMin, float limitMax);
-		void update() override;
+		void updateInCycle() override;
 		float get();
 		void set(float value);
 		uint32_t getFullRangeTime();
@@ -32,6 +29,8 @@ class Ramp: public IUpdated{
 		void setLimMin(float value);
 		void setLimMax(float value);
 		Ramp& operator=(float value);
+		float *const getSpRef();
+		float *const getOutRef();
 };
 
 #endif //RAMP_H
