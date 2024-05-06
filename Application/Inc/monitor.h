@@ -13,7 +13,7 @@ enum TRES_TYPE {
 	HH	
 };
 
-class Monitor: public IUpdatedInCycle{
+class Monitor: public IUpdated1ms{
 	private:
 		float in;
 		float inLimits[2]{0.0f, 100.0f};
@@ -24,7 +24,7 @@ class Monitor: public IUpdatedInCycle{
 	public:
 		Monitor(float valueMin, float valueMax);
 		~Monitor();
-		void updateInCycle() override;
+		void update1ms() override;
 		void set(float value);
 		float get();
 		void setTreshold(TRES_TYPE tresType, uint16_t value);

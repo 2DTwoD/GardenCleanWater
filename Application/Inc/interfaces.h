@@ -6,9 +6,9 @@ class ISwitch {
 		virtual bool isActive() = 0;
 };
 
-class IUpdatedInCycle {
+class IUpdated1ms {
 	public:
-		virtual void updateInCycle() = 0;
+		virtual void update1ms() = 0;
 };
 
 class IUpdatedSomewhere {

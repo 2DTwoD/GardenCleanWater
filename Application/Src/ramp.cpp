@@ -24,7 +24,7 @@ float Ramp::getOutMin(){
 float Ramp::getOutRange(){
 	return getRange(outRange);
 }
-void Ramp::updateInCycle(){
+void Ramp::update1ms(){
 	if(!step){
 		out = sp;
 	} else {

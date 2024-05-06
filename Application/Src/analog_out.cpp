@@ -4,8 +4,8 @@ AnalogOut::AnalogOut(uint16_t rawRange, uint32_t fullRangeTime, float outMin, fl
 	Ramp(fullRangeTime, outMin, outMax, outMin, outMax){
 	scale = new Scale(outMin, outMax, (uint16_t)0, rawRange);
 }
-void AnalogOut::updateInCycle(){
-	Ramp::updateInCycle();
+void AnalogOut::update1ms(){
+	Ramp::update1ms();
 	scale->set(Ramp::get());
 }
 AnalogOut::~AnalogOut(){

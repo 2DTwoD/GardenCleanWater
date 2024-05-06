@@ -11,7 +11,7 @@ void pidTask(void *pvParameters){
 	pid.setAuto(true);
 	while(1){
 		pidPv = analogOut.get();
-		pid.updateInCycle();
+		pid.updateSomewhere();
 		vTaskDelay(pid.getT());
 	}
 }

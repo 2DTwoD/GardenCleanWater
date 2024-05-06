@@ -26,4 +26,6 @@
   Application\Inc\pid.h Application\Inc\moving_avg.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\cstring \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\string.h \
-  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\stdlib.h \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdlib.h

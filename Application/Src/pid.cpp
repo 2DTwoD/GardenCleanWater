@@ -1,4 +1,5 @@
 #include "pid.h"
+
 PIDreg::PIDreg(float *const pv, uint16_t t, float kp, float ti, float td,	float db, float upOutLim, float downOutLim, bool inverse){
 	this->pv = pv;
 	this->t = (float)t;
@@ -79,7 +80,7 @@ void PIDreg::setInverse(bool value){
 bool PIDreg::isInverse(){
 	return inverse;
 }
-void PIDreg::updateInCycle(){
+void PIDreg::updateSomewhere(){
 	if(!AUTO) return;
 	float deviation = inverse? (*pv - sp): (sp - *pv);
 	if(abs(deviation) < db) return;

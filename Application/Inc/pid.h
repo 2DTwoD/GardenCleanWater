@@ -6,7 +6,7 @@
 #include "interfaces.h"
 #include "common.h"
 
-class PIDreg: public IUpdatedInCycle{
+class PIDreg: public IUpdatedSomewhere{
 	private:
 		float *pv;
 		float t = 1.0f;
@@ -52,7 +52,7 @@ class PIDreg: public IUpdatedInCycle{
 		bool isAUTO();
 		void setInverse(bool);
 		bool isInverse();
-		void updateInCycle() override;
+		void updateSomewhere() override;
 		void reset();
 		void updateKoef();
 		float *const getSpRef();

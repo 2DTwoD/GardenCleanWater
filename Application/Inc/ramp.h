@@ -6,7 +6,7 @@
 #include "interfaces.h"
 #include "common.h"
 
-class Ramp: public IUpdatedInCycle{
+class Ramp: public IUpdated1ms{
 	private:
 		float out;
 		float sp;
@@ -21,7 +21,7 @@ class Ramp: public IUpdatedInCycle{
 		Ramp(uint32_t fullRangeTime = 0);
 		Ramp(uint32_t fullRangeTime, float outMin, float outMax);
 		Ramp(uint32_t fullRangeTime, float outMin, float outMax, float limitMin, float limitMax);
-		void updateInCycle() override;
+		void update1ms() override;
 		float get();
 		void set(float value);
 		uint32_t getFullRangeTime();

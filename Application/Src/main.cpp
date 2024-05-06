@@ -16,10 +16,10 @@ float pidPv = 0.0;
 PIDreg pid(&pidPv, 20);
 Scale<float, int16_t> scale(0.0f, 100.0f, (int16_t)0, (int16_t)100);
 Ramp ramp(15000);
-MovAvg avg(50);
+MovAvg avg(100);
 
 
-IUpdatedInCycle *updateObjects[] = {
+IUpdated1ms *updateObjects[] = {
 	&ledDelay,
 	&buttonDelay,
 	&delay,
@@ -51,7 +51,7 @@ extern "C"{
 	void TIM2_IRQHandler(void){
 		TIM2->SR &= ~TIM_SR_UIF;
 		for(int i = 0; i < allTimersSize; i++){
-			updateObjects[i]->updateInCycle();
+			updateObjects[i]->update1ms();
 		}
 	}
 	

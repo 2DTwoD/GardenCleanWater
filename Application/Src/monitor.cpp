@@ -19,14 +19,14 @@ void Monitor::setValueMin(float limit){
 void Monitor::setValueMax(float limit){
 	inLimits[1] = max(limit, inLimits[0]);
 }
-void Monitor::updateInCycle(){
+void Monitor::update1ms(){
 	float range = getRange(inLimits);
 	*tresDelays[0] = in * 100 / range <= tresholds[LL];
 	*tresDelays[1] = in * 100 / range <= tresholds[HL];
 	*tresDelays[2] = in * 100 / range >= tresholds[LH];
 	*tresDelays[3] = in * 100 / range >= tresholds[HH];
 	for(int i = 0; i < 4; i++){
-		tresDelays[i]->updateInCycle();
+		tresDelays[i]->update1ms();
 	}
 }
 float Monitor::get(){

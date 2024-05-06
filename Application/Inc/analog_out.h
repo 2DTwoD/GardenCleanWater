@@ -17,7 +17,7 @@ class AnalogOut: public Ramp{
 		~AnalogOut();
 		void set(float value);
 		uint16_t get();
-		void updateInCycle() override;
+		void update1ms() override;
 		AnalogOut& operator=(float value);
 		float *const getInRef();
 		uint16_t *const getOutRef();
