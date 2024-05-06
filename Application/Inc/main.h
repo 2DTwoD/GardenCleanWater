@@ -16,6 +16,7 @@
 #include "pid.h"
 #include "scale.h"
 #include "moving_avg.h"
+#include "two_pos.h"
 
 extern "C"{
 	void vApplicationIdleHook ( void ){

@@ -3,7 +3,7 @@
 MovAvg::MovAvg(uint8_t size){
 	this->size = max((uint8_t) 1, size);
 	row = new float[size];
-	memset(row, 0.0f, size);
+	memset(row, 0, sizeof(float) * size);
 	pos = 0;
 }
 MovAvg::~MovAvg(){
@@ -27,6 +27,10 @@ void MovAvg::updateSomewhere(){
 	}
 	avg /= size;
 	out = avg;
+}
+MovAvg& MovAvg::operator=(float value){
+	set(value);
+	return *this;
 }
 float *const MovAvg::getInRef(){
 	return &in;

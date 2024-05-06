@@ -1,17 +1,14 @@
 #include "all_tasks.h"
-extern float pidPv;
 extern PIDreg pid;
-extern AnalogOut analogOut;
+extern AnalogMonitor adcMonitor;
 
 void pidTask(void *pvParameters){
-	pid.setSp(50.0f);
 	pid.setKp(0.1f);
 	pid.setTi(200.0f);
 	pid.setTd(1.0f);
 	pid.setAuto(true);
 	while(1){
-		pidPv = analogOut.get();
-		pid.updateSomewhere();
+		pid = adcMonitor.get();
 		vTaskDelay(pid.getT());
 	}
 }

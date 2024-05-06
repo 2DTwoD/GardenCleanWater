@@ -1,5 +1,6 @@
 #include "coil.h"
 
+//ProgrammCoil
 bool ProgrammCoil::isActive(){
 	return out;
 }
@@ -20,7 +21,7 @@ ProgrammCoil& ProgrammCoil::operator=(bool value){
 	return *this;
 }
 
-
+//Coil
 Coil::Coil(GPIO_TypeDef * gpio, uint8_t pin): GPIOcommon(gpio, pin) {
 	if(pin < 8){			
 		gpio->CRL |= (0x01 << (4 * pin));

@@ -1,5 +1,5 @@
-#ifndef _ANALOG_MONITOR_H
-#define _ANALOG_MONITOR_H
+#ifndef ANALOG_MONITOR_H
+#define ANALOG_MONITOR_H
 
 #include "stdint.h"
 #include "interfaces.h"
@@ -15,8 +15,9 @@ class AnalogMonitor: public Monitor{
 		AnalogMonitor(uint8_t adcCapacity, float valueMin = 0.0f, float valueMax = 0.0f);
 		~AnalogMonitor();
 		void set(uint16_t value);
+		AnalogMonitor& operator=(uint16_t value);
 		uint16_t *const getInRef();
 		float *const getOutRef();
 };
 
-#endif //_ANALOG_MONITOR_H
+#endif //ANALOG_MONITOR_H

@@ -1,7 +1,7 @@
 #include "pid.h"
 
-PIDreg::PIDreg(float *const pv, uint16_t t, float kp, float ti, float td,	float db, float upOutLim, float downOutLim, bool inverse){
-	this->pv = pv;
+PIDreg::PIDreg(uint16_t t, float sp, float kp, float ti, float td,	float db, float upOutLim, float downOutLim, bool inverse){
+	this->sp = sp;
 	this->t = (float)t;
 	this->kp = kp;
 	this->ti = ti;
@@ -15,6 +15,13 @@ PIDreg::PIDreg(float *const pv, uint16_t t, float kp, float ti, float td,	float 
 }
 uint16_t PIDreg::getT(){
 	return (uint16_t)t;
+}
+void PIDreg::setPv(float value){
+	pv = value;
+	updateSomewhere();
+}
+float PIDreg::getPv(){
+	return pv;
 }
 void PIDreg::setSp(float value){
 	sp = value;
@@ -82,7 +89,7 @@ bool PIDreg::isInverse(){
 }
 void PIDreg::updateSomewhere(){
 	if(!AUTO) return;
-	float deviation = inverse? (*pv - sp): (sp - *pv);
+	float deviation = inverse? (pv - sp): (sp - pv);
 	if(abs(deviation) < db) return;
 	e2 = e1;
 	e1 = e0;
@@ -106,8 +113,12 @@ void PIDreg::updateKoef(){
 	g1 = kp * (-1.0f - 2.0f * td / t);
 	g2 = kp * td / t;
 }
-float *const PIDreg::getSpRef(){
-	return &sp;
+PIDreg& PIDreg::operator=(float value){
+	setPv(value);
+	return *this;
+}
+float *const PIDreg::getPvRef(){
+	return &pv;
 }
 float *const PIDreg::getOutRef(){
 	return &out;

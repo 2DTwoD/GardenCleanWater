@@ -12,12 +12,11 @@ CommonDelay delay(10);
 volatile uint16_t adcValues[2] = {0, 0};
 AnalogMonitor adcMonitor(12, 0, 100);
 AnalogOut analogOut(1000, 15000, 100, 0, 0, 100);
-float pidPv = 0.0;
-PIDreg pid(&pidPv, 20);
+PIDreg pid(20, 50.0);
 Scale<float, int16_t> scale(0.0f, 100.0f, (int16_t)0, (int16_t)100);
 Ramp ramp(15000);
 MovAvg avg(100);
-
+TwoPosTim twoPos(50.0f, 5000, 1000);
 
 IUpdated1ms *updateObjects[] = {
 	&ledDelay,
@@ -25,7 +24,8 @@ IUpdated1ms *updateObjects[] = {
 	&delay,
 	&adcMonitor,
 	&analogOut,
-	&ramp
+	&ramp,
+	&twoPos
 };
 
 uint8_t allTimersSize = sizeof(updateObjects) / sizeof(*updateObjects);

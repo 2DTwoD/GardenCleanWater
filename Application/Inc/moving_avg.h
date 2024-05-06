@@ -1,5 +1,5 @@
-#ifndef _MOVING_AVG
-#define _MOVING_AVG
+#ifndef MOVING_AVG_H
+#define MOVING_AVG_H
 #include <cstring>
 #include "stdint.h"
 #include "stdlib.h"
@@ -10,7 +10,6 @@
 class MovAvg: public IUpdatedSomewhere{
 	private:
 		float *row = nullptr;
-		//float row[100];
 		uint8_t size;
 		uint8_t pos;
 		float in;
@@ -21,8 +20,9 @@ class MovAvg: public IUpdatedSomewhere{
 		void set(float value);
 		float get();
 		void updateSomewhere() override;
+		MovAvg& operator=(float value);
 		float *const getInRef();
 		float *const getOutRef();
 };
 
-#endif //_MOVING_AVG
+#endif //MOVING_AVG_H

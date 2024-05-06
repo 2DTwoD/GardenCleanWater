@@ -1,5 +1,5 @@
-#ifndef _PID_H
-#define _PID_H
+#ifndef PID_H
+#define PID_H
 
 #include "stdint.h"
 
@@ -8,7 +8,7 @@
 
 class PIDreg: public IUpdatedSomewhere{
 	private:
-		float *pv;
+		float pv;
 		float t = 1.0f;
 	
 		float sp = 0.0f;
@@ -29,9 +29,11 @@ class PIDreg: public IUpdatedSomewhere{
 		float g1;
 		float g2;
 	public:
-		PIDreg(float *const pv, uint16_t t, float kp = 1.0f, float ti = 10.0f, float td = 0.0f,	float db = 0.0f, 
+		PIDreg(uint16_t t, float sp = 0.0f, float kp = 1.0f, float ti = 10.0f, float td = 0.0f,	float db = 0.0f, 
 																			float upOutLim = 100.0f, float downOutLim = 0.0f, bool inverse = false);
 		uint16_t getT();
+		void setPv(float);
+		float getPv();
 		void setSp(float);
 		float getSp();
 		void setKp(float);
@@ -55,8 +57,9 @@ class PIDreg: public IUpdatedSomewhere{
 		void updateSomewhere() override;
 		void reset();
 		void updateKoef();
-		float *const getSpRef();
+		PIDreg& operator=(float value);
+		float *const getPvRef();
 		float *const getOutRef();
 };
 
-#endif //_PID_H
+#endif //PID_H

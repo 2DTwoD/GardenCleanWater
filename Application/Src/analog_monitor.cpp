@@ -17,6 +17,11 @@ void AnalogMonitor::set(uint16_t value) {
 	Monitor::set(analogScale->get());
 }
 
+AnalogMonitor& AnalogMonitor::operator=(uint16_t value){
+	set(value);
+	return *this;
+}
+
 uint16_t *const AnalogMonitor::getInRef(){
 	return analogScale->getInRef();
 }

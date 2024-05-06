@@ -1,5 +1,5 @@
-#ifndef _MONITOR_H
-#define _MONITOR_H
+#ifndef MONITOR_H
+#define MONITOR_H
 
 #include "stdint.h"
 #include "interfaces.h"
@@ -37,4 +37,4 @@ class Monitor: public IUpdated1ms{
 		float *const getInRef();
 };
 
-#endif //_MONITOR_H
+#endif //MONITOR_H

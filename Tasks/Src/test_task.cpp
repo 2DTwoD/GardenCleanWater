@@ -6,19 +6,22 @@ extern volatile uint16_t adcValues[];
 extern Ramp ramp;
 extern AnalogOut analogOut;
 extern MovAvg avg;
+extern TwoPosTim twoPos;
 
 void testTask(void *pvParameters){
 	int16_t tmp;
 	while(1){
-		adcMonitor.set(adcValues[0]);
+		adcMonitor = adcValues[0];
 		
-		scale.set(adcMonitor.get());
+		avg = adcMonitor.get();
 		
-		ramp.set(scale.get());
+		scale = avg.get();
 		
-		analogOut.set(adcMonitor.get());
+		ramp = scale.get();
 		
-		avg.set(adcMonitor.get());
+		analogOut = avg.get();
+		
+		twoPos = avg.get();
 		
 		vTaskDelay(1);
 	}

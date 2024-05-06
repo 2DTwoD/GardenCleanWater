@@ -534,6 +534,16 @@
               <FileType>8</FileType>
               <FilePath>.\Application\Src\ramp.cpp</FilePath>
             </File>
+            <File>
+              <FileName>two_pos.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Application\Src\two_pos.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>three_pos.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Application\Src\three_pos.cpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
