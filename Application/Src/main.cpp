@@ -15,8 +15,9 @@ AnalogOut analogOut(1000, 15000, 100, 0, 0, 100);
 PIDreg pid(20, 50.0);
 Scale<float, int16_t> scale(0.0f, 100.0f, (int16_t)0, (int16_t)100);
 Ramp ramp(15000);
-MovAvg avg(100);
+MovAvg avg(10);
 TwoPosTim twoPos(50.0f, 5000, 1000);
+ThreePosReg threePosReg(50.0f, 5.0f, 15.0f, 1000, 1000);
 
 IUpdated1ms *updateObjects[] = {
 	&ledDelay,
@@ -25,7 +26,8 @@ IUpdated1ms *updateObjects[] = {
 	&adcMonitor,
 	&analogOut,
 	&ramp,
-	&twoPos
+	&twoPos, 
+	&threePosReg
 };
 
 uint8_t allTimersSize = sizeof(updateObjects) / sizeof(*updateObjects);
@@ -54,7 +56,6 @@ extern "C"{
 			updateObjects[i]->update1ms();
 		}
 	}
-	
 	/*void ADC1_2_IRQHandler(void){
 		if(ADC1->SR & ADC_SR_EOC){
 			uint16_t val = ADC1->DR;

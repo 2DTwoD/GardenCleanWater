@@ -8,7 +8,6 @@ class CommonDelay: public IUpdated1ms {
 		uint16_t period;
 		uint16_t curTime;
 		bool go;
-		bool fin;
 		bool impulse;
 	public:
 		CommonDelay(uint16_t period);
@@ -25,9 +24,12 @@ class CommonDelay: public IUpdated1ms {
 		void setStart(bool value);
 		CommonDelay& operator=(bool value);
 		virtual bool started();
-		bool notFinished();
+	  bool notStarted();
 		bool finished();
+		bool notFinished();
 		bool finishedImpulse();
+		bool inWork();
+		bool isFree();
 };
 
 class DIDelay: public CommonDelay{

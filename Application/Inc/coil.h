@@ -3,6 +3,7 @@
 #include "stm32f10x.h"
 #include "interfaces.h"
 #include "gpio_common.h"
+#include "common.h"
 
 class ProgrammCoil: public ISwitch{
 	private:

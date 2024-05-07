@@ -7,6 +7,7 @@ extern Ramp ramp;
 extern AnalogOut analogOut;
 extern MovAvg avg;
 extern TwoPosTim twoPos;
+extern ThreePosReg threePosReg;
 
 void testTask(void *pvParameters){
 	int16_t tmp;
@@ -22,6 +23,8 @@ void testTask(void *pvParameters){
 		analogOut = avg.get();
 		
 		twoPos = avg.get();
+		
+		threePosReg = avg.get();
 		
 		vTaskDelay(1);
 	}

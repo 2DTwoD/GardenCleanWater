@@ -7,6 +7,14 @@
 #include "interfaces.h"
 #include "custom_timer.h"
 
+enum THREE_POS_MODE {
+	OUT1_STOP = 0, 
+	OUT1_PULSE, 
+	ALL_STOP,
+	OUT2_PULSE, 
+	OUT2_STOP
+};
+
 class ThreePosReg: public IUpdated1ms{
 	protected:
 		float in;

@@ -19,8 +19,8 @@
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\arm_acle.h \
   C:\Users\VNT\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include\system_stm32f10x.h \
   Application\Inc\interfaces.h Application\Inc\gpio_common.h \
-  Application\Inc\custom_timer.h Application\Inc\simple_input.h \
-  Application\Inc\common.h Application\Inc\analog_monitor.h \
+  Application\Inc\common.h Application\Inc\custom_timer.h \
+  Application\Inc\simple_input.h Application\Inc\analog_monitor.h \
   Application\Inc\monitor.h Application\Inc\scale.h \
   Application\Inc\analog_out.h Application\Inc\ramp.h \
   Application\Inc\pid.h Application\Inc\moving_avg.h \
@@ -29,4 +29,4 @@
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\string.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\stdlib.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdlib.h \
-  Application\Inc\two_pos.h
+  Application\Inc\two_pos.h Application\Inc\three_pos.h

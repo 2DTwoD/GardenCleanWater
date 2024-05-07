@@ -59,30 +59,26 @@ bool ThreePosReg::getOut2(){
 	return out2;
 }
 void ThreePosReg::update1ms(){
+	uint8_t action;
 	if(in < sp - pulseGist){
-		out1Mode = 2;
+		action = OUT1_STOP;
 	} else if(in < sp - zeroGist){
-		out1Mode = 1;
+		action = OUT1_PULSE;
+	} else if(in < sp + zeroGist){
+		action = ALL_STOP;
+	} else if(in < sp + pulseGist){
+		action = OUT2_PULSE;
 	} else {
-		out1Mode = 0;
+		action = OUT2_STOP;
 	}
-	switch(out1Mode){
-		case 0:
-			out1 = false;
-			break;
-		case 1:
-			pulseTimer->setStart();
-			break;
-		case 2:
-			
+	if(OUT1_PULSE){
+		*pauseTimer = action == OUT1_PULSE && pulseTimer->notFinished();
+		*pulseTimer = action == OUT1_PULSE && pauseTimer->finished();
 	}
-	if(in > sp + pulseGist){
-		out2Mode = 2;
-	} else if(in > sp + zeroGist){
-		out2Mode = 1;
-	} else {
-		out2Mode = 0;
-	}
+	pauseTimer->update1ms();
+	pulseTimer->update1ms();
+	out1 = action != ALL_STOP || pulseTimer->started();
+	//out2 = (action != ALL_STOP || pulseTimer->inWork()) && !out1;
 }
 float *const ThreePosReg::getInRef(){
 	return &in;

@@ -23,10 +23,12 @@ ProgrammCoil& ProgrammCoil::operator=(bool value){
 
 //Coil
 Coil::Coil(GPIO_TypeDef * gpio, uint8_t pin): GPIOcommon(gpio, pin) {
-	if(pin < 8){			
-		gpio->CRL |= (0x01 << (4 * pin));
+	if(pin < 8){
+		setBitsInRegister(&gpio->CRL, 0x1111 << (4 * pin), 0b0001);
+		//gpio->CRL |= (0x01 << (4 * pin));
 	} else {
-		gpio->CRH |= (0x01 << (4 * pin - 32));
+		setBitsInRegister(&gpio->CRH, 0x1111 << (4 * pin - 32), 0b0001);
+		//gpio->CRH |= (0x01 << (4 * pin - 32));
 	}
 }
 bool Coil::isActive(){

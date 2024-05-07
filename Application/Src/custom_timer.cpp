@@ -6,13 +6,11 @@ CommonDelay::CommonDelay(uint16_t period){
 }
 void CommonDelay::update1ms(){
 	if(started()){
-		fin = curTime >= period;
-		if(fin) return;
+		if(finished()) return;
 		curTime++;
 		return;
 	}
 	impulse = false;
-	fin = false;
 	curTime = 0;
 }
 uint16_t CommonDelay::getPeriod(){
@@ -31,11 +29,10 @@ void CommonDelay::start(){
 	go = true;
 }
 void CommonDelay::pause(){
-	if(finished()) return;
 	go = false;
 }
 void CommonDelay::stop(){
-	go = false;
+	pause();
 	reset();
 }
 void CommonDelay::reset(){
@@ -60,16 +57,25 @@ CommonDelay& CommonDelay::operator=(bool value){
 bool CommonDelay::started(){
 	return go;
 }
-bool CommonDelay::notFinished(){
- return curTime < period;
+bool CommonDelay::notStarted(){
+	return !go;
 }
 bool CommonDelay::finished(){
  return curTime >= period;
+}
+bool CommonDelay::notFinished(){
+ return curTime < period;
 }
 bool CommonDelay::finishedImpulse(){
 	bool result = finished() && !impulse;
 	if (finished()) impulse = true;
 	return result;
+}
+bool CommonDelay::inWork(){
+	return started() && notFinished();
+}
+bool CommonDelay::isFree(){
+	return notStarted() || finished();
 }
 
 //DIDelay implementation
