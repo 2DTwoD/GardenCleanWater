@@ -17,7 +17,8 @@ void ledTask(void *pvParameters){
 			led = !led.isActive();
 			ledDelay.reset();
 		}*/
-		led = threePosReg.getOut1();
+		bool res = threePosReg.getOut2();
+		led = !res;
 		//taskEXIT_CRITICAL();
 		if(buttonDelay.finishedImpulse()){
 			led.toggle();
