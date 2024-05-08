@@ -43,6 +43,10 @@ void CommonDelay::prepareAndStart(){
 	stop();
 	start();
 }
+void CommonDelay::finish(){
+	start();
+	curTime = period;
+}
 void CommonDelay::setStart(bool value){
 	if(value){
 		start();

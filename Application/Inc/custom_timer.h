@@ -21,6 +21,7 @@ class CommonDelay: public IUpdated1ms {
 		void stop();
 		void reset();
 		void prepareAndStart();
+		void finish();
 		void setStart(bool value);
 		CommonDelay& operator=(bool value);
 		virtual bool started();

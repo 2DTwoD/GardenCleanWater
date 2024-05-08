@@ -63,38 +63,43 @@ bool ThreePosReg::getOut2(){
 	}
 	return out2;
 }
+bool ThreePosReg::impulseCycleEnded(){
+	return pulseTimer->finished();
+}
+bool ThreePosReg::halfImpulseCycleEnded(){
+	return pauseTimer->finished() && pulseTimer->notStarted();
+}
 void ThreePosReg::update1ms(){
-	float sub = in - sp;
-	if(sub < -pulseGist){
-		out1 = pauseTimer->isFree() && !out2;
-		out2 = pauseTimer->isFree() && !out1;
-	} else if(sub < -zeroGist){
-		out1 = pulseTimer->inWork() && !out2;
-		out2 = pulseTimer->inWork() && !out1;
-		startTimer = true;
-	} else if(sub < 0.0f){
-		out1 = pulseTimer->inWork() && !out2;
-		out2 = pulseTimer->inWork() && !out1;
-	} else if(sub < zeroGist){
-		out2 = pulseTimer->inWork() && !out1;
-		out1 = pulseTimer->inWork() && !out2;
-	}  else if(sub < pulseGist){
-		out2 = pulseTimer->inWork() && !out1;
-		out1 = pulseTimer->inWork() && !out2;
-		startTimer = true;
-	} else {
-		out2 = pauseTimer->isFree() && !out1;
-		out1 = pauseTimer->isFree() && !out2;
-	}
-	pauseTimer->update1ms();
-	pulseTimer->update1ms();
 	if(startTimer){
 		*pauseTimer = pulseTimer->notFinished();
-		if(pulseTimer->finished()){
-			startTimer = false;
-		}
 	}
 	*pulseTimer = pauseTimer->finished();
+	
+	pauseTimer->update1ms();
+	pulseTimer->update1ms();
+	
+	if(impulseCycleEnded() || halfImpulseCycleEnded()){
+		startTimer = false;
+	}
+	if(!startTimer || halfImpulseCycleEnded()){
+		direction = in < sp;
+	}
+	
+	float sub = abs(in - sp);
+	if(sub < pulseGist){
+		out1 = direction && pulseTimer->inWork();
+		out2 = !direction && pulseTimer->inWork();
+		if(sub > zeroGist){
+			startTimer = true;
+		} else {
+			if(halfImpulseCycleEnded()){
+				pulseTimer->finish();
+			}
+		}
+	} else {
+		out1 = direction && pauseTimer->isFree();
+		out2 = !direction && pauseTimer->isFree();
+	}
 }
 float *const ThreePosReg::getInRef(){
 	return &in;

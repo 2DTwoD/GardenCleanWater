@@ -7,16 +7,8 @@
 #include "interfaces.h"
 #include "custom_timer.h"
 
-enum THREE_POS_MODE {
-	OUT1_START = 0, 
-	OUT1_PULSE, 
-	ALL_STOP,
-	OUT2_PULSE, 
-	OUT2_START
-};
-
 class ThreePosReg: public IUpdated1ms{
-	protected:
+	private:
 		float in;
 		float sp;
 		float zeroGist;
@@ -29,6 +21,9 @@ class ThreePosReg: public IUpdated1ms{
 		bool out1;
 		bool out2;
 		bool startTimer;
+		bool direction;
+		bool impulseCycleEnded();
+		bool halfImpulseCycleEnded();
 	public:
 		ThreePosReg(float sp = 50.0f, float zeroGist = 5.0f, float pulseGist = 15.0f, uint16_t pauseTime = 1000, uint16_t pulseTime = 1000, bool reverse = false);
 		~ThreePosReg();

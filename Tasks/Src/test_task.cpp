@@ -24,7 +24,7 @@ void testTask(void *pvParameters){
 		
 		twoPos = avg.get();
 		
-		threePosReg = avg.get();
+		//threePosReg = avg.get();
 		
 		vTaskDelay(1);
 	}
