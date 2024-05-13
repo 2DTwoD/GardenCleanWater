@@ -15,6 +15,7 @@
 #include "moving_avg.h"
 #include "two_pos.h"
 #include "three_pos.h"
+#include "mux.h"
 
 void ledTask(void *pvParameters);
 void pidTask(void *pvParameters);

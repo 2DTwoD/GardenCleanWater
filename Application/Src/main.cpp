@@ -18,6 +18,11 @@ Ramp ramp(15000);
 MovAvg avg(10);
 TwoPosTim twoPos(50.0f, 5000, 1000);
 ThreePosReg threePosReg(50.0f, 5.0f, 15.0f, 1000, 1000);
+float var1 = 1;
+float var2 = 2;
+float var3 = 3;
+float var4 = 4;
+Mux<float> mux(4);
 
 IUpdated1ms *updateObjects[] = {
 	&ledDelay,
@@ -35,6 +40,10 @@ uint8_t allTimersSize = sizeof(updateObjects) / sizeof(*updateObjects);
 
 int main(void)
 {
+	/*mux.reg(3, pid.getOutRef(), &var2, &var3);
+	mux.reg(&var4, 3);
+	mux.set(3);
+	float v = mux.get();*/
 	adcMonitor.setTresDelay(LL, 5000);
 	rccInit();
 	tickInit();

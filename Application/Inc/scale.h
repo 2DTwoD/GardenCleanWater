@@ -6,7 +6,7 @@
 #include "common.h"
 
 template<typename T, typename R>
-	class Scale{
+class Scale{
 	private:
 		T in;
 		T minIn;

@@ -18,6 +18,7 @@
 #include "moving_avg.h"
 #include "two_pos.h"
 #include "three_pos.h"
+#include "mux.h"
 
 extern "C"{
 	void vApplicationIdleHook ( void ){

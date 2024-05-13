@@ -1,7 +1,7 @@
 Dependencies for Project 'GardenCleanWater', Target 'Target 1': (DO NOT MODIFY !)
 CompilerVersion: 6180000::V6.18::ARMCLANG
-F (.\Application\Src\main.cpp)(0x663B230D)(-xc++ -std=gnu++17 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions-gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ./FreeRTOS/ARM_CM3 -I ./FreeRTOS/Inc -I ./Application/Inc -I ./Tasks/Inc-I./RTE/Device/STM32F103C8-I./RTE/_Target_1-IC:/Users/VNT/AppData/Local/Arm/Packs/ARM/CMSIS/6.0.0/CMSIS/Core/Include-IC:/Users/VNT/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o ./objects/main.o -MD)
-I (Application\Inc\main.h)(0x6639B04C)
+F (.\Application\Src\main.cpp)(0x6641EE6C)(-xc++ -std=gnu++17 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions-gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ./FreeRTOS/ARM_CM3 -I ./FreeRTOS/Inc -I ./Application/Inc -I ./Tasks/Inc-I./RTE/Device/STM32F103C8-I./RTE/_Target_1-IC:/Users/VNT/AppData/Local/Arm/Packs/ARM/CMSIS/6.0.0/CMSIS/Core/Include-IC:/Users/VNT/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o ./objects/main.o -MD)
+I (Application\Inc\main.h)(0x66418D06)
 I (C:\Users\VNT\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include\stm32f10x.h)(0x61ADA38E)
 I (RTE\_Target_1\RTE_Components.h)(0x6618A78A)
 I (C:\Users\VNT\AppData\Local\Arm\Packs\ARM\CMSIS\6.0.0\CMSIS\Core\Include\core_cm3.h)(0x65800A78)
@@ -29,13 +29,13 @@ I (Application\Inc\common.h)(0x66346528)
 I (Application\Inc\init.h)(0x662A183E)
 I (Application\Inc\custom_timer.h)(0x663B456F)
 I (Application\Inc\interfaces.h)(0x663862C1)
-I (Tasks\Inc\all_tasks.h)(0x6639B05D)
+I (Tasks\Inc\all_tasks.h)(0x66419895)
 I (Application\Inc\coil.h)(0x663A0ED2)
 I (Application\Inc\gpio_common.h)(0x661CED28)
 I (Application\Inc\simple_input.h)(0x662A1BB6)
 I (Application\Inc\analog_monitor.h)(0x66389DF2)
 I (Application\Inc\monitor.h)(0x66389DCF)
-I (Application\Inc\scale.h)(0x663472EB)
+I (Application\Inc\scale.h)(0x664189C4)
 I (Application\Inc\analog_out.h)(0x663863AF)
 I (Application\Inc\ramp.h)(0x66386342)
 I (Application\Inc\pid.h)(0x6638A24B)
@@ -47,6 +47,8 @@ I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\stdlib.h)(0x62528B06)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x62528B06)
 I (Application\Inc\two_pos.h)(0x6638A42B)
 I (Application\Inc\three_pos.h)(0x663B55EE)
+I (Application\Inc\mux.h)(0x66419988)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdarg.h)(0x62528B08)
 F (.\FreeRTOS\ARM_CM3\port.c)(0x64023880)(-xc -std=gnu11 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ./FreeRTOS/ARM_CM3 -I ./FreeRTOS/Inc -I ./Application/Inc -I ./Tasks/Inc-I./RTE/Device/STM32F103C8-I./RTE/_Target_1-IC:/Users/VNT/AppData/Local/Arm/Packs/ARM/CMSIS/6.0.0/CMSIS/Core/Include-IC:/Users/VNT/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o ./objects/port.o -MD)
 I (FreeRTOS\Inc\FreeRTOS.h)(0x64023880)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stddef.h)(0x62528B06)
@@ -174,7 +176,7 @@ I (FreeRTOS\Inc\list.h)(0x64023880)
 I (FreeRTOS\Inc\queue.h)(0x64023880)
 I (FreeRTOS\Inc\timers.h)(0x64023880)
 F (.\Tasks\Src\led_task.cpp)(0x663B0BC7)(-xc++ -std=gnu++17 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions-gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ./FreeRTOS/ARM_CM3 -I ./FreeRTOS/Inc -I ./Application/Inc -I ./Tasks/Inc-I./RTE/Device/STM32F103C8-I./RTE/_Target_1-IC:/Users/VNT/AppData/Local/Arm/Packs/ARM/CMSIS/6.0.0/CMSIS/Core/Include-IC:/Users/VNT/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o ./objects/led_task.o -MD)
-I (Tasks\Inc\all_tasks.h)(0x6639B05D)
+I (Tasks\Inc\all_tasks.h)(0x66419895)
 I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\stdint.h)(0x62528B06)
 I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\__config)(0x62528AFE)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x62528B08)
@@ -206,7 +208,7 @@ I (Application\Inc\custom_timer.h)(0x663B456F)
 I (Application\Inc\simple_input.h)(0x662A1BB6)
 I (Application\Inc\analog_monitor.h)(0x66389DF2)
 I (Application\Inc\monitor.h)(0x66389DCF)
-I (Application\Inc\scale.h)(0x663472EB)
+I (Application\Inc\scale.h)(0x664189C4)
 I (Application\Inc\analog_out.h)(0x663863AF)
 I (Application\Inc\ramp.h)(0x66386342)
 I (Application\Inc\pid.h)(0x6638A24B)
@@ -218,8 +220,10 @@ I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\stdlib.h)(0x62528B06)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x62528B06)
 I (Application\Inc\two_pos.h)(0x6638A42B)
 I (Application\Inc\three_pos.h)(0x663B55EE)
-F (.\Application\Src\pidTask.cpp)(0x6638A3C8)(-xc++ -std=gnu++17 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions-gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ./FreeRTOS/ARM_CM3 -I ./FreeRTOS/Inc -I ./Application/Inc -I ./Tasks/Inc-I./RTE/Device/STM32F103C8-I./RTE/_Target_1-IC:/Users/VNT/AppData/Local/Arm/Packs/ARM/CMSIS/6.0.0/CMSIS/Core/Include-IC:/Users/VNT/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o ./objects/pidtask.o -MD)
-I (Tasks\Inc\all_tasks.h)(0x6639B05D)
+I (Application\Inc\mux.h)(0x66419988)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdarg.h)(0x62528B08)
+F (.\Application\Src\pidTask.cpp)(0x664198CD)(-xc++ -std=gnu++17 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions-gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ./FreeRTOS/ARM_CM3 -I ./FreeRTOS/Inc -I ./Application/Inc -I ./Tasks/Inc-I./RTE/Device/STM32F103C8-I./RTE/_Target_1-IC:/Users/VNT/AppData/Local/Arm/Packs/ARM/CMSIS/6.0.0/CMSIS/Core/Include-IC:/Users/VNT/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o ./objects/pidtask.o -MD)
+I (Tasks\Inc\all_tasks.h)(0x66419895)
 I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\stdint.h)(0x62528B06)
 I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\__config)(0x62528AFE)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x62528B08)
@@ -251,7 +255,7 @@ I (Application\Inc\custom_timer.h)(0x663B456F)
 I (Application\Inc\simple_input.h)(0x662A1BB6)
 I (Application\Inc\analog_monitor.h)(0x66389DF2)
 I (Application\Inc\monitor.h)(0x66389DCF)
-I (Application\Inc\scale.h)(0x663472EB)
+I (Application\Inc\scale.h)(0x664189C4)
 I (Application\Inc\analog_out.h)(0x663863AF)
 I (Application\Inc\ramp.h)(0x66386342)
 I (Application\Inc\pid.h)(0x6638A24B)
@@ -263,8 +267,10 @@ I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\stdlib.h)(0x62528B06)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x62528B06)
 I (Application\Inc\two_pos.h)(0x6638A42B)
 I (Application\Inc\three_pos.h)(0x663B55EE)
+I (Application\Inc\mux.h)(0x66419988)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdarg.h)(0x62528B08)
 F (.\Tasks\Src\test_task.cpp)(0x663B3B0F)(-xc++ -std=gnu++17 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions-gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ./FreeRTOS/ARM_CM3 -I ./FreeRTOS/Inc -I ./Application/Inc -I ./Tasks/Inc-I./RTE/Device/STM32F103C8-I./RTE/_Target_1-IC:/Users/VNT/AppData/Local/Arm/Packs/ARM/CMSIS/6.0.0/CMSIS/Core/Include-IC:/Users/VNT/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o ./objects/test_task.o -MD)
-I (Tasks\Inc\all_tasks.h)(0x6639B05D)
+I (Tasks\Inc\all_tasks.h)(0x66419895)
 I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\stdint.h)(0x62528B06)
 I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\__config)(0x62528AFE)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x62528B08)
@@ -296,7 +302,7 @@ I (Application\Inc\custom_timer.h)(0x663B456F)
 I (Application\Inc\simple_input.h)(0x662A1BB6)
 I (Application\Inc\analog_monitor.h)(0x66389DF2)
 I (Application\Inc\monitor.h)(0x66389DCF)
-I (Application\Inc\scale.h)(0x663472EB)
+I (Application\Inc\scale.h)(0x664189C4)
 I (Application\Inc\analog_out.h)(0x663863AF)
 I (Application\Inc\ramp.h)(0x66386342)
 I (Application\Inc\pid.h)(0x6638A24B)
@@ -308,6 +314,8 @@ I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\stdlib.h)(0x62528B06)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x62528B06)
 I (Application\Inc\two_pos.h)(0x6638A42B)
 I (Application\Inc\three_pos.h)(0x663B55EE)
+I (Application\Inc\mux.h)(0x66419988)
+I (C:\Keil_v5\ARM\ARMCLANG\include\stdarg.h)(0x62528B08)
 F (.\Application\Src\common.cpp)(0x662A3184)(-xc++ -std=gnu++17 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions-gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ./FreeRTOS/ARM_CM3 -I ./FreeRTOS/Inc -I ./Application/Inc -I ./Tasks/Inc-I./RTE/Device/STM32F103C8-I./RTE/_Target_1-IC:/Users/VNT/AppData/Local/Arm/Packs/ARM/CMSIS/6.0.0/CMSIS/Core/Include-IC:/Users/VNT/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o ./objects/common.o -MD)
 I (Application\Inc\common.h)(0x66346528)
 I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\stdint.h)(0x62528B06)
@@ -337,7 +345,7 @@ I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x62528B08)
 I (Application\Inc\interfaces.h)(0x663862C1)
 I (Application\Inc\common.h)(0x66346528)
 I (Application\Inc\ramp.h)(0x66386342)
-I (Application\Inc\scale.h)(0x663472EB)
+I (Application\Inc\scale.h)(0x664189C4)
 F (.\Application\Src\analog_monitor.cpp)(0x66389E3D)(-xc++ -std=gnu++17 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions-gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ./FreeRTOS/ARM_CM3 -I ./FreeRTOS/Inc -I ./Application/Inc -I ./Tasks/Inc-I./RTE/Device/STM32F103C8-I./RTE/_Target_1-IC:/Users/VNT/AppData/Local/Arm/Packs/ARM/CMSIS/6.0.0/CMSIS/Core/Include-IC:/Users/VNT/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o ./objects/analog_monitor.o -MD)
 I (Application\Inc\analog_monitor.h)(0x66389DF2)
 I (C:\Keil_v5\ARM\ARMCLANG\include\libcxx\stdint.h)(0x62528B06)
@@ -347,7 +355,7 @@ I (Application\Inc\interfaces.h)(0x663862C1)
 I (Application\Inc\custom_timer.h)(0x663B456F)
 I (Application\Inc\monitor.h)(0x66389DCF)
 I (Application\Inc\common.h)(0x66346528)
-I (Application\Inc\scale.h)(0x663472EB)
+I (Application\Inc\scale.h)(0x664189C4)
 F (.\Application\Src\gpio_common.cpp)(0x663308F9)(-xc++ -std=gnu++17 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar -fno-exceptions-gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier -I ./FreeRTOS/ARM_CM3 -I ./FreeRTOS/Inc -I ./Application/Inc -I ./Tasks/Inc-I./RTE/Device/STM32F103C8-I./RTE/_Target_1-IC:/Users/VNT/AppData/Local/Arm/Packs/ARM/CMSIS/6.0.0/CMSIS/Core/Include-IC:/Users/VNT/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include-D__UVISION_VERSION="537" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o ./objects/gpio_common.o -MD)
 I (Application\Inc\gpio_common.h)(0x661CED28)
 I (C:\Users\VNT\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include\stm32f10x.h)(0x61ADA38E)
