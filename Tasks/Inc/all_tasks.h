@@ -5,20 +5,15 @@
 #include "FreeRTOS.h"
 #include "task.h"
 
+#include "common_for_tasks.h"
 #include "coil.h"
-#include "custom_timer.h"
 #include "simple_input.h"
-#include "analog_monitor.h"
-#include "analog_out.h"
-#include "pid.h"
-#include "scale.h"
-#include "moving_avg.h"
-#include "two_pos.h"
-#include "three_pos.h"
-#include "mux.h"
+#include "sequence.h"
+#include "common_timer.h"
+#include "on_delay.h"
+#include "pulse.h"
 
-void ledTask(void *pvParameters);
-void pidTask(void *pvParameters);
-void testTask(void *pvParameters);
+void OB1Task(void *pvParameters);
+void CHBTask(void *pvParameters);
 
 #endif //ALL_TASKS_H

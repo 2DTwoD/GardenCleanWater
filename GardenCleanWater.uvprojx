@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>.\FreeRTOS\ARM_CM3;.\FreeRTOS\Inc;.\Application\Inc;.\Tasks\Inc</IncludePath>
+              <IncludePath>.\FreeRTOS\ARM_CM3;.\FreeRTOS\Inc;.\Application\Control\inc;.\Application\Discrete\inc;.\Application\Main\inc;.\Application\Misc\inc;.\Application\Timer\inc;.\Tasks\inc</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -385,9 +385,19 @@
           <GroupName>Application</GroupName>
           <Files>
             <File>
+              <FileName>global_vars.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Application\Main\inc\global_vars.h</FilePath>
+            </File>
+            <File>
               <FileName>main.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Application\Src\main.cpp</FilePath>
+              <FilePath>.\Application\Main\src\main.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>main.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Application\Main\inc\main.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -445,19 +455,29 @@
           <GroupName>Tasks</GroupName>
           <Files>
             <File>
-              <FileName>led_task.cpp</FileName>
+              <FileName>ob1.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Tasks\Src\led_task.cpp</FilePath>
+              <FilePath>.\Tasks\src\ob1.cpp</FilePath>
             </File>
             <File>
-              <FileName>pidTask.cpp</FileName>
+              <FileName>chb.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Application\Src\pidTask.cpp</FilePath>
+              <FilePath>.\Tasks\src\chb.cpp</FilePath>
             </File>
             <File>
-              <FileName>test_task.cpp</FileName>
+              <FileName>all_tasks.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Tasks\inc\all_tasks.h</FilePath>
+            </File>
+            <File>
+              <FileName>common_for_tasks.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Tasks\Src\test_task.cpp</FilePath>
+              <FilePath>.\Tasks\src\common_for_tasks.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>common_for_tasks.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Tasks\inc\common_for_tasks.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -467,27 +487,27 @@
             <File>
               <FileName>common.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Application\Src\common.cpp</FilePath>
+              <FilePath>.\Application\Misc\src\common.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>common.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Application\Misc\inc\common.h</FilePath>
             </File>
             <File>
               <FileName>init.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Application\Src\init.cpp</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>Analog</GroupName>
-          <Files>
-            <File>
-              <FileName>analog_out.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\Application\Src\analog_out.cpp</FilePath>
+              <FilePath>.\Application\Misc\src\init.cpp</FilePath>
             </File>
             <File>
-              <FileName>analog_monitor.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\Application\Src\analog_monitor.cpp</FilePath>
+              <FileName>init.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Application\Misc\inc\init.h</FilePath>
+            </File>
+            <File>
+              <FileName>interfaces.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Application\Misc\inc\interfaces.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -495,19 +515,54 @@
           <GroupName>Discrete</GroupName>
           <Files>
             <File>
+              <FileName>coil.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Application\Discrete\src\coil.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>coil.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Application\Discrete\inc\coil.h</FilePath>
+            </File>
+            <File>
               <FileName>gpio_common.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Application\Src\gpio_common.cpp</FilePath>
+              <FilePath>.\Application\Discrete\src\gpio_common.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>gpio_common.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Application\Discrete\inc\gpio_common.h</FilePath>
+            </File>
+            <File>
+              <FileName>rf_impulse.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Application\Discrete\src\rf_impulse.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>rf_impulse.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Application\Discrete\inc\rf_impulse.h</FilePath>
             </File>
             <File>
               <FileName>simple_input.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Application\Src\simple_input.cpp</FilePath>
+              <FilePath>.\Application\Discrete\src\simple_input.cpp</FilePath>
             </File>
             <File>
-              <FileName>coil.cpp</FileName>
+              <FileName>simple_input.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Application\Discrete\inc\simple_input.h</FilePath>
+            </File>
+            <File>
+              <FileName>switch_delay.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Application\Src\coil.cpp</FilePath>
+              <FilePath>.\Application\Discrete\src\switch_delay.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>switch_delay.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Application\Discrete\inc\switch_delay.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -515,9 +570,44 @@
           <GroupName>Timer</GroupName>
           <Files>
             <File>
-              <FileName>custom_timer.cpp</FileName>
+              <FileName>common_timer.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Application\Src\custom_timer.cpp</FilePath>
+              <FilePath>.\Application\Timer\src\common_timer.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>common_timer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Application\Timer\inc\common_timer.h</FilePath>
+            </File>
+            <File>
+              <FileName>off_delay.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Application\Timer\src\off_delay.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>off_delay.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Application\Timer\inc\off_delay.h</FilePath>
+            </File>
+            <File>
+              <FileName>on_delay.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Application\Timer\src\on_delay.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>on_delay.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Application\Timer\inc\on_delay.h</FilePath>
+            </File>
+            <File>
+              <FileName>pulse.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Application\Timer\src\pulse.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>pulse.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Application\Timer\inc\pulse.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -525,39 +615,14 @@
           <GroupName>Control</GroupName>
           <Files>
             <File>
-              <FileName>pid.cpp</FileName>
+              <FileName>sequence.cpp</FileName>
               <FileType>8</FileType>
-              <FilePath>.\Application\Src\pid.cpp</FilePath>
+              <FilePath>.\Application\Control\src\sequence.cpp</FilePath>
             </File>
             <File>
-              <FileName>ramp.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\Application\Src\ramp.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>two_pos.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\Application\Src\two_pos.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>three_pos.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\Application\Src\three_pos.cpp</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>Observe</GroupName>
-          <Files>
-            <File>
-              <FileName>monitor.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\Application\Src\monitor.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>moving_avg.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\Application\Src\moving_avg.cpp</FilePath>
+              <FileName>sequence.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Application\Control\inc\sequence.h</FilePath>
             </File>
           </Files>
         </Group>
