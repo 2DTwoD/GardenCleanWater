@@ -3,6 +3,9 @@
 SwitchDelay::SwitchDelay(ISwitch *swtch, uint16_t period): CommonTimer(period){
 	this->swtch = swtch;
 }
+void SwitchDelay::update1ms(){
+	CommonTimer::update();
+}
 bool SwitchDelay::started(){
-	return CommonTimer::started() || swtch->isActive();
+	return swtch->isActive();
 }

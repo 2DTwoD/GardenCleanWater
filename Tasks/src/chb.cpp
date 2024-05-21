@@ -4,7 +4,6 @@ extern uint8_t CHBstep;
 extern Sequence CHBs0;
 extern Sequence CHBs1;
 extern Sequence CHBs2;
-extern OnDelay CHBs1Delay;
 
 extern Sequence OB1s5;
 
@@ -22,23 +21,22 @@ static void setCoils(bool d, bool m){
 
 void CHBTask(void *pvParameters){
 	while(1){
-		CHBs1Delay = CHBs1.started();
 		switch(CHBstep){
 			case 0:
-				CHBs0.slfSet(S5.isNotActive(), false, false);
+				CHBs0.slfSet(S5.isNotActive(), false, getSeqFromQueue() != nullptr);
 				setCoils(false, false);
+				if(CHBs0.finished()){
+					getSeqFromQueue()->start(true);
+				}
 				break;
 			case 1:
-				CHBs1.slfSet(true, false, CHBs1Delay.get());
+				CHBs1.slfSet(true, false, false);
 				setCoils(CHBs1.started(), false);
 				break;
 			case 2:
-				Sequence *seq = getSeqFromQueue();
-				CHBs2.slfSet(true, S4.isActive() || seq == nullptr, getSeqFromQueue()->finished());
+				CHBs2.slfSet(true, S4.isActive(), false);
 				setCoils(false, CHBs2.started());
 				break;
-			default:
-				CHBstep = 0;
 		}
 		M6 = S6.isActive();
 		vTaskDelay(1);

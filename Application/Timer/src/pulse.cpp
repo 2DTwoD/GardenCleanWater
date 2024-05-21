@@ -1,43 +1,52 @@
 #include "pulse.h"
 
-Pulse::Pulse(uint32_t period){
-	timer = new CommonTimer(period);
+//Pulse
+Pulse::Pulse(uint32_t period): CommonTimer(period){
 }
-
-Pulse::~Pulse(){
-	delete timer;
-}
-
 void Pulse::update1ms(){
-	if(timer->finished()){
-		timer->stop();
+	if(CommonTimer::finished()){
+		CommonTimer::stop();
 	}
-	timer->update1ms();
+	CommonTimer::update();
 }
-
 void Pulse::set(bool value){
 	if(value){
 		if(!startFlag){
 			startFlag = true;
-			timer->start();
+			CommonTimer::start();
 		}
 	} else {
-		if(timer->isFree()){
+		if(CommonTimer::isFree()){
 			startFlag = false;
 		}
 	}
 }
-
 bool Pulse::get(){
-	return timer->inWork();
+	return CommonTimer::inWork();
 }
-
 void Pulse::reset(){
 	startFlag = false;
-	timer->stop();
+	CommonTimer::stop();
+}
+Pulse& Pulse::operator=(bool value){
+	set(value);
+	return *this;
 }
 
-Pulse& Pulse::operator=(bool value){
+//ShortPulse
+ShortPulse::ShortPulse(uint32_t period): Pulse(period){
+}
+void ShortPulse::set(bool value){
+	Pulse::set(value);
+	if(!value) {
+		Pulse::reset();
+	}
+	currentValue = value;
+}
+bool ShortPulse::get(){
+	return Pulse::get() && currentValue;
+}
+ShortPulse& ShortPulse::operator=(bool value){
 	set(value);
 	return *this;
 }

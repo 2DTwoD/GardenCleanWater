@@ -1,39 +1,29 @@
 #include "off_delay.h"
 
-OffDelay::OffDelay(uint32_t period){
-	timer = new CommonTimer(period);
+OffDelay::OffDelay(uint32_t period): CommonTimer(period){
 }
-
-OffDelay::~OffDelay(){
-	delete timer;
-}
-
 void OffDelay::update1ms(){
-	if(timer->finished()){
-		timer->stop();
+	if(CommonTimer::finished()){
+		CommonTimer::stop();
 	}
-	timer->update1ms();
+	CommonTimer::update();
 }
-
 void OffDelay::set(bool value){
 	if(!value){
 		if(startFlag){
-			timer->prepareAndStart();
+			CommonTimer::prepareAndStart();
 		}
 	} else {
-		timer->stop();
+		CommonTimer::stop();
 	}
 	startFlag = value;
 }
-
 bool OffDelay::get(){
-	return startFlag || timer->inWork();
+	return startFlag || CommonTimer::inWork();
 }
-
 void OffDelay::reset(){
-	timer->finish();
+	CommonTimer::finish();
 }
-
 OffDelay& OffDelay::operator=(bool value){
 	set(value);
 	return *this;

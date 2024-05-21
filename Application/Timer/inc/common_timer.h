@@ -3,15 +3,15 @@
 #include "stdint.h"
 #include "interfaces.h"
 
-class CommonTimer: public IUpdated1ms {
-	protected:
+class CommonTimer {
+	private:
 		uint32_t period;
 		uint32_t curTime;
 		bool go;
 		bool impulse;
 	public:
 		CommonTimer(uint32_t period);
-		void update1ms() override;
+		void update();
 		uint32_t getPeriod();
 		void setPeriod(uint32_t value);
 		uint32_t getCurrentTime();

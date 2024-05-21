@@ -30,7 +30,7 @@ class Coil: public GPIOcommon, public ProgrammCoil {
 		Coil& operator=(bool value);
 };
 
-class CoilDelayed: public Coil, public CommonTimer {
+class CoilDelayed: private CommonTimer, public Coil, public IUpdated1ms {
   public:
 		CoilDelayed(GPIO_TypeDef *gpio, uint8_t pin, uint16_t delay);
 	
@@ -43,7 +43,7 @@ class CoilDelayed: public Coil, public CommonTimer {
 		CoilDelayed& operator=(bool value);
 };
 
-class CoilPulse: public Coil, public CommonTimer {
+class CoilPulse: private CommonTimer, public Coil, public IUpdated1ms {
   public:
 		CoilPulse(GPIO_TypeDef *gpio, uint8_t pin, uint16_t delay);
 	

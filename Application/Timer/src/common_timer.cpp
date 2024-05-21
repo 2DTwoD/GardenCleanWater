@@ -1,10 +1,9 @@
 #include "common_timer.h"
 
-//CommonDelay implementation
 CommonTimer::CommonTimer(uint32_t period){
 	this->period = period;
 }
-void CommonTimer::update1ms(){
+void CommonTimer::update(){
 	if(started()){
 		if(finished()) return;
 		curTime++;

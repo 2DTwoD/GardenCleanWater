@@ -1,5 +1,6 @@
 #include "sequence.h"
 
+//Sequence
 Sequence::Sequence(uint8_t *cur_step_pointer, uint8_t seq_step): RFimpulse(RISE), cur_step_pointer(cur_step_pointer), seq_step(seq_step){
 }
 bool Sequence::isMyStep(){
@@ -45,4 +46,16 @@ bool Sequence::finished(){
 }
 bool Sequence::finishedImpulse(){
 	return RFimpulse::get();
+}
+
+//SequenceDelayed
+SequenceDelayed::SequenceDelayed(uint8_t *cur_step_pointer, uint8_t seq_step, uint32_t delay): Sequence(cur_step_pointer, seq_step), CommonTimer(delay){
+}
+void SequenceDelayed::update1ms(){
+	if(Sequence::locked()){
+		return;
+	}
+	CommonTimer::setStart(Sequence::started());
+	CommonTimer::update();
+	Sequence::finish(CommonTimer::finished());
 }

@@ -1,6 +1,7 @@
 #ifndef SEQUENCE_H
 #define SEQUENCE_H
 #include "rf_impulse.h"
+#include "common_timer.h"
 
 class Sequence: private RFimpulse{
 	private:
@@ -23,4 +24,16 @@ class Sequence: private RFimpulse{
 		bool finishedImpulse();
 };
 
+class SequenceDelayed: private CommonTimer, public Sequence, public IUpdated1ms{
+	public:
+		SequenceDelayed(uint8_t *cur_step_pointer, uint8_t seq_step, uint32_t delay);
+		void update1ms() override;
+		using Sequence::reset;
+		using Sequence::start;
+		using Sequence::finish;
+		using Sequence::started;
+		using Sequence::locked;
+		using Sequence::finished;
+		using Sequence::finishedImpulse;
+};
 #endif //SEQUENCE_H

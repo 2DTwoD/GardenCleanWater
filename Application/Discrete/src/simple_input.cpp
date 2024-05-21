@@ -17,7 +17,7 @@ SimpleInput::SimpleInput(GPIO_TypeDef *gpio, uint8_t pin): GPIOcommon(gpio, pin)
 bool SimpleInput::isActive(){
 	return (gpio->IDR & (1 << pin)) == 0
 	#ifdef SIM_ON
-	|| sim_on && sim_val
+	|| (sim_on && sim_val)
 	#endif
 	;
 }
@@ -30,8 +30,8 @@ bool SimpleInput::isNotActive(){
 SimpleInputDelayed::SimpleInputDelayed(GPIO_TypeDef *gpio, uint8_t pin, uint16_t delay): SimpleInput(gpio, pin), CommonTimer(delay){
 }
 void SimpleInputDelayed::update1ms(){
-	setStart(SimpleInput::isActive());
-	CommonTimer::update1ms();
+	CommonTimer::setStart(SimpleInput::isActive());
+	CommonTimer::update();
 }
 bool SimpleInputDelayed::isActive(){
 	return finished();

@@ -1,29 +1,19 @@
 #include "on_delay.h"
 
-OnDelay::OnDelay(uint32_t period){
-	timer = new CommonTimer(period);
+OnDelay::OnDelay(uint32_t period): CommonTimer(period){
 }
-
-OnDelay::~OnDelay(){
-	delete timer;
-}
-
 void OnDelay::update1ms(){
-	timer->update1ms();
+	CommonTimer::update();
 }
-
 void OnDelay::set(bool value){
-	timer->setStart(value);
+	CommonTimer::setStart(value);
 }
-
 bool OnDelay::get(){
-	return timer->finished();
+	return CommonTimer::finished();
 }
-
 void OnDelay::reset(){
-	timer->reset();
+	CommonTimer::reset();
 }
-
 OnDelay& OnDelay::operator=(bool value){
 	set(value);
 	return *this;

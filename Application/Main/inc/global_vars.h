@@ -41,22 +41,18 @@ Coil Me3(GPIOB, 15);
 //Бак отстойника1:
 uint8_t OB1step;
 Sequence OB1s0(&OB1step, 0);
-Sequence OB1s1(&OB1step, 1);
-Sequence OB1s2(&OB1step, 2);
+SequenceDelayed OB1s1(&OB1step, 1, 120000);//2 минуты
+SequenceDelayed OB1s2(&OB1step, 2, 30000);//30 секунд
 Sequence OB1s3(&OB1step, 3);
-Sequence OB1s4(&OB1step, 4);
+SequenceDelayed OB1s4(&OB1step, 4, 345600000);//96 часов
 Sequence OB1s5(&OB1step, 5);
-OnDelay OB1s1Delay(120000); //2 минуты
-OnDelay OB1s2Delay(30000);//30 секунд
-OnDelay OB1s4Delay(345600000);//96 часов
-CommonTimer OB1s4MeTimer(3600000);//1 час
+Pulse OB1s4MeTimer(3600000);//1 час
 
 //Чистый бак:
 uint8_t CHBstep;
 Sequence CHBs0(&CHBstep, 0);
-Sequence CHBs1(&CHBstep, 1);
+SequenceDelayed CHBs1(&CHBstep, 1, 15000);//15 секунд
 Sequence CHBs2(&CHBstep, 2);
-OnDelay CHBs1Delay(15000); //15 секунд
 
 //Очередь
 Sequence *queue[] = {nullptr, nullptr, nullptr};
@@ -74,10 +70,11 @@ IUpdated1ms *update1msObjects[] = {
 	&M1,
 	&M2,
 	&M3,
-	&OB1s1Delay,
-	&OB1s2Delay,
-	&OB1s4Delay,
-	&OB1s4MeTimer
+	&OB1s1,
+	&OB1s2,
+	&OB1s4,
+	&OB1s4MeTimer,
+	&CHBs1
 };
 
 uint8_t updateObjectsSize = sizeof(update1msObjects) / sizeof(*update1msObjects);

@@ -48,7 +48,7 @@ Coil& Coil::operator=(bool value){
 CoilDelayed::CoilDelayed(GPIO_TypeDef *gpio, uint8_t pin, uint16_t delay): Coil(gpio, pin), CommonTimer(delay) {
 }
 void CoilDelayed::update1ms() {
-	CommonTimer::update1ms();
+	CommonTimer::update();
 	Coil::setValue(CommonTimer::finished());
 }
 bool CoilDelayed::isActive(){
@@ -66,7 +66,7 @@ CoilDelayed& CoilDelayed::operator=(bool value){
 CoilPulse::CoilPulse(GPIO_TypeDef *gpio, uint8_t pin, uint16_t delay): Coil(gpio, pin), CommonTimer(delay) {
 }
 void CoilPulse::update1ms() {
-	CommonTimer::update1ms();
+	CommonTimer::update();
 	Coil::setValue(CommonTimer::inWork());
 }
 bool CoilPulse::isActive(){

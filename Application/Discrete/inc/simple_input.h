@@ -24,7 +24,7 @@ class SimpleInput: public GPIOcommon, public ISwitch{
 };
 
 //SimpleInputDelayed (implements IUpdated1ms)
-class SimpleInputDelayed: public SimpleInput, public CommonTimer {
+class SimpleInputDelayed: private CommonTimer, public SimpleInput, public IUpdated1ms {
 	public:
 		SimpleInputDelayed(GPIO_TypeDef *gpio, uint8_t pin, uint16_t delay);
 		void update1ms() override;
