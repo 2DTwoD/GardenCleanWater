@@ -1,6 +1,9 @@
 #ifndef COMMON_FOR_TASKS_H
 #define COMMON_FOR_TASKS_H
 
+#include "FreeRTOS.h"
+#include "task.h"
+
 #include "stdint.h"
 #include "coil.h"
 #include "sequence.h"

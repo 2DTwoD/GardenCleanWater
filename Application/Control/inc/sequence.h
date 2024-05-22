@@ -12,7 +12,7 @@ class Sequence: private RFimpulse{
 		uint8_t *cur_step_pointer;
 		bool isMyStep();
 	public:
-		Sequence(uint8_t *cur_step_pointer, uint8_t seq_step);
+		Sequence(uint8_t *const cur_step_pointer, uint8_t seq_step);
 		void reset();
 		void start(bool value);
 		void lock(bool value);
@@ -26,7 +26,7 @@ class Sequence: private RFimpulse{
 
 class SequenceDelayed: private CommonTimer, public Sequence, public IUpdated1ms{
 	public:
-		SequenceDelayed(uint8_t *cur_step_pointer, uint8_t seq_step, uint32_t delay);
+		SequenceDelayed(uint8_t *const cur_step_pointer, uint8_t seq_step, uint32_t delay);
 		void update1ms() override;
 		using Sequence::reset;
 		using Sequence::start;

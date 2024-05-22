@@ -45,8 +45,28 @@ SequenceDelayed OB1s1(&OB1step, 1, 120000);//2 минуты
 SequenceDelayed OB1s2(&OB1step, 2, 30000);//30 секунд
 Sequence OB1s3(&OB1step, 3);
 SequenceDelayed OB1s4(&OB1step, 4, 345600000);//96 часов
-Sequence OB1s5(&OB1step, 5);
 Pulse OB1s4MeTimer(3600000);//1 час
+Sequence OB1s5(&OB1step, 5);
+
+//Бак отстойника2:
+uint8_t OB2step;
+Sequence OB2s0(&OB2step, 0);
+SequenceDelayed OB2s1(&OB2step, 1, 120000);//2 минуты
+SequenceDelayed OB2s2(&OB2step, 2, 30000);//30 секунд
+Sequence OB2s3(&OB2step, 3);
+SequenceDelayed OB2s4(&OB2step, 4, 345600000);//96 часов
+Pulse OB2s4MeTimer(3600000);//1 час
+Sequence OB2s5(&OB2step, 5);
+
+//Бак отстойника3:
+uint8_t OB3step;
+Sequence OB3s0(&OB3step, 0);
+SequenceDelayed OB3s1(&OB3step, 1, 120000);//2 минуты
+SequenceDelayed OB3s2(&OB3step, 2, 30000);//30 секунд
+Sequence OB3s3(&OB3step, 3);
+SequenceDelayed OB3s4(&OB3step, 4, 345600000);//96 часов
+Pulse OB3s4MeTimer(3600000);//1 час
+Sequence OB3s5(&OB3step, 5);
 
 //Чистый бак:
 uint8_t CHBstep;
@@ -74,6 +94,14 @@ IUpdated1ms *update1msObjects[] = {
 	&OB1s2,
 	&OB1s4,
 	&OB1s4MeTimer,
+	&OB2s1,
+	&OB2s2,
+	&OB2s4,
+	&OB2s4MeTimer,
+	&OB3s1,
+	&OB3s2,
+	&OB3s4,
+	&OB3s4MeTimer,
 	&CHBs1
 };
 

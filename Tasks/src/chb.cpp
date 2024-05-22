@@ -2,10 +2,8 @@
 
 extern uint8_t CHBstep;
 extern Sequence CHBs0;
-extern Sequence CHBs1;
+extern SequenceDelayed CHBs1;
 extern Sequence CHBs2;
-
-extern Sequence OB1s5;
 
 extern SimpleInputDelayed S4;
 extern SimpleInputDelayed S5;
@@ -14,28 +12,30 @@ extern Coil D4;
 extern Coil M6;
 extern Coil M7;
 
-static void setCoils(bool d, bool m){
-	D4 = d;
-	M7 = m;
-}
-
 void CHBTask(void *pvParameters){
+	Sequence *current_ob = nullptr;
 	while(1){
+		if(CHBs0.finishedImpulse() && current_ob != nullptr){
+			current_ob->start(true);
+		}
 		switch(CHBstep){
 			case 0:
-				CHBs0.slfSet(S5.isNotActive(), false, getSeqFromQueue() != nullptr);
-				setCoils(false, false);
-				if(CHBs0.finished()){
-					getSeqFromQueue()->start(true);
-				}
+				current_ob = getSeqFromQueue();
+				CHBs0.start(S5.isNotActive());
+				CHBs0.finish(current_ob != nullptr);
+				D4 = false;
+				M7 = false;
 				break;
 			case 1:
-				CHBs1.slfSet(true, false, false);
-				setCoils(CHBs1.started(), false);
+				CHBs1.start(true);
+				D4 = CHBs1.started();
+				M7 = false;
 				break;
 			case 2:
-				CHBs2.slfSet(true, S4.isActive(), false);
-				setCoils(false, CHBs2.started());
+				CHBs2.start(true);
+				CHBs2.lock(S4.isActive());
+				D4 = false;
+				M7 = CHBs2.started();
 				break;
 		}
 		M6 = S6.isActive();

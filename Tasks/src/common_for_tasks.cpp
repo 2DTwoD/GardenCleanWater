@@ -9,32 +9,41 @@ extern Coil M7;
 extern uint8_t CHBstep;
 static const uint8_t numOfTanks = 3; 
 
-void pushSeqInQueue(Sequence *seq){
+void pushSeqInQueue(Sequence *const seq){
+	taskENTER_CRITICAL();
 	for(uint8_t i = 0; i < numOfTanks; i++){
 		if(i == numOfTanks - 1){
 			queue[i] = seq;
 		} else {
-			queue[i] = queue[i + 1];
+			if(queue[i] == nullptr){
+				queue[i] = queue[i + 1];
+				queue[i + 1] = nullptr;
+			}
 		}
 	}
+	taskEXIT_CRITICAL();
 }
 
 Sequence* getSeqFromQueue(){
+	taskENTER_CRITICAL();
 	for(uint8_t i = 0; i < numOfTanks; i++){
 		if(queue[i] != nullptr){
+			taskEXIT_CRITICAL();
 			return queue[i];
 		}
 	}
+	taskEXIT_CRITICAL();
 	return nullptr;
 }
 
-void deleteSeqFromQueue(Sequence *seq){
+void deleteSeqFromQueue(Sequence *const seq){
+	taskENTER_CRITICAL();
 	for(uint8_t i = 0; i < numOfTanks; i++){
 		if(queue[i] == seq){
 			queue[i] = nullptr;
-			return;
 		}
 	}
+	taskEXIT_CRITICAL();
 }
 
 void resetCHBsteps(){

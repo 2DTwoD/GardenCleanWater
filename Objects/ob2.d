@@ -1,15 +1,15 @@
-./objects/common_for_tasks.o: Tasks\src\common_for_tasks.cpp \
-  Tasks\inc\common_for_tasks.h FreeRTOS\Inc\FreeRTOS.h \
-  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\stddef.h \
+./objects/ob2.o: Tasks\src\ob2.cpp Tasks\inc\all_tasks.h \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\stdint.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\__config \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdint.h \
+  FreeRTOS\Inc\FreeRTOS.h \
+  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\stddef.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stddef.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\__nullptr \
-  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\stdint.h \
-  C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdint.h \
   FreeRTOS\Inc\FreeRTOSConfig.h FreeRTOS\Inc\projdefs.h \
   FreeRTOS\Inc\portable.h FreeRTOS\Inc\deprecated_definitions.h \
   FreeRTOS\ARM_CM3\portmacro.h FreeRTOS\Inc\mpu_wrappers.h \
-  FreeRTOS\Inc\task.h FreeRTOS\Inc\list.h \
+  FreeRTOS\Inc\task.h FreeRTOS\Inc\list.h Tasks\inc\common_for_tasks.h \
   Application\Discrete\inc\coil.h \
   C:\Users\VNT\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include\stm32f10x.h \
   RTE\_Target_1\RTE_Components.h \
@@ -23,4 +23,6 @@
   Application\Discrete\inc\gpio_common.h Application\Misc\inc\common.h \
   Application\Timer\inc\common_timer.h \
   Application\Control\inc\sequence.h \
-  Application\Discrete\inc\rf_impulse.h
+  Application\Discrete\inc\rf_impulse.h \
+  Application\Discrete\inc\simple_input.h \
+  Application\Timer\inc\on_delay.h Application\Timer\inc\pulse.h

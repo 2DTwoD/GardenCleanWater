@@ -405,6 +405,11 @@
           <GroupName>FreeRTOS</GroupName>
           <Files>
             <File>
+              <FileName>FreeRTOSConfig.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\FreeRTOS\Inc\FreeRTOSConfig.h</FilePath>
+            </File>
+            <File>
               <FileName>port.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\FreeRTOS\ARM_CM3\port.c</FilePath>
@@ -458,6 +463,16 @@
               <FileName>ob1.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\Tasks\src\ob1.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>ob2.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Tasks\src\ob2.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>ob3.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Tasks\src\ob3.cpp</FilePath>
             </File>
             <File>
               <FileName>chb.cpp</FileName>

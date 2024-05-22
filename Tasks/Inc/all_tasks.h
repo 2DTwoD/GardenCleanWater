@@ -14,6 +14,8 @@
 #include "pulse.h"
 
 void OB1Task(void *pvParameters);
+void OB2Task(void *pvParameters);
+void OB3Task(void *pvParameters);
 void CHBTask(void *pvParameters);
 
 #endif //ALL_TASKS_H
