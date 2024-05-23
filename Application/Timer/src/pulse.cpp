@@ -1,15 +1,15 @@
 #include "pulse.h"
 
-//Pulse
-Pulse::Pulse(uint32_t period): CommonTimer(period){
+//PulseCommon
+PulseCommon::PulseCommon(uint32_t period): CommonTimer(period){
 }
-void Pulse::update1ms(){
+void PulseCommon::update(){
 	if(CommonTimer::finished()){
 		CommonTimer::stop();
 	}
 	CommonTimer::update();
 }
-void Pulse::set(bool value){
+void PulseCommon::set(bool value){
 	if(value){
 		if(!startFlag){
 			startFlag = true;
@@ -21,32 +21,38 @@ void Pulse::set(bool value){
 		}
 	}
 }
-bool Pulse::get(){
+bool PulseCommon::get(){
 	return CommonTimer::inWork();
 }
-void Pulse::reset(){
+void PulseCommon::reset(){
 	startFlag = false;
 	CommonTimer::stop();
+}
+
+//Pulse
+Pulse::Pulse(uint32_t period): PulseCommon(period){
+}
+void Pulse::update1ms(){
+	PulseCommon::update();
 }
 Pulse& Pulse::operator=(bool value){
 	set(value);
 	return *this;
 }
 
-//ShortPulse
-ShortPulse::ShortPulse(uint32_t period): Pulse(period){
+//PulseInterrapt
+PulseInterrapt::PulseInterrapt(uint32_t period): PulseCommon(period){
 }
-void ShortPulse::set(bool value){
-	Pulse::set(value);
+void PulseInterrapt::update1ms(){
+	PulseCommon::update();
+}
+void PulseInterrapt::set(bool value){
+	PulseCommon::set(value);
 	if(!value) {
-		Pulse::reset();
+		PulseCommon::reset();
 	}
-	currentValue = value;
 }
-bool ShortPulse::get(){
-	return Pulse::get() && currentValue;
-}
-ShortPulse& ShortPulse::operator=(bool value){
+PulseInterrapt& PulseInterrapt::operator=(bool value){
 	set(value);
 	return *this;
 }

@@ -8,6 +8,7 @@
 #include "init.h"
 #include "global_vars.h"
 #include "all_tasks.h"
+#include "common_for_tasks.h"
 
 extern uint8_t updateObjectsSize;
 

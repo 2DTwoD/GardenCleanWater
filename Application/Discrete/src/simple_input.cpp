@@ -17,7 +17,7 @@ SimpleInput::SimpleInput(GPIO_TypeDef *gpio, uint8_t pin): GPIOcommon(gpio, pin)
 bool SimpleInput::isActive(){
 	return (gpio->IDR & (1 << pin)) == 0
 	#ifdef SIM_ON
-	|| (sim_on && sim_val)
+	|| sim_on && sim_val
 	#endif
 	;
 }

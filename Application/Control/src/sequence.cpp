@@ -35,8 +35,11 @@ void Sequence::slfSet(bool strt, bool lck, bool fin){
 	lock(lck);
 	finish(fin);
 }
+bool Sequence::active(){
+	return started() && !locked() && !finished();
+}
 bool Sequence::started(){
-	return strt && !lck;
+	return strt;
 }
 bool Sequence::locked(){
 	return lck;
@@ -55,7 +58,7 @@ void SequenceDelayed::update1ms(){
 	if(Sequence::locked()){
 		return;
 	}
-	CommonTimer::setStart(Sequence::started());
+	CommonTimer::setStart(Sequence::active());
 	CommonTimer::update();
 	Sequence::finish(CommonTimer::finished());
 }

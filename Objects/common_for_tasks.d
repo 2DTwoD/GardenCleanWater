@@ -22,5 +22,8 @@
   Application\Misc\inc\interfaces.h \
   Application\Discrete\inc\gpio_common.h Application\Misc\inc\common.h \
   Application\Timer\inc\common_timer.h \
-  Application\Control\inc\sequence.h \
-  Application\Discrete\inc\rf_impulse.h
+  Application\Discrete\inc\coil_with_timer.h \
+  Application\Timer\inc\on_delay.h Application\Timer\inc\off_delay.h \
+  Application\Timer\inc\pulse.h Application\Control\inc\sequence.h \
+  Application\Discrete\inc\rf_impulse.h \
+  Application\Discrete\inc\simple_input.h

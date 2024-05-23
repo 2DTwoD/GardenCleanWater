@@ -6,8 +6,10 @@ extern SequenceDelayed OB2s1;
 extern SequenceDelayed OB2s2;
 extern Sequence OB2s3;
 extern SequenceDelayed OB2s4;
-extern Pulse OB2s4MeTimer;
+extern PulseInterrapt OB2s4MeTimer;
 extern Sequence OB2s5;
+
+extern Sequence CHBs2;
 
 extern SimpleInputDelayed B2;
 extern SimpleInputDelayed H2;
@@ -16,7 +18,6 @@ extern Coil O2;
 extern Coil D2;
 extern CoilPulse M2;
 extern Coil Me2;
-extern SimpleInputDelayed S4;
 
 static void resetAllSteps(){
 	OB2s0.reset();
@@ -35,7 +36,7 @@ static void resetAllSteps(){
 void OB2Task(void *pvParameters){
 	resetAllSteps();
 	while(1){
-		OB2s4MeTimer = OB2s4.started();
+		OB2s4MeTimer = OB2s4.active();
 		if(OB2s4.finishedImpulse()){
 			pushSeqInQueue(&OB2s5);
 		}
@@ -51,26 +52,26 @@ void OB2Task(void *pvParameters){
 				OB2s1.start(true);
 				C2 = false;
 				O2 = false;
-				D2 = OB2s1.started();
+				D2 = OB2s1.active();
 				M2 = false;
 				Me2 = false;
 				break;
 			case 2:
 				OB2s2.start(true);
-				C2 = OB2s2.started();
+				C2 = OB2s2.active();
 				O2 = false;
-				D2 = OB2s2.started();
+				D2 = OB2s2.active();
 				M2 = false;
 				Me2 = false;
 				break;
 			case 3:
 				OB2s3.start(true);
 				OB2s3.finish(B2.isActive());
-				C2 = OB2s3.started();
+				C2 = OB2s3.active();
 				O2 = false;
 				D2 = false;
-				M2 = OB2s3.started();
-				Me2 = OB2s3.started();
+				M2 = OB2s3.active();
+				Me2 = OB2s3.active();
 				break;
 			case 4:
 				OB2s4.start(true);
@@ -81,10 +82,10 @@ void OB2Task(void *pvParameters){
 				Me2 = OB2s4MeTimer.get();
 				break;
 			case 5:
-				OB2s5.lock(S4.isActive());
+				OB2s5.lock(CHBs2.locked());
 				OB2s5.finish(H2.isNotActive());
 				C2 = false;
-				O2 = OB2s5.started();
+				O2 = OB2s5.active();
 				D2 = false;
 				M2 = false;
 				Me2 = false;

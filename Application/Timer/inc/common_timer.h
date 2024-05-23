@@ -23,7 +23,9 @@ class CommonTimer {
 		void prepareAndStart();
 		void finish();
 		void setStart(bool value);
+		void setPause(bool value);
 		CommonTimer& operator=(bool value);
+		CommonTimer& operator+=(bool value);
 		virtual bool started();
 	  bool notStarted();
 		bool finished();

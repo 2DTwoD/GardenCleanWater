@@ -9,7 +9,7 @@ extern SimpleInputDelayed S4;
 extern SimpleInputDelayed S5;
 extern SimpleInputDelayed S6;
 extern Coil D4;
-extern Coil M6;
+extern CoilOffDelay M6;
 extern Coil M7;
 
 void CHBTask(void *pvParameters){
@@ -28,14 +28,14 @@ void CHBTask(void *pvParameters){
 				break;
 			case 1:
 				CHBs1.start(true);
-				D4 = CHBs1.started();
+				D4 = CHBs1.active();
 				M7 = false;
 				break;
 			case 2:
 				CHBs2.start(true);
 				CHBs2.lock(S4.isActive());
 				D4 = false;
-				M7 = CHBs2.started();
+				M7 = CHBs2.active();
 				break;
 		}
 		M6 = S6.isActive();

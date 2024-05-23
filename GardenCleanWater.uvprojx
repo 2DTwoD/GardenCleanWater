@@ -494,6 +494,11 @@
               <FileType>5</FileType>
               <FilePath>.\Tasks\inc\common_for_tasks.h</FilePath>
             </File>
+            <File>
+              <FileName>ob.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Tasks\src\ob.cpp</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -538,6 +543,16 @@
               <FileName>coil.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Application\Discrete\inc\coil.h</FilePath>
+            </File>
+            <File>
+              <FileName>coil_with_timer.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Application\Discrete\src\coil_with_timer.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>coil_with_timer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Application\Discrete\inc\coil_with_timer.h</FilePath>
             </File>
             <File>
               <FileName>gpio_common.cpp</FileName>

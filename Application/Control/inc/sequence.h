@@ -8,7 +8,7 @@ class Sequence: private RFimpulse{
 		bool strt;
 		bool lck;
 		bool fin;
-		uint8_t seq_step;
+		const uint8_t seq_step;
 		uint8_t *cur_step_pointer;
 		bool isMyStep();
 	public:
@@ -18,6 +18,7 @@ class Sequence: private RFimpulse{
 		void lock(bool value);
 		void finish(bool value);
 		void slfSet(bool strt, bool lck, bool fin);
+		bool active();
 		bool started();
 		bool locked();
 		bool finished();
@@ -31,6 +32,7 @@ class SequenceDelayed: private CommonTimer, public Sequence, public IUpdated1ms{
 		using Sequence::reset;
 		using Sequence::start;
 		using Sequence::finish;
+		using Sequence::active;
 		using Sequence::started;
 		using Sequence::locked;
 		using Sequence::finished;

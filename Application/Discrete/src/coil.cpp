@@ -43,39 +43,3 @@ Coil& Coil::operator=(bool value){
 	setValue(value);
 	return *this;
 }
-
-//CoilDelayed
-CoilDelayed::CoilDelayed(GPIO_TypeDef *gpio, uint8_t pin, uint16_t delay): Coil(gpio, pin), CommonTimer(delay) {
-}
-void CoilDelayed::update1ms() {
-	CommonTimer::update();
-	Coil::setValue(CommonTimer::finished());
-}
-bool CoilDelayed::isActive(){
-	return Coil::isActive();
-}
-void CoilDelayed::setValue(bool value){
-	CommonTimer::setStart(value);
-}
-CoilDelayed& CoilDelayed::operator=(bool value){
-	setValue(value);
-	return *this;
-}
-
-//CoilPulse
-CoilPulse::CoilPulse(GPIO_TypeDef *gpio, uint8_t pin, uint16_t delay): Coil(gpio, pin), CommonTimer(delay) {
-}
-void CoilPulse::update1ms() {
-	CommonTimer::update();
-	Coil::setValue(CommonTimer::inWork());
-}
-bool CoilPulse::isActive(){
-	return Coil::isActive();
-}
-void CoilPulse::setValue(bool value){
-	CommonTimer::setStart(value);
-}
-CoilPulse& CoilPulse::operator=(bool value){
-	setValue(value);
-	return *this;
-}

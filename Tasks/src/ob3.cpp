@@ -6,8 +6,10 @@ extern SequenceDelayed OB3s1;
 extern SequenceDelayed OB3s2;
 extern Sequence OB3s3;
 extern SequenceDelayed OB3s4;
-extern Pulse OB3s4MeTimer;
+extern PulseInterrapt OB3s4MeTimer;
 extern Sequence OB3s5;
+
+extern Sequence CHBs2;
 
 extern SimpleInputDelayed B3;
 extern SimpleInputDelayed H3;
@@ -16,7 +18,6 @@ extern Coil O3;
 extern Coil D3;
 extern CoilPulse M3;
 extern Coil Me3;
-extern SimpleInputDelayed S4;
 
 static void resetAllSteps(){
 	OB3s0.reset();
@@ -35,7 +36,7 @@ static void resetAllSteps(){
 void OB3Task(void *pvParameters){
 	resetAllSteps();
 	while(1){
-		OB3s4MeTimer = OB3s4.started();
+		OB3s4MeTimer = OB3s4.active();
 		if(OB3s4.finishedImpulse()){
 			pushSeqInQueue(&OB3s5);
 		}
@@ -81,7 +82,7 @@ void OB3Task(void *pvParameters){
 				Me3 = OB3s4MeTimer.get();
 				break;
 			case 5:
-				OB3s5.lock(S4.isActive());
+				OB3s5.lock(CHBs2.locked());
 				OB3s5.finish(H3.isNotActive());
 				C3 = false;
 				O3 = OB3s5.started();

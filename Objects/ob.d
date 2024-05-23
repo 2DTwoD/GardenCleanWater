@@ -1,4 +1,4 @@
-./objects/chb.o: Tasks\src\chb.cpp Tasks\inc\all_tasks.h \
+./objects/ob.o: Tasks\src\ob.cpp Tasks\inc\all_tasks.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\stdint.h \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\libcxx\__config \
   C:\Keil_v5\ARM\ARMCLANG\Bin\..\include\stdint.h \

@@ -53,8 +53,19 @@ void CommonTimer::setStart(bool value){
 		stop();
 	}
 }
+void CommonTimer::setPause(bool value){
+	if(value){
+		start();
+	} else {
+		pause();
+	}
+}
 CommonTimer& CommonTimer::operator=(bool value){
 	setStart(value);
+	return *this;
+}
+CommonTimer& CommonTimer::operator+=(bool value){
+	setPause(value);
 	return *this;
 }
 bool CommonTimer::started(){
