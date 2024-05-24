@@ -460,31 +460,6 @@
           <GroupName>Tasks</GroupName>
           <Files>
             <File>
-              <FileName>ob1.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\Tasks\src\ob1.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>ob2.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\Tasks\src\ob2.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>ob3.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\Tasks\src\ob3.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>chb.cpp</FileName>
-              <FileType>8</FileType>
-              <FilePath>.\Tasks\src\chb.cpp</FilePath>
-            </File>
-            <File>
-              <FileName>all_tasks.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Tasks\inc\all_tasks.h</FilePath>
-            </File>
-            <File>
               <FileName>common_for_tasks.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\Tasks\src\common_for_tasks.cpp</FilePath>
@@ -498,6 +473,21 @@
               <FileName>ob.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>.\Tasks\src\ob.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>chb.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Tasks\src\chb.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>diag.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>.\Tasks\src\diag.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>all_tasks.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Tasks\inc\all_tasks.h</FilePath>
             </File>
           </Files>
         </Group>

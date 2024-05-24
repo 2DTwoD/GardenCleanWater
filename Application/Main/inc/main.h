@@ -1,19 +1,19 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-#include "stm32f10x.h"
 #include "FreeRTOS.h"
 #include "task.h"
 
 #include "init.h"
 #include "global_vars.h"
 #include "all_tasks.h"
-#include "common_for_tasks.h"
 
 extern uint8_t updateObjectsSize;
+//uint32_t idleCount;
 
 extern "C"{
 	void vApplicationIdleHook ( void ){
+		//idleCount++;
 	}
 	void vApplicationTickHook ( void ){
 	}

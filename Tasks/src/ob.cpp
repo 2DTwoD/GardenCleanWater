@@ -1,8 +1,8 @@
 #include "all_tasks.h"
 
 extern Sequence CHBs2;
-
-static void resetAllSteps(TaskKit* taskKit){
+	
+void resetAllSteps(TaskKit* taskKit){
 	taskKit->OBs0->reset();
 	taskKit->OBs1->reset();
 	taskKit->OBs2->reset();
@@ -76,8 +76,12 @@ void OBTask(void *pvParameters){
 				break;
 			default:
 				*obKit->OBstep = 0;
+				taskENTER_CRITICAL();
+				if(getSeqFromQueue() == obKit->OBs5){
+					resetCHBsteps();
+				}
+				taskEXIT_CRITICAL();
 				deleteSeqFromQueue(obKit->OBs5);
-				resetCHBsteps();
 				resetAllSteps(obKit);
 		}
 		vTaskDelay(1);

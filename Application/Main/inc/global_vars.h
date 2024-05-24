@@ -8,6 +8,7 @@
 #include "common_timer.h"
 #include "on_delay.h"
 #include "pulse.h"
+#include "common_for_tasks.h"
 
 //Входа/выхода
 SimpleInputDelayed B1(GPIOA, 0, 500);
@@ -37,6 +38,8 @@ Coil M7(GPIOB, 12);
 Coil Me1(GPIOB, 13);
 Coil Me2(GPIOB, 14);
 Coil Me3(GPIOB, 15);
+//Светодиод на blue pill
+Coil led(GPIOC, 13);
 
 //Последовательности
 //Бак отстойника1:
@@ -74,6 +77,59 @@ uint8_t CHBstep;
 Sequence CHBs0(&CHBstep, 0);
 SequenceDelayed CHBs1(&CHBstep, 1, 15000);//15 секунд
 Sequence CHBs2(&CHBstep, 2);
+
+//Наборы входов/выходов для бочек отстойника
+TaskKit ob1Kit{
+	&OB1step,
+	&OB1s0,
+	&OB1s1,
+	&OB1s2,
+	&OB1s3,
+	&OB1s4,
+	&OB1s4MeTimer,
+	&OB1s5,
+	&B1,
+	&H1,
+	&C1,
+	&O1,
+	&D1,
+	&M1,
+	&Me1,
+};
+TaskKit ob2Kit{
+	&OB2step,
+	&OB2s0,
+	&OB2s1,
+	&OB2s2,
+	&OB2s3,
+	&OB2s4,
+	&OB2s4MeTimer,
+	&OB2s5,
+	&B2,
+	&H2,
+	&C2,
+	&O2,
+	&D2,
+	&M2,
+	&Me2
+};
+TaskKit ob3Kit{
+	&OB3step,
+	&OB3s0,
+	&OB3s1,
+	&OB3s2,
+	&OB3s3,
+	&OB3s4,
+	&OB3s4MeTimer,
+	&OB3s5,
+	&B3,
+	&H3,
+	&C3,
+	&O3,
+	&D3,
+	&M3,
+	&Me3
+};
 
 //Очередь
 Sequence *queue[] = {nullptr, nullptr, nullptr};
