@@ -13,6 +13,7 @@ class ProgrammCoil: public ISwitch{
 	public:
 		virtual bool isActive() override;
 		virtual void setValue(bool value);
+		bool isNotActive();
 		void set();
 		void reset();
 		void toggle();
