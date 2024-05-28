@@ -1150,7 +1150,7 @@ Section Cross References
     coil.o(.text._ZN4CoilC2EP12GPIO_TypeDefh) refers to coil.o(.text._Z17setBitsInRegisterIVjEvPT_jj) for void setBitsInRegister<unsigned int volatile>(unsigned int volatile*, unsigned int, unsigned int)
     coil.o(.ARM.exidx.text._ZN4CoilC2EP12GPIO_TypeDefh) refers to coil.o(.text._ZN4CoilC2EP12GPIO_TypeDefh) for [Anonymous Symbol]
     coil.o(.ARM.exidx.text._ZN4Coil8isActiveEv) refers to coil.o(.text._ZN4Coil8isActiveEv) for [Anonymous Symbol]
-    coil.o(.text._ZN4Coil8setValueEb) refers to coil.o(.text._ZN12ProgrammCoil11isNotActiveEv) for ProgrammCoil::isNotActive()
+    coil.o(.text._ZN4Coil8setValueEb) refers to coil.o(.text._ZN12ProgrammCoil8setValueEb) for ProgrammCoil::setValue(bool)
     coil.o(.ARM.exidx.text._ZN4Coil8setValueEb) refers to coil.o(.text._ZN4Coil8setValueEb) for [Anonymous Symbol]
     coil.o(.ARM.exidx.text._ZN4CoilaSEb) refers to coil.o(.text._ZN4CoilaSEb) for [Anonymous Symbol]
     coil.o(.rodata._ZTV4Coil) refers to coil.o(.text._ZN4Coil8isActiveEv) for Coil::isActive()
@@ -2017,6 +2017,7 @@ Removing Unused input sections from the image.
     Removing coil.o(.text), (0 bytes).
     Removing coil.o(.ARM.exidx.text._ZN12ProgrammCoil8isActiveEv), (8 bytes).
     Removing coil.o(.ARM.exidx.text._ZN12ProgrammCoil8setValueEb), (8 bytes).
+    Removing coil.o(.text._ZN12ProgrammCoil11isNotActiveEv), (22 bytes).
     Removing coil.o(.ARM.exidx.text._ZN12ProgrammCoil11isNotActiveEv), (8 bytes).
     Removing coil.o(.text._ZN12ProgrammCoil3setEv), (20 bytes).
     Removing coil.o(.ARM.exidx.text._ZN12ProgrammCoil3setEv), (8 bytes).
@@ -2211,7 +2212,7 @@ Removing Unused input sections from the image.
     Removing coil_with_timer.o(.ARM.exidx.text._ZN11IUpdated1msC2Ev), (8 bytes).
     Removing on_delay.o(.rodata._ZTV13OnDelayCommon), (12 bytes).
 
-589 unused section(s) (total 18608 bytes) removed from the image.
+590 unused section(s) (total 18630 bytes) removed from the image.
 
 ==============================================================================
 
@@ -2447,258 +2448,257 @@ Image Symbol Table
     [Anonymous Symbol]                       0x080016f4   Section        0  coil_with_timer.o(.text._ZN12CoilOffDelay9update1msEv)
     [Anonymous Symbol]                       0x0800171c   Section        0  coil_with_timer.o(.text._ZN12CoilOffDelayC2EP12GPIO_TypeDefht)
     [Anonymous Symbol]                       0x0800176c   Section        0  coil_with_timer.o(.text._ZN12CoilOffDelayaSEb)
-    [Anonymous Symbol]                       0x08001790   Section        0  coil.o(.text._ZN12ProgrammCoil11isNotActiveEv)
-    [Anonymous Symbol]                       0x080017a8   Section        0  coil.o(.text._ZN12ProgrammCoil8isActiveEv)
-    [Anonymous Symbol]                       0x080017b8   Section        0  coil.o(.text._ZN12ProgrammCoil8setValueEb)
-    [Anonymous Symbol]                       0x080017d0   Section        0  coil.o(.text._ZN12ProgrammCoilC2Ev)
-    [Anonymous Symbol]                       0x080017f0   Section        0  off_delay.o(.text._ZN14OffDelayCommon3getEv)
-    [Anonymous Symbol]                       0x0800181c   Section        0  off_delay.o(.text._ZN14OffDelayCommon3setEb)
-    [Anonymous Symbol]                       0x08001860   Section        0  off_delay.o(.text._ZN14OffDelayCommon6updateEv)
-    [Anonymous Symbol]                       0x08001884   Section        0  off_delay.o(.text._ZN14OffDelayCommonC2Ej)
-    [Anonymous Symbol]                       0x080018a8   Section        0  pulse.o(.text._ZN14PulseInterrapt3setEb)
-    [Anonymous Symbol]                       0x080018d8   Section        0  pulse.o(.text._ZN14PulseInterrapt9update1msEv)
-    [Anonymous Symbol]                       0x080018e8   Section        0  pulse.o(.text._ZN14PulseInterraptC2Ej)
-    [Anonymous Symbol]                       0x0800191c   Section        0  pulse.o(.text._ZN14PulseInterraptaSEb)
-    [Anonymous Symbol]                       0x0800193c   Section        0  sequence.o(.text._ZN15SequenceDelayed9update1msEv)
-    [Anonymous Symbol]                       0x08001980   Section        0  sequence.o(.text._ZN15SequenceDelayedC2EPhhj)
-    [Anonymous Symbol]                       0x080019c8   Section        0  simple_input.o(.text._ZN18SimpleInputDelayed8isActiveEv)
-    [Anonymous Symbol]                       0x080019d8   Section        0  simple_input.o(.text._ZN18SimpleInputDelayed9update1msEv)
-    [Anonymous Symbol]                       0x080019fc   Section        0  simple_input.o(.text._ZN18SimpleInputDelayedC2EP12GPIO_TypeDefht)
-    [Anonymous Symbol]                       0x08001a4c   Section        0  coil.o(.text._ZN4Coil8isActiveEv)
-    [Anonymous Symbol]                       0x08001a64   Section        0  coil.o(.text._ZN4Coil8setValueEb)
-    [Anonymous Symbol]                       0x08001ac0   Section        0  coil.o(.text._ZN4CoilC2EP12GPIO_TypeDefh)
-    [Anonymous Symbol]                       0x08001b38   Section        0  coil.o(.text._ZN4CoilaSEb)
-    [Anonymous Symbol]                       0x08001b5c   Section        0  coil.o(.text._ZN7ISwitchC2Ev)
-    [Anonymous Symbol]                       0x08001b74   Section        0  sequence.o(.text._ZN8Sequence15finishedImpulseEv)
-    [Anonymous Symbol]                       0x08001b84   Section        0  sequence.o(.text._ZN8Sequence4lockEb)
-    [Anonymous Symbol]                       0x08001b9c   Section        0  sequence.o(.text._ZN8Sequence5resetEv)
-    [Anonymous Symbol]                       0x08001bb4   Section        0  sequence.o(.text._ZN8Sequence5startEb)
-    [Anonymous Symbol]                       0x08001be0   Section        0  sequence.o(.text._ZN8Sequence6activeEv)
-    [Anonymous Symbol]                       0x08001c20   Section        0  sequence.o(.text._ZN8Sequence6finishEb)
-    [Anonymous Symbol]                       0x08001c64   Section        0  sequence.o(.text._ZN8Sequence6lockedEv)
-    [Anonymous Symbol]                       0x08001c74   Section        0  sequence.o(.text._ZN8Sequence7startedEv)
-    [Anonymous Symbol]                       0x08001c84   Section        0  sequence.o(.text._ZN8Sequence8finishedEv)
-    [Anonymous Symbol]                       0x08001c94   Section        0  sequence.o(.text._ZN8Sequence8isMyStepEv)
-    [Anonymous Symbol]                       0x08001cac   Section        0  sequence.o(.text._ZN8SequenceC2EPhh)
-    [Anonymous Symbol]                       0x08001cd4   Section        0  coil_with_timer.o(.text._ZN9CoilPulse8setValueEb)
-    [Anonymous Symbol]                       0x08001cf0   Section        0  coil_with_timer.o(.text._ZN9CoilPulse9update1msEv)
-    [Anonymous Symbol]                       0x08001d18   Section        0  coil_with_timer.o(.text._ZN9CoilPulseC2EP12GPIO_TypeDefht)
-    [Anonymous Symbol]                       0x08001d68   Section        0  coil_with_timer.o(.text._ZN9CoilPulseaSEb)
-    [Anonymous Symbol]                       0x08001d8c   Section        0  rf_impulse.o(.text._ZN9RFimpulse3getEv)
-    [Anonymous Symbol]                       0x08001dac   Section        0  rf_impulse.o(.text._ZN9RFimpulse3setEb)
-    [Anonymous Symbol]                       0x08001e38   Section        0  rf_impulse.o(.text._ZN9RFimpulseC2E7IMPULSE)
-    [Anonymous Symbol]                       0x08001e4c   Section        0  coil_with_timer.o(.text._ZThn16_N12CoilOffDelay8setValueEb)
-    [Anonymous Symbol]                       0x08001e68   Section        0  pulse.o(.text._ZThn16_N14PulseInterrapt9update1msEv)
-    [Anonymous Symbol]                       0x08001e78   Section        0  simple_input.o(.text._ZThn16_N18SimpleInputDelayed8isActiveEv)
-    [Anonymous Symbol]                       0x08001e88   Section        0  coil_with_timer.o(.text._ZThn16_N9CoilPulse8setValueEb)
-    [Anonymous Symbol]                       0x08001ea4   Section        0  sequence.o(.text._ZThn28_N15SequenceDelayed9update1msEv)
-    [Anonymous Symbol]                       0x08001eb4   Section        0  coil_with_timer.o(.text._ZThn32_N12CoilOffDelay9update1msEv)
-    [Anonymous Symbol]                       0x08001ec4   Section        0  simple_input.o(.text._ZThn32_N18SimpleInputDelayed9update1msEv)
-    [Anonymous Symbol]                       0x08001ed4   Section        0  coil_with_timer.o(.text._ZThn32_N9CoilPulse9update1msEv)
-    [Anonymous Symbol]                       0x08001ee4   Section        0  cxa_virtual.cpp.o(.text.__cxa_pure_virtual)
-    __cxx_global_var_init                    0x08001f0d   Thumb Code    30  main.o(.text.__cxx_global_var_init)
-    [Anonymous Symbol]                       0x08001f0c   Section        0  main.o(.text.__cxx_global_var_init)
-    __cxx_global_var_init.1                  0x08001f2d   Thumb Code    30  main.o(.text.__cxx_global_var_init.1)
-    [Anonymous Symbol]                       0x08001f2c   Section        0  main.o(.text.__cxx_global_var_init.1)
-    __cxx_global_var_init.10                 0x08001f4d   Thumb Code    26  main.o(.text.__cxx_global_var_init.10)
-    [Anonymous Symbol]                       0x08001f4c   Section        0  main.o(.text.__cxx_global_var_init.10)
-    __cxx_global_var_init.11                 0x08001f69   Thumb Code    26  main.o(.text.__cxx_global_var_init.11)
-    [Anonymous Symbol]                       0x08001f68   Section        0  main.o(.text.__cxx_global_var_init.11)
-    __cxx_global_var_init.12                 0x08001f85   Thumb Code    30  main.o(.text.__cxx_global_var_init.12)
-    [Anonymous Symbol]                       0x08001f84   Section        0  main.o(.text.__cxx_global_var_init.12)
-    __cxx_global_var_init.13                 0x08001fa5   Thumb Code    26  main.o(.text.__cxx_global_var_init.13)
-    [Anonymous Symbol]                       0x08001fa4   Section        0  main.o(.text.__cxx_global_var_init.13)
-    __cxx_global_var_init.14                 0x08001fc1   Thumb Code    26  main.o(.text.__cxx_global_var_init.14)
-    [Anonymous Symbol]                       0x08001fc0   Section        0  main.o(.text.__cxx_global_var_init.14)
-    __cxx_global_var_init.15                 0x08001fdd   Thumb Code    26  main.o(.text.__cxx_global_var_init.15)
-    [Anonymous Symbol]                       0x08001fdc   Section        0  main.o(.text.__cxx_global_var_init.15)
-    __cxx_global_var_init.16                 0x08001ff9   Thumb Code    30  main.o(.text.__cxx_global_var_init.16)
-    [Anonymous Symbol]                       0x08001ff8   Section        0  main.o(.text.__cxx_global_var_init.16)
-    __cxx_global_var_init.17                 0x08002019   Thumb Code    26  main.o(.text.__cxx_global_var_init.17)
-    [Anonymous Symbol]                       0x08002018   Section        0  main.o(.text.__cxx_global_var_init.17)
-    __cxx_global_var_init.18                 0x08002035   Thumb Code    26  main.o(.text.__cxx_global_var_init.18)
-    [Anonymous Symbol]                       0x08002034   Section        0  main.o(.text.__cxx_global_var_init.18)
-    __cxx_global_var_init.19                 0x08002051   Thumb Code    26  main.o(.text.__cxx_global_var_init.19)
-    [Anonymous Symbol]                       0x08002050   Section        0  main.o(.text.__cxx_global_var_init.19)
-    __cxx_global_var_init.2                  0x0800206d   Thumb Code    30  main.o(.text.__cxx_global_var_init.2)
-    [Anonymous Symbol]                       0x0800206c   Section        0  main.o(.text.__cxx_global_var_init.2)
-    __cxx_global_var_init.20                 0x0800208d   Thumb Code    30  main.o(.text.__cxx_global_var_init.20)
-    [Anonymous Symbol]                       0x0800208c   Section        0  main.o(.text.__cxx_global_var_init.20)
-    __cxx_global_var_init.21                 0x080020ad   Thumb Code    26  main.o(.text.__cxx_global_var_init.21)
-    [Anonymous Symbol]                       0x080020ac   Section        0  main.o(.text.__cxx_global_var_init.21)
-    __cxx_global_var_init.22                 0x080020c9   Thumb Code    30  main.o(.text.__cxx_global_var_init.22)
-    [Anonymous Symbol]                       0x080020c8   Section        0  main.o(.text.__cxx_global_var_init.22)
-    __cxx_global_var_init.23                 0x080020e9   Thumb Code    26  main.o(.text.__cxx_global_var_init.23)
-    [Anonymous Symbol]                       0x080020e8   Section        0  main.o(.text.__cxx_global_var_init.23)
-    __cxx_global_var_init.24                 0x08002105   Thumb Code    26  main.o(.text.__cxx_global_var_init.24)
-    [Anonymous Symbol]                       0x08002104   Section        0  main.o(.text.__cxx_global_var_init.24)
-    __cxx_global_var_init.25                 0x08002121   Thumb Code    26  main.o(.text.__cxx_global_var_init.25)
-    [Anonymous Symbol]                       0x08002120   Section        0  main.o(.text.__cxx_global_var_init.25)
-    __cxx_global_var_init.26                 0x0800213d   Thumb Code    26  main.o(.text.__cxx_global_var_init.26)
-    [Anonymous Symbol]                       0x0800213c   Section        0  main.o(.text.__cxx_global_var_init.26)
-    __cxx_global_var_init.27                 0x08002159   Thumb Code    26  main.o(.text.__cxx_global_var_init.27)
-    [Anonymous Symbol]                       0x08002158   Section        0  main.o(.text.__cxx_global_var_init.27)
-    __cxx_global_var_init.28                 0x08002175   Thumb Code    26  main.o(.text.__cxx_global_var_init.28)
-    [Anonymous Symbol]                       0x08002174   Section        0  main.o(.text.__cxx_global_var_init.28)
-    __cxx_global_var_init.29                 0x08002191   Thumb Code    34  main.o(.text.__cxx_global_var_init.29)
-    [Anonymous Symbol]                       0x08002190   Section        0  main.o(.text.__cxx_global_var_init.29)
-    __cxx_global_var_init.3                  0x080021b5   Thumb Code    30  main.o(.text.__cxx_global_var_init.3)
-    [Anonymous Symbol]                       0x080021b4   Section        0  main.o(.text.__cxx_global_var_init.3)
-    __cxx_global_var_init.30                 0x080021d5   Thumb Code    30  main.o(.text.__cxx_global_var_init.30)
-    [Anonymous Symbol]                       0x080021d4   Section        0  main.o(.text.__cxx_global_var_init.30)
-    __cxx_global_var_init.31                 0x080021f5   Thumb Code    26  main.o(.text.__cxx_global_var_init.31)
-    [Anonymous Symbol]                       0x080021f4   Section        0  main.o(.text.__cxx_global_var_init.31)
-    __cxx_global_var_init.32                 0x08002211   Thumb Code    34  main.o(.text.__cxx_global_var_init.32)
-    [Anonymous Symbol]                       0x08002210   Section        0  main.o(.text.__cxx_global_var_init.32)
-    __cxx_global_var_init.33                 0x08002235   Thumb Code    24  main.o(.text.__cxx_global_var_init.33)
-    [Anonymous Symbol]                       0x08002234   Section        0  main.o(.text.__cxx_global_var_init.33)
-    __cxx_global_var_init.34                 0x0800224d   Thumb Code    26  main.o(.text.__cxx_global_var_init.34)
-    [Anonymous Symbol]                       0x0800224c   Section        0  main.o(.text.__cxx_global_var_init.34)
-    __cxx_global_var_init.35                 0x08002269   Thumb Code    26  main.o(.text.__cxx_global_var_init.35)
-    [Anonymous Symbol]                       0x08002268   Section        0  main.o(.text.__cxx_global_var_init.35)
-    __cxx_global_var_init.36                 0x08002285   Thumb Code    34  main.o(.text.__cxx_global_var_init.36)
-    [Anonymous Symbol]                       0x08002284   Section        0  main.o(.text.__cxx_global_var_init.36)
-    __cxx_global_var_init.37                 0x080022a9   Thumb Code    30  main.o(.text.__cxx_global_var_init.37)
-    [Anonymous Symbol]                       0x080022a8   Section        0  main.o(.text.__cxx_global_var_init.37)
-    __cxx_global_var_init.38                 0x080022c9   Thumb Code    26  main.o(.text.__cxx_global_var_init.38)
-    [Anonymous Symbol]                       0x080022c8   Section        0  main.o(.text.__cxx_global_var_init.38)
-    __cxx_global_var_init.39                 0x080022e5   Thumb Code    34  main.o(.text.__cxx_global_var_init.39)
-    [Anonymous Symbol]                       0x080022e4   Section        0  main.o(.text.__cxx_global_var_init.39)
-    __cxx_global_var_init.4                  0x08002309   Thumb Code    30  main.o(.text.__cxx_global_var_init.4)
-    [Anonymous Symbol]                       0x08002308   Section        0  main.o(.text.__cxx_global_var_init.4)
-    __cxx_global_var_init.40                 0x08002329   Thumb Code    24  main.o(.text.__cxx_global_var_init.40)
-    [Anonymous Symbol]                       0x08002328   Section        0  main.o(.text.__cxx_global_var_init.40)
-    __cxx_global_var_init.41                 0x08002341   Thumb Code    26  main.o(.text.__cxx_global_var_init.41)
-    [Anonymous Symbol]                       0x08002340   Section        0  main.o(.text.__cxx_global_var_init.41)
-    __cxx_global_var_init.42                 0x0800235d   Thumb Code    26  main.o(.text.__cxx_global_var_init.42)
-    [Anonymous Symbol]                       0x0800235c   Section        0  main.o(.text.__cxx_global_var_init.42)
-    __cxx_global_var_init.43                 0x08002379   Thumb Code    34  main.o(.text.__cxx_global_var_init.43)
-    [Anonymous Symbol]                       0x08002378   Section        0  main.o(.text.__cxx_global_var_init.43)
-    __cxx_global_var_init.44                 0x0800239d   Thumb Code    30  main.o(.text.__cxx_global_var_init.44)
-    [Anonymous Symbol]                       0x0800239c   Section        0  main.o(.text.__cxx_global_var_init.44)
-    __cxx_global_var_init.45                 0x080023bd   Thumb Code    26  main.o(.text.__cxx_global_var_init.45)
-    [Anonymous Symbol]                       0x080023bc   Section        0  main.o(.text.__cxx_global_var_init.45)
-    __cxx_global_var_init.46                 0x080023d9   Thumb Code    34  main.o(.text.__cxx_global_var_init.46)
-    [Anonymous Symbol]                       0x080023d8   Section        0  main.o(.text.__cxx_global_var_init.46)
-    __cxx_global_var_init.47                 0x080023fd   Thumb Code    24  main.o(.text.__cxx_global_var_init.47)
-    [Anonymous Symbol]                       0x080023fc   Section        0  main.o(.text.__cxx_global_var_init.47)
-    __cxx_global_var_init.48                 0x08002415   Thumb Code    26  main.o(.text.__cxx_global_var_init.48)
-    [Anonymous Symbol]                       0x08002414   Section        0  main.o(.text.__cxx_global_var_init.48)
-    __cxx_global_var_init.49                 0x08002431   Thumb Code    26  main.o(.text.__cxx_global_var_init.49)
-    [Anonymous Symbol]                       0x08002430   Section        0  main.o(.text.__cxx_global_var_init.49)
-    __cxx_global_var_init.5                  0x0800244d   Thumb Code    30  main.o(.text.__cxx_global_var_init.5)
-    [Anonymous Symbol]                       0x0800244c   Section        0  main.o(.text.__cxx_global_var_init.5)
-    __cxx_global_var_init.50                 0x0800246d   Thumb Code    30  main.o(.text.__cxx_global_var_init.50)
-    [Anonymous Symbol]                       0x0800246c   Section        0  main.o(.text.__cxx_global_var_init.50)
-    __cxx_global_var_init.51                 0x0800248d   Thumb Code    26  main.o(.text.__cxx_global_var_init.51)
-    [Anonymous Symbol]                       0x0800248c   Section        0  main.o(.text.__cxx_global_var_init.51)
-    __cxx_global_var_init.6                  0x080024a9   Thumb Code    30  main.o(.text.__cxx_global_var_init.6)
-    [Anonymous Symbol]                       0x080024a8   Section        0  main.o(.text.__cxx_global_var_init.6)
-    __cxx_global_var_init.7                  0x080024c9   Thumb Code    30  main.o(.text.__cxx_global_var_init.7)
-    [Anonymous Symbol]                       0x080024c8   Section        0  main.o(.text.__cxx_global_var_init.7)
-    __cxx_global_var_init.8                  0x080024e9   Thumb Code    30  main.o(.text.__cxx_global_var_init.8)
-    [Anonymous Symbol]                       0x080024e8   Section        0  main.o(.text.__cxx_global_var_init.8)
-    __cxx_global_var_init.9                  0x08002509   Thumb Code    26  main.o(.text.__cxx_global_var_init.9)
-    [Anonymous Symbol]                       0x08002508   Section        0  main.o(.text.__cxx_global_var_init.9)
-    [Anonymous Symbol]                       0x08002522   Section        0  abort_message.cpp.o(.text.abort_message)
-    [Anonymous Symbol]                       0x08002528   Section        0  main.o(.text.main)
-    prvAddCurrentTaskToDelayedList           0x08002645   Thumb Code   282  tasks.o(.text.prvAddCurrentTaskToDelayedList)
-    [Anonymous Symbol]                       0x08002644   Section        0  tasks.o(.text.prvAddCurrentTaskToDelayedList)
-    prvAddNewTaskToReadyList                 0x08002761   Thumb Code   340  tasks.o(.text.prvAddNewTaskToReadyList)
-    [Anonymous Symbol]                       0x08002760   Section        0  tasks.o(.text.prvAddNewTaskToReadyList)
-    prvCheckForValidListAndQueue             0x080028b5   Thumb Code   106  timers.o(.text.prvCheckForValidListAndQueue)
-    [Anonymous Symbol]                       0x080028b4   Section        0  timers.o(.text.prvCheckForValidListAndQueue)
-    prvCheckTasksWaitingTermination          0x08002921   Thumb Code    90  tasks.o(.text.prvCheckTasksWaitingTermination)
-    [Anonymous Symbol]                       0x08002920   Section        0  tasks.o(.text.prvCheckTasksWaitingTermination)
-    prvCopyDataFromQueue                     0x0800297d   Thumb Code    66  queue.o(.text.prvCopyDataFromQueue)
-    [Anonymous Symbol]                       0x0800297c   Section        0  queue.o(.text.prvCopyDataFromQueue)
-    prvDeleteTCB                             0x080029c1   Thumb Code    24  tasks.o(.text.prvDeleteTCB)
-    [Anonymous Symbol]                       0x080029c0   Section        0  tasks.o(.text.prvDeleteTCB)
-    prvGetNextExpireTime                     0x080029d9   Thumb Code    64  timers.o(.text.prvGetNextExpireTime)
-    [Anonymous Symbol]                       0x080029d8   Section        0  timers.o(.text.prvGetNextExpireTime)
-    prvHeapInit                              0x08002a19   Thumb Code   174  heap_4.o(.text.prvHeapInit)
-    [Anonymous Symbol]                       0x08002a18   Section        0  heap_4.o(.text.prvHeapInit)
-    prvIdleTask                              0x08002ac9   Thumb Code    60  tasks.o(.text.prvIdleTask)
-    [Anonymous Symbol]                       0x08002ac8   Section        0  tasks.o(.text.prvIdleTask)
-    prvInitialiseNewQueue                    0x08002b05   Thumb Code    72  queue.o(.text.prvInitialiseNewQueue)
-    [Anonymous Symbol]                       0x08002b04   Section        0  queue.o(.text.prvInitialiseNewQueue)
-    prvInitialiseNewTask                     0x08002b4d   Thumb Code   230  tasks.o(.text.prvInitialiseNewTask)
-    [Anonymous Symbol]                       0x08002b4c   Section        0  tasks.o(.text.prvInitialiseNewTask)
-    prvInitialiseTaskLists                   0x08002c35   Thumb Code   142  tasks.o(.text.prvInitialiseTaskLists)
-    [Anonymous Symbol]                       0x08002c34   Section        0  tasks.o(.text.prvInitialiseTaskLists)
-    prvInsertBlockIntoFreeList               0x08002cc5   Thumb Code   198  heap_4.o(.text.prvInsertBlockIntoFreeList)
-    [Anonymous Symbol]                       0x08002cc4   Section        0  heap_4.o(.text.prvInsertBlockIntoFreeList)
-    prvInsertTimerInActiveList               0x08002d8d   Thumb Code   134  timers.o(.text.prvInsertTimerInActiveList)
-    [Anonymous Symbol]                       0x08002d8c   Section        0  timers.o(.text.prvInsertTimerInActiveList)
-    prvIsQueueEmpty                          0x08002e15   Thumb Code    40  queue.o(.text.prvIsQueueEmpty)
-    [Anonymous Symbol]                       0x08002e14   Section        0  queue.o(.text.prvIsQueueEmpty)
-    prvPortStartFirstTask                    0x08002e3d   Thumb Code    32  port.o(.text.prvPortStartFirstTask)
-    [Anonymous Symbol]                       0x08002e3c   Section        0  port.o(.text.prvPortStartFirstTask)
-    prvProcessExpiredTimer                   0x08002e5d   Thumb Code    84  timers.o(.text.prvProcessExpiredTimer)
-    [Anonymous Symbol]                       0x08002e5c   Section        0  timers.o(.text.prvProcessExpiredTimer)
-    prvProcessReceivedCommands               0x08002eb1   Thumb Code   294  timers.o(.text.prvProcessReceivedCommands)
-    [Anonymous Symbol]                       0x08002eb0   Section        0  timers.o(.text.prvProcessReceivedCommands)
-    prvProcessTimerOrBlockTask               0x08002fd9   Thumb Code   154  timers.o(.text.prvProcessTimerOrBlockTask)
-    [Anonymous Symbol]                       0x08002fd8   Section        0  timers.o(.text.prvProcessTimerOrBlockTask)
-    prvReloadTimer                           0x08003075   Thumb Code    52  timers.o(.text.prvReloadTimer)
-    [Anonymous Symbol]                       0x08003074   Section        0  timers.o(.text.prvReloadTimer)
-    prvResetNextTaskUnblockTime              0x080030a9   Thumb Code    60  tasks.o(.text.prvResetNextTaskUnblockTime)
-    [Anonymous Symbol]                       0x080030a8   Section        0  tasks.o(.text.prvResetNextTaskUnblockTime)
-    prvSampleTimeNow                         0x080030e5   Thumb Code    68  timers.o(.text.prvSampleTimeNow)
-    [Anonymous Symbol]                       0x080030e4   Section        0  timers.o(.text.prvSampleTimeNow)
-    prvSwitchTimerLists                      0x08003129   Thumb Code    82  timers.o(.text.prvSwitchTimerLists)
-    [Anonymous Symbol]                       0x08003128   Section        0  timers.o(.text.prvSwitchTimerLists)
-    prvTaskExitError                         0x0800317d   Thumb Code    38  port.o(.text.prvTaskExitError)
-    [Anonymous Symbol]                       0x0800317c   Section        0  port.o(.text.prvTaskExitError)
-    prvTimerTask                             0x080031a5   Thumb Code    30  timers.o(.text.prvTimerTask)
-    [Anonymous Symbol]                       0x080031a4   Section        0  timers.o(.text.prvTimerTask)
-    prvUnlockQueue                           0x080031c5   Thumb Code   174  queue.o(.text.prvUnlockQueue)
-    [Anonymous Symbol]                       0x080031c4   Section        0  queue.o(.text.prvUnlockQueue)
-    [Anonymous Symbol]                       0x08003274   Section        0  heap_4.o(.text.pvPortMalloc)
-    [Anonymous Symbol]                       0x080033fc   Section        0  port.o(.text.pxPortInitialiseStack)
-    [Anonymous Symbol]                       0x0800344c   Section        0  list.o(.text.uxListRemove)
-    [Anonymous Symbol]                       0x08003494   Section        0  main.o(.text.vApplicationIdleHook)
-    [Anonymous Symbol]                       0x08003498   Section        0  main.o(.text.vApplicationStackOverflowHook)
-    [Anonymous Symbol]                       0x080034a4   Section        0  main.o(.text.vApplicationTickHook)
-    [Anonymous Symbol]                       0x080034a8   Section        0  list.o(.text.vListInitialise)
-    [Anonymous Symbol]                       0x080034d8   Section        0  list.o(.text.vListInitialiseItem)
-    [Anonymous Symbol]                       0x080034e8   Section        0  list.o(.text.vListInsert)
-    [Anonymous Symbol]                       0x08003554   Section        0  port.o(.text.vPortEnterCritical)
-    [Anonymous Symbol]                       0x08003584   Section        0  port.o(.text.vPortExitCritical)
-    [Anonymous Symbol]                       0x080035ac   Section        0  heap_4.o(.text.vPortFree)
-    [Anonymous Symbol]                       0x08003624   Section        0  port.o(.text.vPortSetupTimerInterrupt)
-    [Anonymous Symbol]                       0x08003654   Section        0  queue.o(.text.vQueueWaitForMessageRestricted)
-    [Anonymous Symbol]                       0x080036b8   Section        0  tasks.o(.text.vTaskDelay)
-    [Anonymous Symbol]                       0x08003704   Section        0  tasks.o(.text.vTaskInternalSetTimeOutState)
-    [Anonymous Symbol]                       0x08003728   Section        0  tasks.o(.text.vTaskMissedYield)
-    [Anonymous Symbol]                       0x08003738   Section        0  tasks.o(.text.vTaskPlaceOnEventList)
-    [Anonymous Symbol]                       0x08003760   Section        0  tasks.o(.text.vTaskPlaceOnEventListRestricted)
-    [Anonymous Symbol]                       0x080037c0   Section        0  tasks.o(.text.vTaskStartScheduler)
-    [Anonymous Symbol]                       0x08003854   Section        0  tasks.o(.text.vTaskSuspendAll)
-    __tagsym$$used.0                         0x08003864   Number         0  tasks.o(.text.vTaskSwitchContext)
-    [Anonymous Symbol]                       0x08003864   Section        0  tasks.o(.text.vTaskSwitchContext)
-    [Anonymous Symbol]                       0x08003950   Section        0  port.o(.text.xPortStartScheduler)
-    [Anonymous Symbol]                       0x08003990   Section        0  queue.o(.text.xQueueGenericCreate)
-    [Anonymous Symbol]                       0x08003a10   Section        0  queue.o(.text.xQueueGenericReset)
-    [Anonymous Symbol]                       0x08003ae0   Section        0  queue.o(.text.xQueueReceive)
-    [Anonymous Symbol]                       0x08003c34   Section        0  tasks.o(.text.xTaskCheckForTimeOut)
-    [Anonymous Symbol]                       0x08003cd0   Section        0  tasks.o(.text.xTaskCreate)
-    [Anonymous Symbol]                       0x08003d70   Section        0  tasks.o(.text.xTaskGetTickCount)
-    [Anonymous Symbol]                       0x08003d84   Section        0  tasks.o(.text.xTaskIncrementTick)
-    [Anonymous Symbol]                       0x08003fd8   Section        0  tasks.o(.text.xTaskRemoveFromEventList)
-    [Anonymous Symbol]                       0x08004148   Section        0  tasks.o(.text.xTaskResumeAll)
-    [Anonymous Symbol]                       0x08004348   Section        0  timers.o(.text.xTimerCreateTimerTask)
-    .L.str                                   0x080044d4   Data           8  main.o(.rodata.str1.1)
-    [Anonymous Symbol]                       0x080044d4   Section        0  main.o(.rodata.str1.1)
-    .L.str.52                                0x080044dc   Data           8  main.o(.rodata.str1.1)
-    .L.str.53                                0x080044e4   Data           8  main.o(.rodata.str1.1)
-    .L.str.54                                0x080044ec   Data           8  main.o(.rodata.str1.1)
-    .L.str.55                                0x080044f4   Data           9  main.o(.rodata.str1.1)
-    .L.str                                   0x080044fd   Data           5  tasks.o(.rodata.str1.1)
-    [Anonymous Symbol]                       0x080044fd   Section        0  tasks.o(.rodata.str1.1)
-    .L.str                                   0x08004502   Data           8  timers.o(.rodata.str1.1)
-    [Anonymous Symbol]                       0x08004502   Section        0  timers.o(.rodata.str1.1)
-    .init_array                              0x08004534   Section        0  init_aeabi.o(.init_array)
+    [Anonymous Symbol]                       0x08001790   Section        0  coil.o(.text._ZN12ProgrammCoil8isActiveEv)
+    [Anonymous Symbol]                       0x080017a0   Section        0  coil.o(.text._ZN12ProgrammCoil8setValueEb)
+    [Anonymous Symbol]                       0x080017b8   Section        0  coil.o(.text._ZN12ProgrammCoilC2Ev)
+    [Anonymous Symbol]                       0x080017d8   Section        0  off_delay.o(.text._ZN14OffDelayCommon3getEv)
+    [Anonymous Symbol]                       0x08001804   Section        0  off_delay.o(.text._ZN14OffDelayCommon3setEb)
+    [Anonymous Symbol]                       0x08001848   Section        0  off_delay.o(.text._ZN14OffDelayCommon6updateEv)
+    [Anonymous Symbol]                       0x0800186c   Section        0  off_delay.o(.text._ZN14OffDelayCommonC2Ej)
+    [Anonymous Symbol]                       0x08001890   Section        0  pulse.o(.text._ZN14PulseInterrapt3setEb)
+    [Anonymous Symbol]                       0x080018c0   Section        0  pulse.o(.text._ZN14PulseInterrapt9update1msEv)
+    [Anonymous Symbol]                       0x080018d0   Section        0  pulse.o(.text._ZN14PulseInterraptC2Ej)
+    [Anonymous Symbol]                       0x08001904   Section        0  pulse.o(.text._ZN14PulseInterraptaSEb)
+    [Anonymous Symbol]                       0x08001924   Section        0  sequence.o(.text._ZN15SequenceDelayed9update1msEv)
+    [Anonymous Symbol]                       0x08001968   Section        0  sequence.o(.text._ZN15SequenceDelayedC2EPhhj)
+    [Anonymous Symbol]                       0x080019b0   Section        0  simple_input.o(.text._ZN18SimpleInputDelayed8isActiveEv)
+    [Anonymous Symbol]                       0x080019c0   Section        0  simple_input.o(.text._ZN18SimpleInputDelayed9update1msEv)
+    [Anonymous Symbol]                       0x080019e4   Section        0  simple_input.o(.text._ZN18SimpleInputDelayedC2EP12GPIO_TypeDefht)
+    [Anonymous Symbol]                       0x08001a34   Section        0  coil.o(.text._ZN4Coil8isActiveEv)
+    [Anonymous Symbol]                       0x08001a4c   Section        0  coil.o(.text._ZN4Coil8setValueEb)
+    [Anonymous Symbol]                       0x08001a9c   Section        0  coil.o(.text._ZN4CoilC2EP12GPIO_TypeDefh)
+    [Anonymous Symbol]                       0x08001b14   Section        0  coil.o(.text._ZN4CoilaSEb)
+    [Anonymous Symbol]                       0x08001b38   Section        0  coil.o(.text._ZN7ISwitchC2Ev)
+    [Anonymous Symbol]                       0x08001b50   Section        0  sequence.o(.text._ZN8Sequence15finishedImpulseEv)
+    [Anonymous Symbol]                       0x08001b60   Section        0  sequence.o(.text._ZN8Sequence4lockEb)
+    [Anonymous Symbol]                       0x08001b78   Section        0  sequence.o(.text._ZN8Sequence5resetEv)
+    [Anonymous Symbol]                       0x08001b90   Section        0  sequence.o(.text._ZN8Sequence5startEb)
+    [Anonymous Symbol]                       0x08001bbc   Section        0  sequence.o(.text._ZN8Sequence6activeEv)
+    [Anonymous Symbol]                       0x08001bfc   Section        0  sequence.o(.text._ZN8Sequence6finishEb)
+    [Anonymous Symbol]                       0x08001c40   Section        0  sequence.o(.text._ZN8Sequence6lockedEv)
+    [Anonymous Symbol]                       0x08001c50   Section        0  sequence.o(.text._ZN8Sequence7startedEv)
+    [Anonymous Symbol]                       0x08001c60   Section        0  sequence.o(.text._ZN8Sequence8finishedEv)
+    [Anonymous Symbol]                       0x08001c70   Section        0  sequence.o(.text._ZN8Sequence8isMyStepEv)
+    [Anonymous Symbol]                       0x08001c88   Section        0  sequence.o(.text._ZN8SequenceC2EPhh)
+    [Anonymous Symbol]                       0x08001cb0   Section        0  coil_with_timer.o(.text._ZN9CoilPulse8setValueEb)
+    [Anonymous Symbol]                       0x08001ccc   Section        0  coil_with_timer.o(.text._ZN9CoilPulse9update1msEv)
+    [Anonymous Symbol]                       0x08001cf4   Section        0  coil_with_timer.o(.text._ZN9CoilPulseC2EP12GPIO_TypeDefht)
+    [Anonymous Symbol]                       0x08001d44   Section        0  coil_with_timer.o(.text._ZN9CoilPulseaSEb)
+    [Anonymous Symbol]                       0x08001d68   Section        0  rf_impulse.o(.text._ZN9RFimpulse3getEv)
+    [Anonymous Symbol]                       0x08001d88   Section        0  rf_impulse.o(.text._ZN9RFimpulse3setEb)
+    [Anonymous Symbol]                       0x08001e14   Section        0  rf_impulse.o(.text._ZN9RFimpulseC2E7IMPULSE)
+    [Anonymous Symbol]                       0x08001e28   Section        0  coil_with_timer.o(.text._ZThn16_N12CoilOffDelay8setValueEb)
+    [Anonymous Symbol]                       0x08001e44   Section        0  pulse.o(.text._ZThn16_N14PulseInterrapt9update1msEv)
+    [Anonymous Symbol]                       0x08001e54   Section        0  simple_input.o(.text._ZThn16_N18SimpleInputDelayed8isActiveEv)
+    [Anonymous Symbol]                       0x08001e64   Section        0  coil_with_timer.o(.text._ZThn16_N9CoilPulse8setValueEb)
+    [Anonymous Symbol]                       0x08001e80   Section        0  sequence.o(.text._ZThn28_N15SequenceDelayed9update1msEv)
+    [Anonymous Symbol]                       0x08001e90   Section        0  coil_with_timer.o(.text._ZThn32_N12CoilOffDelay9update1msEv)
+    [Anonymous Symbol]                       0x08001ea0   Section        0  simple_input.o(.text._ZThn32_N18SimpleInputDelayed9update1msEv)
+    [Anonymous Symbol]                       0x08001eb0   Section        0  coil_with_timer.o(.text._ZThn32_N9CoilPulse9update1msEv)
+    [Anonymous Symbol]                       0x08001ec0   Section        0  cxa_virtual.cpp.o(.text.__cxa_pure_virtual)
+    __cxx_global_var_init                    0x08001ee9   Thumb Code    30  main.o(.text.__cxx_global_var_init)
+    [Anonymous Symbol]                       0x08001ee8   Section        0  main.o(.text.__cxx_global_var_init)
+    __cxx_global_var_init.1                  0x08001f09   Thumb Code    30  main.o(.text.__cxx_global_var_init.1)
+    [Anonymous Symbol]                       0x08001f08   Section        0  main.o(.text.__cxx_global_var_init.1)
+    __cxx_global_var_init.10                 0x08001f29   Thumb Code    26  main.o(.text.__cxx_global_var_init.10)
+    [Anonymous Symbol]                       0x08001f28   Section        0  main.o(.text.__cxx_global_var_init.10)
+    __cxx_global_var_init.11                 0x08001f45   Thumb Code    26  main.o(.text.__cxx_global_var_init.11)
+    [Anonymous Symbol]                       0x08001f44   Section        0  main.o(.text.__cxx_global_var_init.11)
+    __cxx_global_var_init.12                 0x08001f61   Thumb Code    30  main.o(.text.__cxx_global_var_init.12)
+    [Anonymous Symbol]                       0x08001f60   Section        0  main.o(.text.__cxx_global_var_init.12)
+    __cxx_global_var_init.13                 0x08001f81   Thumb Code    26  main.o(.text.__cxx_global_var_init.13)
+    [Anonymous Symbol]                       0x08001f80   Section        0  main.o(.text.__cxx_global_var_init.13)
+    __cxx_global_var_init.14                 0x08001f9d   Thumb Code    26  main.o(.text.__cxx_global_var_init.14)
+    [Anonymous Symbol]                       0x08001f9c   Section        0  main.o(.text.__cxx_global_var_init.14)
+    __cxx_global_var_init.15                 0x08001fb9   Thumb Code    26  main.o(.text.__cxx_global_var_init.15)
+    [Anonymous Symbol]                       0x08001fb8   Section        0  main.o(.text.__cxx_global_var_init.15)
+    __cxx_global_var_init.16                 0x08001fd5   Thumb Code    30  main.o(.text.__cxx_global_var_init.16)
+    [Anonymous Symbol]                       0x08001fd4   Section        0  main.o(.text.__cxx_global_var_init.16)
+    __cxx_global_var_init.17                 0x08001ff5   Thumb Code    26  main.o(.text.__cxx_global_var_init.17)
+    [Anonymous Symbol]                       0x08001ff4   Section        0  main.o(.text.__cxx_global_var_init.17)
+    __cxx_global_var_init.18                 0x08002011   Thumb Code    26  main.o(.text.__cxx_global_var_init.18)
+    [Anonymous Symbol]                       0x08002010   Section        0  main.o(.text.__cxx_global_var_init.18)
+    __cxx_global_var_init.19                 0x0800202d   Thumb Code    26  main.o(.text.__cxx_global_var_init.19)
+    [Anonymous Symbol]                       0x0800202c   Section        0  main.o(.text.__cxx_global_var_init.19)
+    __cxx_global_var_init.2                  0x08002049   Thumb Code    30  main.o(.text.__cxx_global_var_init.2)
+    [Anonymous Symbol]                       0x08002048   Section        0  main.o(.text.__cxx_global_var_init.2)
+    __cxx_global_var_init.20                 0x08002069   Thumb Code    30  main.o(.text.__cxx_global_var_init.20)
+    [Anonymous Symbol]                       0x08002068   Section        0  main.o(.text.__cxx_global_var_init.20)
+    __cxx_global_var_init.21                 0x08002089   Thumb Code    26  main.o(.text.__cxx_global_var_init.21)
+    [Anonymous Symbol]                       0x08002088   Section        0  main.o(.text.__cxx_global_var_init.21)
+    __cxx_global_var_init.22                 0x080020a5   Thumb Code    30  main.o(.text.__cxx_global_var_init.22)
+    [Anonymous Symbol]                       0x080020a4   Section        0  main.o(.text.__cxx_global_var_init.22)
+    __cxx_global_var_init.23                 0x080020c5   Thumb Code    26  main.o(.text.__cxx_global_var_init.23)
+    [Anonymous Symbol]                       0x080020c4   Section        0  main.o(.text.__cxx_global_var_init.23)
+    __cxx_global_var_init.24                 0x080020e1   Thumb Code    26  main.o(.text.__cxx_global_var_init.24)
+    [Anonymous Symbol]                       0x080020e0   Section        0  main.o(.text.__cxx_global_var_init.24)
+    __cxx_global_var_init.25                 0x080020fd   Thumb Code    26  main.o(.text.__cxx_global_var_init.25)
+    [Anonymous Symbol]                       0x080020fc   Section        0  main.o(.text.__cxx_global_var_init.25)
+    __cxx_global_var_init.26                 0x08002119   Thumb Code    26  main.o(.text.__cxx_global_var_init.26)
+    [Anonymous Symbol]                       0x08002118   Section        0  main.o(.text.__cxx_global_var_init.26)
+    __cxx_global_var_init.27                 0x08002135   Thumb Code    26  main.o(.text.__cxx_global_var_init.27)
+    [Anonymous Symbol]                       0x08002134   Section        0  main.o(.text.__cxx_global_var_init.27)
+    __cxx_global_var_init.28                 0x08002151   Thumb Code    26  main.o(.text.__cxx_global_var_init.28)
+    [Anonymous Symbol]                       0x08002150   Section        0  main.o(.text.__cxx_global_var_init.28)
+    __cxx_global_var_init.29                 0x0800216d   Thumb Code    34  main.o(.text.__cxx_global_var_init.29)
+    [Anonymous Symbol]                       0x0800216c   Section        0  main.o(.text.__cxx_global_var_init.29)
+    __cxx_global_var_init.3                  0x08002191   Thumb Code    30  main.o(.text.__cxx_global_var_init.3)
+    [Anonymous Symbol]                       0x08002190   Section        0  main.o(.text.__cxx_global_var_init.3)
+    __cxx_global_var_init.30                 0x080021b1   Thumb Code    30  main.o(.text.__cxx_global_var_init.30)
+    [Anonymous Symbol]                       0x080021b0   Section        0  main.o(.text.__cxx_global_var_init.30)
+    __cxx_global_var_init.31                 0x080021d1   Thumb Code    26  main.o(.text.__cxx_global_var_init.31)
+    [Anonymous Symbol]                       0x080021d0   Section        0  main.o(.text.__cxx_global_var_init.31)
+    __cxx_global_var_init.32                 0x080021ed   Thumb Code    34  main.o(.text.__cxx_global_var_init.32)
+    [Anonymous Symbol]                       0x080021ec   Section        0  main.o(.text.__cxx_global_var_init.32)
+    __cxx_global_var_init.33                 0x08002211   Thumb Code    24  main.o(.text.__cxx_global_var_init.33)
+    [Anonymous Symbol]                       0x08002210   Section        0  main.o(.text.__cxx_global_var_init.33)
+    __cxx_global_var_init.34                 0x08002229   Thumb Code    26  main.o(.text.__cxx_global_var_init.34)
+    [Anonymous Symbol]                       0x08002228   Section        0  main.o(.text.__cxx_global_var_init.34)
+    __cxx_global_var_init.35                 0x08002245   Thumb Code    26  main.o(.text.__cxx_global_var_init.35)
+    [Anonymous Symbol]                       0x08002244   Section        0  main.o(.text.__cxx_global_var_init.35)
+    __cxx_global_var_init.36                 0x08002261   Thumb Code    34  main.o(.text.__cxx_global_var_init.36)
+    [Anonymous Symbol]                       0x08002260   Section        0  main.o(.text.__cxx_global_var_init.36)
+    __cxx_global_var_init.37                 0x08002285   Thumb Code    30  main.o(.text.__cxx_global_var_init.37)
+    [Anonymous Symbol]                       0x08002284   Section        0  main.o(.text.__cxx_global_var_init.37)
+    __cxx_global_var_init.38                 0x080022a5   Thumb Code    26  main.o(.text.__cxx_global_var_init.38)
+    [Anonymous Symbol]                       0x080022a4   Section        0  main.o(.text.__cxx_global_var_init.38)
+    __cxx_global_var_init.39                 0x080022c1   Thumb Code    34  main.o(.text.__cxx_global_var_init.39)
+    [Anonymous Symbol]                       0x080022c0   Section        0  main.o(.text.__cxx_global_var_init.39)
+    __cxx_global_var_init.4                  0x080022e5   Thumb Code    30  main.o(.text.__cxx_global_var_init.4)
+    [Anonymous Symbol]                       0x080022e4   Section        0  main.o(.text.__cxx_global_var_init.4)
+    __cxx_global_var_init.40                 0x08002305   Thumb Code    24  main.o(.text.__cxx_global_var_init.40)
+    [Anonymous Symbol]                       0x08002304   Section        0  main.o(.text.__cxx_global_var_init.40)
+    __cxx_global_var_init.41                 0x0800231d   Thumb Code    26  main.o(.text.__cxx_global_var_init.41)
+    [Anonymous Symbol]                       0x0800231c   Section        0  main.o(.text.__cxx_global_var_init.41)
+    __cxx_global_var_init.42                 0x08002339   Thumb Code    26  main.o(.text.__cxx_global_var_init.42)
+    [Anonymous Symbol]                       0x08002338   Section        0  main.o(.text.__cxx_global_var_init.42)
+    __cxx_global_var_init.43                 0x08002355   Thumb Code    34  main.o(.text.__cxx_global_var_init.43)
+    [Anonymous Symbol]                       0x08002354   Section        0  main.o(.text.__cxx_global_var_init.43)
+    __cxx_global_var_init.44                 0x08002379   Thumb Code    30  main.o(.text.__cxx_global_var_init.44)
+    [Anonymous Symbol]                       0x08002378   Section        0  main.o(.text.__cxx_global_var_init.44)
+    __cxx_global_var_init.45                 0x08002399   Thumb Code    26  main.o(.text.__cxx_global_var_init.45)
+    [Anonymous Symbol]                       0x08002398   Section        0  main.o(.text.__cxx_global_var_init.45)
+    __cxx_global_var_init.46                 0x080023b5   Thumb Code    34  main.o(.text.__cxx_global_var_init.46)
+    [Anonymous Symbol]                       0x080023b4   Section        0  main.o(.text.__cxx_global_var_init.46)
+    __cxx_global_var_init.47                 0x080023d9   Thumb Code    24  main.o(.text.__cxx_global_var_init.47)
+    [Anonymous Symbol]                       0x080023d8   Section        0  main.o(.text.__cxx_global_var_init.47)
+    __cxx_global_var_init.48                 0x080023f1   Thumb Code    26  main.o(.text.__cxx_global_var_init.48)
+    [Anonymous Symbol]                       0x080023f0   Section        0  main.o(.text.__cxx_global_var_init.48)
+    __cxx_global_var_init.49                 0x0800240d   Thumb Code    26  main.o(.text.__cxx_global_var_init.49)
+    [Anonymous Symbol]                       0x0800240c   Section        0  main.o(.text.__cxx_global_var_init.49)
+    __cxx_global_var_init.5                  0x08002429   Thumb Code    30  main.o(.text.__cxx_global_var_init.5)
+    [Anonymous Symbol]                       0x08002428   Section        0  main.o(.text.__cxx_global_var_init.5)
+    __cxx_global_var_init.50                 0x08002449   Thumb Code    30  main.o(.text.__cxx_global_var_init.50)
+    [Anonymous Symbol]                       0x08002448   Section        0  main.o(.text.__cxx_global_var_init.50)
+    __cxx_global_var_init.51                 0x08002469   Thumb Code    26  main.o(.text.__cxx_global_var_init.51)
+    [Anonymous Symbol]                       0x08002468   Section        0  main.o(.text.__cxx_global_var_init.51)
+    __cxx_global_var_init.6                  0x08002485   Thumb Code    30  main.o(.text.__cxx_global_var_init.6)
+    [Anonymous Symbol]                       0x08002484   Section        0  main.o(.text.__cxx_global_var_init.6)
+    __cxx_global_var_init.7                  0x080024a5   Thumb Code    30  main.o(.text.__cxx_global_var_init.7)
+    [Anonymous Symbol]                       0x080024a4   Section        0  main.o(.text.__cxx_global_var_init.7)
+    __cxx_global_var_init.8                  0x080024c5   Thumb Code    30  main.o(.text.__cxx_global_var_init.8)
+    [Anonymous Symbol]                       0x080024c4   Section        0  main.o(.text.__cxx_global_var_init.8)
+    __cxx_global_var_init.9                  0x080024e5   Thumb Code    26  main.o(.text.__cxx_global_var_init.9)
+    [Anonymous Symbol]                       0x080024e4   Section        0  main.o(.text.__cxx_global_var_init.9)
+    [Anonymous Symbol]                       0x080024fe   Section        0  abort_message.cpp.o(.text.abort_message)
+    [Anonymous Symbol]                       0x08002504   Section        0  main.o(.text.main)
+    prvAddCurrentTaskToDelayedList           0x08002621   Thumb Code   282  tasks.o(.text.prvAddCurrentTaskToDelayedList)
+    [Anonymous Symbol]                       0x08002620   Section        0  tasks.o(.text.prvAddCurrentTaskToDelayedList)
+    prvAddNewTaskToReadyList                 0x0800273d   Thumb Code   340  tasks.o(.text.prvAddNewTaskToReadyList)
+    [Anonymous Symbol]                       0x0800273c   Section        0  tasks.o(.text.prvAddNewTaskToReadyList)
+    prvCheckForValidListAndQueue             0x08002891   Thumb Code   106  timers.o(.text.prvCheckForValidListAndQueue)
+    [Anonymous Symbol]                       0x08002890   Section        0  timers.o(.text.prvCheckForValidListAndQueue)
+    prvCheckTasksWaitingTermination          0x080028fd   Thumb Code    90  tasks.o(.text.prvCheckTasksWaitingTermination)
+    [Anonymous Symbol]                       0x080028fc   Section        0  tasks.o(.text.prvCheckTasksWaitingTermination)
+    prvCopyDataFromQueue                     0x08002959   Thumb Code    66  queue.o(.text.prvCopyDataFromQueue)
+    [Anonymous Symbol]                       0x08002958   Section        0  queue.o(.text.prvCopyDataFromQueue)
+    prvDeleteTCB                             0x0800299d   Thumb Code    24  tasks.o(.text.prvDeleteTCB)
+    [Anonymous Symbol]                       0x0800299c   Section        0  tasks.o(.text.prvDeleteTCB)
+    prvGetNextExpireTime                     0x080029b5   Thumb Code    64  timers.o(.text.prvGetNextExpireTime)
+    [Anonymous Symbol]                       0x080029b4   Section        0  timers.o(.text.prvGetNextExpireTime)
+    prvHeapInit                              0x080029f5   Thumb Code   174  heap_4.o(.text.prvHeapInit)
+    [Anonymous Symbol]                       0x080029f4   Section        0  heap_4.o(.text.prvHeapInit)
+    prvIdleTask                              0x08002aa5   Thumb Code    60  tasks.o(.text.prvIdleTask)
+    [Anonymous Symbol]                       0x08002aa4   Section        0  tasks.o(.text.prvIdleTask)
+    prvInitialiseNewQueue                    0x08002ae1   Thumb Code    72  queue.o(.text.prvInitialiseNewQueue)
+    [Anonymous Symbol]                       0x08002ae0   Section        0  queue.o(.text.prvInitialiseNewQueue)
+    prvInitialiseNewTask                     0x08002b29   Thumb Code   230  tasks.o(.text.prvInitialiseNewTask)
+    [Anonymous Symbol]                       0x08002b28   Section        0  tasks.o(.text.prvInitialiseNewTask)
+    prvInitialiseTaskLists                   0x08002c11   Thumb Code   142  tasks.o(.text.prvInitialiseTaskLists)
+    [Anonymous Symbol]                       0x08002c10   Section        0  tasks.o(.text.prvInitialiseTaskLists)
+    prvInsertBlockIntoFreeList               0x08002ca1   Thumb Code   198  heap_4.o(.text.prvInsertBlockIntoFreeList)
+    [Anonymous Symbol]                       0x08002ca0   Section        0  heap_4.o(.text.prvInsertBlockIntoFreeList)
+    prvInsertTimerInActiveList               0x08002d69   Thumb Code   134  timers.o(.text.prvInsertTimerInActiveList)
+    [Anonymous Symbol]                       0x08002d68   Section        0  timers.o(.text.prvInsertTimerInActiveList)
+    prvIsQueueEmpty                          0x08002df1   Thumb Code    40  queue.o(.text.prvIsQueueEmpty)
+    [Anonymous Symbol]                       0x08002df0   Section        0  queue.o(.text.prvIsQueueEmpty)
+    prvPortStartFirstTask                    0x08002e19   Thumb Code    32  port.o(.text.prvPortStartFirstTask)
+    [Anonymous Symbol]                       0x08002e18   Section        0  port.o(.text.prvPortStartFirstTask)
+    prvProcessExpiredTimer                   0x08002e39   Thumb Code    84  timers.o(.text.prvProcessExpiredTimer)
+    [Anonymous Symbol]                       0x08002e38   Section        0  timers.o(.text.prvProcessExpiredTimer)
+    prvProcessReceivedCommands               0x08002e8d   Thumb Code   294  timers.o(.text.prvProcessReceivedCommands)
+    [Anonymous Symbol]                       0x08002e8c   Section        0  timers.o(.text.prvProcessReceivedCommands)
+    prvProcessTimerOrBlockTask               0x08002fb5   Thumb Code   154  timers.o(.text.prvProcessTimerOrBlockTask)
+    [Anonymous Symbol]                       0x08002fb4   Section        0  timers.o(.text.prvProcessTimerOrBlockTask)
+    prvReloadTimer                           0x08003051   Thumb Code    52  timers.o(.text.prvReloadTimer)
+    [Anonymous Symbol]                       0x08003050   Section        0  timers.o(.text.prvReloadTimer)
+    prvResetNextTaskUnblockTime              0x08003085   Thumb Code    60  tasks.o(.text.prvResetNextTaskUnblockTime)
+    [Anonymous Symbol]                       0x08003084   Section        0  tasks.o(.text.prvResetNextTaskUnblockTime)
+    prvSampleTimeNow                         0x080030c1   Thumb Code    68  timers.o(.text.prvSampleTimeNow)
+    [Anonymous Symbol]                       0x080030c0   Section        0  timers.o(.text.prvSampleTimeNow)
+    prvSwitchTimerLists                      0x08003105   Thumb Code    82  timers.o(.text.prvSwitchTimerLists)
+    [Anonymous Symbol]                       0x08003104   Section        0  timers.o(.text.prvSwitchTimerLists)
+    prvTaskExitError                         0x08003159   Thumb Code    38  port.o(.text.prvTaskExitError)
+    [Anonymous Symbol]                       0x08003158   Section        0  port.o(.text.prvTaskExitError)
+    prvTimerTask                             0x08003181   Thumb Code    30  timers.o(.text.prvTimerTask)
+    [Anonymous Symbol]                       0x08003180   Section        0  timers.o(.text.prvTimerTask)
+    prvUnlockQueue                           0x080031a1   Thumb Code   174  queue.o(.text.prvUnlockQueue)
+    [Anonymous Symbol]                       0x080031a0   Section        0  queue.o(.text.prvUnlockQueue)
+    [Anonymous Symbol]                       0x08003250   Section        0  heap_4.o(.text.pvPortMalloc)
+    [Anonymous Symbol]                       0x080033d8   Section        0  port.o(.text.pxPortInitialiseStack)
+    [Anonymous Symbol]                       0x08003428   Section        0  list.o(.text.uxListRemove)
+    [Anonymous Symbol]                       0x08003470   Section        0  main.o(.text.vApplicationIdleHook)
+    [Anonymous Symbol]                       0x08003474   Section        0  main.o(.text.vApplicationStackOverflowHook)
+    [Anonymous Symbol]                       0x08003480   Section        0  main.o(.text.vApplicationTickHook)
+    [Anonymous Symbol]                       0x08003484   Section        0  list.o(.text.vListInitialise)
+    [Anonymous Symbol]                       0x080034b4   Section        0  list.o(.text.vListInitialiseItem)
+    [Anonymous Symbol]                       0x080034c4   Section        0  list.o(.text.vListInsert)
+    [Anonymous Symbol]                       0x08003530   Section        0  port.o(.text.vPortEnterCritical)
+    [Anonymous Symbol]                       0x08003560   Section        0  port.o(.text.vPortExitCritical)
+    [Anonymous Symbol]                       0x08003588   Section        0  heap_4.o(.text.vPortFree)
+    [Anonymous Symbol]                       0x08003600   Section        0  port.o(.text.vPortSetupTimerInterrupt)
+    [Anonymous Symbol]                       0x08003630   Section        0  queue.o(.text.vQueueWaitForMessageRestricted)
+    [Anonymous Symbol]                       0x08003694   Section        0  tasks.o(.text.vTaskDelay)
+    [Anonymous Symbol]                       0x080036e0   Section        0  tasks.o(.text.vTaskInternalSetTimeOutState)
+    [Anonymous Symbol]                       0x08003704   Section        0  tasks.o(.text.vTaskMissedYield)
+    [Anonymous Symbol]                       0x08003714   Section        0  tasks.o(.text.vTaskPlaceOnEventList)
+    [Anonymous Symbol]                       0x0800373c   Section        0  tasks.o(.text.vTaskPlaceOnEventListRestricted)
+    [Anonymous Symbol]                       0x0800379c   Section        0  tasks.o(.text.vTaskStartScheduler)
+    [Anonymous Symbol]                       0x08003830   Section        0  tasks.o(.text.vTaskSuspendAll)
+    __tagsym$$used.0                         0x08003840   Number         0  tasks.o(.text.vTaskSwitchContext)
+    [Anonymous Symbol]                       0x08003840   Section        0  tasks.o(.text.vTaskSwitchContext)
+    [Anonymous Symbol]                       0x0800392c   Section        0  port.o(.text.xPortStartScheduler)
+    [Anonymous Symbol]                       0x0800396c   Section        0  queue.o(.text.xQueueGenericCreate)
+    [Anonymous Symbol]                       0x080039ec   Section        0  queue.o(.text.xQueueGenericReset)
+    [Anonymous Symbol]                       0x08003abc   Section        0  queue.o(.text.xQueueReceive)
+    [Anonymous Symbol]                       0x08003c10   Section        0  tasks.o(.text.xTaskCheckForTimeOut)
+    [Anonymous Symbol]                       0x08003cac   Section        0  tasks.o(.text.xTaskCreate)
+    [Anonymous Symbol]                       0x08003d4c   Section        0  tasks.o(.text.xTaskGetTickCount)
+    [Anonymous Symbol]                       0x08003d60   Section        0  tasks.o(.text.xTaskIncrementTick)
+    [Anonymous Symbol]                       0x08003fb4   Section        0  tasks.o(.text.xTaskRemoveFromEventList)
+    [Anonymous Symbol]                       0x08004124   Section        0  tasks.o(.text.xTaskResumeAll)
+    [Anonymous Symbol]                       0x08004324   Section        0  timers.o(.text.xTimerCreateTimerTask)
+    .L.str                                   0x080044b0   Data           8  main.o(.rodata.str1.1)
+    [Anonymous Symbol]                       0x080044b0   Section        0  main.o(.rodata.str1.1)
+    .L.str.52                                0x080044b8   Data           8  main.o(.rodata.str1.1)
+    .L.str.53                                0x080044c0   Data           8  main.o(.rodata.str1.1)
+    .L.str.54                                0x080044c8   Data           8  main.o(.rodata.str1.1)
+    .L.str.55                                0x080044d0   Data           9  main.o(.rodata.str1.1)
+    .L.str                                   0x080044d9   Data           5  tasks.o(.rodata.str1.1)
+    [Anonymous Symbol]                       0x080044d9   Section        0  tasks.o(.rodata.str1.1)
+    .L.str                                   0x080044de   Data           8  timers.o(.rodata.str1.1)
+    [Anonymous Symbol]                       0x080044de   Section        0  timers.o(.rodata.str1.1)
+    .init_array                              0x08004510   Section        0  init_aeabi.o(.init_array)
     numOfSteps                               0x20000004   Data          32  diag.o(.data._ZL10numOfSteps)
     [Anonymous Symbol]                       0x20000004   Section        0  diag.o(.data._ZL10numOfSteps)
     two                                      0x20000024   Data           1  diag.o(.data._ZL3two)
@@ -3013,117 +3013,116 @@ Image Symbol Table
     CoilOffDelay::CoilOffDelay(GPIO_TypeDef*, unsigned char, unsigned short) 0x0800171d   Thumb Code    80  coil_with_timer.o(.text._ZN12CoilOffDelayC2EP12GPIO_TypeDefht)
     CoilOffDelay::CoilOffDelay__sub_object(GPIO_TypeDef*, unsigned char, unsigned short) 0x0800171d   Thumb Code    80  coil_with_timer.o(.text._ZN12CoilOffDelayC2EP12GPIO_TypeDefht)
     CoilOffDelay::operator=(bool)            0x0800176d   Thumb Code    34  coil_with_timer.o(.text._ZN12CoilOffDelayaSEb)
-    ProgrammCoil::isNotActive()              0x08001791   Thumb Code    22  coil.o(.text._ZN12ProgrammCoil11isNotActiveEv)
-    ProgrammCoil::isActive()                 0x080017a9   Thumb Code    16  coil.o(.text._ZN12ProgrammCoil8isActiveEv)
-    ProgrammCoil::setValue(bool)             0x080017b9   Thumb Code    24  coil.o(.text._ZN12ProgrammCoil8setValueEb)
-    ProgrammCoil::ProgrammCoil__sub_object() 0x080017d1   Thumb Code    32  coil.o(.text._ZN12ProgrammCoilC2Ev)
-    OffDelayCommon::get()                    0x080017f1   Thumb Code    42  off_delay.o(.text._ZN14OffDelayCommon3getEv)
-    OffDelayCommon::set(bool)                0x0800181d   Thumb Code    68  off_delay.o(.text._ZN14OffDelayCommon3setEb)
-    OffDelayCommon::update()                 0x08001861   Thumb Code    36  off_delay.o(.text._ZN14OffDelayCommon6updateEv)
-    OffDelayCommon::OffDelayCommon(unsigned int) 0x08001885   Thumb Code    36  off_delay.o(.text._ZN14OffDelayCommonC2Ej)
-    OffDelayCommon::OffDelayCommon__sub_object(unsigned int) 0x08001885   Thumb Code    36  off_delay.o(.text._ZN14OffDelayCommonC2Ej)
-    PulseInterrapt::set(bool)                0x080018a9   Thumb Code    48  pulse.o(.text._ZN14PulseInterrapt3setEb)
-    PulseInterrapt::update1ms()              0x080018d9   Thumb Code    16  pulse.o(.text._ZN14PulseInterrapt9update1msEv)
-    PulseInterrapt::PulseInterrapt(unsigned int) 0x080018e9   Thumb Code    50  pulse.o(.text._ZN14PulseInterraptC2Ej)
-    PulseInterrapt::PulseInterrapt__sub_object(unsigned int) 0x080018e9   Thumb Code    50  pulse.o(.text._ZN14PulseInterraptC2Ej)
-    PulseInterrapt::operator=(bool)          0x0800191d   Thumb Code    32  pulse.o(.text._ZN14PulseInterraptaSEb)
-    SequenceDelayed::update1ms()             0x0800193d   Thumb Code    66  sequence.o(.text._ZN15SequenceDelayed9update1msEv)
-    SequenceDelayed::SequenceDelayed(unsigned char*, unsigned char, unsigned int) 0x08001981   Thumb Code    70  sequence.o(.text._ZN15SequenceDelayedC2EPhhj)
-    SequenceDelayed::SequenceDelayed__sub_object(unsigned char*, unsigned char, unsigned int) 0x08001981   Thumb Code    70  sequence.o(.text._ZN15SequenceDelayedC2EPhhj)
-    SimpleInputDelayed::isActive()           0x080019c9   Thumb Code    16  simple_input.o(.text._ZN18SimpleInputDelayed8isActiveEv)
-    SimpleInputDelayed::update1ms()          0x080019d9   Thumb Code    34  simple_input.o(.text._ZN18SimpleInputDelayed9update1msEv)
-    SimpleInputDelayed::SimpleInputDelayed(GPIO_TypeDef*, unsigned char, unsigned short) 0x080019fd   Thumb Code    80  simple_input.o(.text._ZN18SimpleInputDelayedC2EP12GPIO_TypeDefht)
-    SimpleInputDelayed::SimpleInputDelayed__sub_object(GPIO_TypeDef*, unsigned char, unsigned short) 0x080019fd   Thumb Code    80  simple_input.o(.text._ZN18SimpleInputDelayedC2EP12GPIO_TypeDefht)
-    Coil::isActive()                         0x08001a4d   Thumb Code    22  coil.o(.text._ZN4Coil8isActiveEv)
-    Coil::setValue(bool)                     0x08001a65   Thumb Code    92  coil.o(.text._ZN4Coil8setValueEb)
-    Coil::Coil(GPIO_TypeDef*, unsigned char) 0x08001ac1   Thumb Code   118  coil.o(.text._ZN4CoilC2EP12GPIO_TypeDefh)
-    Coil::Coil__sub_object(GPIO_TypeDef*, unsigned char) 0x08001ac1   Thumb Code   118  coil.o(.text._ZN4CoilC2EP12GPIO_TypeDefh)
-    Coil::operator=(bool)                    0x08001b39   Thumb Code    34  coil.o(.text._ZN4CoilaSEb)
-    ISwitch::ISwitch__sub_object()           0x08001b5d   Thumb Code    22  coil.o(.text._ZN7ISwitchC2Ev)
-    Sequence::finishedImpulse()              0x08001b75   Thumb Code    16  sequence.o(.text._ZN8Sequence15finishedImpulseEv)
-    Sequence::lock(bool)                     0x08001b85   Thumb Code    24  sequence.o(.text._ZN8Sequence4lockEb)
-    Sequence::reset()                        0x08001b9d   Thumb Code    24  sequence.o(.text._ZN8Sequence5resetEv)
-    Sequence::start(bool)                    0x08001bb5   Thumb Code    44  sequence.o(.text._ZN8Sequence5startEb)
-    Sequence::active()                       0x08001be1   Thumb Code    64  sequence.o(.text._ZN8Sequence6activeEv)
-    Sequence::finish(bool)                   0x08001c21   Thumb Code    68  sequence.o(.text._ZN8Sequence6finishEb)
-    Sequence::locked()                       0x08001c65   Thumb Code    16  sequence.o(.text._ZN8Sequence6lockedEv)
-    Sequence::started()                      0x08001c75   Thumb Code    16  sequence.o(.text._ZN8Sequence7startedEv)
-    Sequence::finished()                     0x08001c85   Thumb Code    16  sequence.o(.text._ZN8Sequence8finishedEv)
-    Sequence::isMyStep()                     0x08001c95   Thumb Code    24  sequence.o(.text._ZN8Sequence8isMyStepEv)
-    Sequence::Sequence(unsigned char*, unsigned char) 0x08001cad   Thumb Code    38  sequence.o(.text._ZN8SequenceC2EPhh)
-    Sequence::Sequence__sub_object(unsigned char*, unsigned char) 0x08001cad   Thumb Code    38  sequence.o(.text._ZN8SequenceC2EPhh)
-    CoilPulse::setValue(bool)                0x08001cd5   Thumb Code    28  coil_with_timer.o(.text._ZN9CoilPulse8setValueEb)
-    CoilPulse::update1ms()                   0x08001cf1   Thumb Code    38  coil_with_timer.o(.text._ZN9CoilPulse9update1msEv)
-    CoilPulse::CoilPulse(GPIO_TypeDef*, unsigned char, unsigned short) 0x08001d19   Thumb Code    80  coil_with_timer.o(.text._ZN9CoilPulseC2EP12GPIO_TypeDefht)
-    CoilPulse::CoilPulse__sub_object(GPIO_TypeDef*, unsigned char, unsigned short) 0x08001d19   Thumb Code    80  coil_with_timer.o(.text._ZN9CoilPulseC2EP12GPIO_TypeDefht)
-    CoilPulse::operator=(bool)               0x08001d69   Thumb Code    34  coil_with_timer.o(.text._ZN9CoilPulseaSEb)
-    RFimpulse::get()                         0x08001d8d   Thumb Code    32  rf_impulse.o(.text._ZN9RFimpulse3getEv)
-    RFimpulse::set(bool)                     0x08001dad   Thumb Code   138  rf_impulse.o(.text._ZN9RFimpulse3setEb)
-    RFimpulse::RFimpulse(IMPULSE)            0x08001e39   Thumb Code    20  rf_impulse.o(.text._ZN9RFimpulseC2E7IMPULSE)
-    RFimpulse::RFimpulse__sub_object(IMPULSE) 0x08001e39   Thumb Code    20  rf_impulse.o(.text._ZN9RFimpulseC2E7IMPULSE)
-    non-virtual thunk to CoilOffDelay::setValue(bool) 0x08001e4d   Thumb Code    26  coil_with_timer.o(.text._ZThn16_N12CoilOffDelay8setValueEb)
-    non-virtual thunk to PulseInterrapt::update1ms() 0x08001e69   Thumb Code    14  pulse.o(.text._ZThn16_N14PulseInterrapt9update1msEv)
-    non-virtual thunk to SimpleInputDelayed::isActive() 0x08001e79   Thumb Code    14  simple_input.o(.text._ZThn16_N18SimpleInputDelayed8isActiveEv)
-    non-virtual thunk to CoilPulse::setValue(bool) 0x08001e89   Thumb Code    26  coil_with_timer.o(.text._ZThn16_N9CoilPulse8setValueEb)
-    non-virtual thunk to SequenceDelayed::update1ms() 0x08001ea5   Thumb Code    14  sequence.o(.text._ZThn28_N15SequenceDelayed9update1msEv)
-    non-virtual thunk to CoilOffDelay::update1ms() 0x08001eb5   Thumb Code    14  coil_with_timer.o(.text._ZThn32_N12CoilOffDelay9update1msEv)
-    non-virtual thunk to SimpleInputDelayed::update1ms() 0x08001ec5   Thumb Code    14  simple_input.o(.text._ZThn32_N18SimpleInputDelayed9update1msEv)
-    non-virtual thunk to CoilPulse::update1ms() 0x08001ed5   Thumb Code    14  coil_with_timer.o(.text._ZThn32_N9CoilPulse9update1msEv)
-    __cxa_pure_virtual                       0x08001ee5   Thumb Code     8  cxa_virtual.cpp.o(.text.__cxa_pure_virtual)
-    abort_message                            0x08002523   Thumb Code     4  abort_message.cpp.o(.text.abort_message)
-    main                                     0x08002529   Thumb Code   284  main.o(.text.main)
-    pvPortMalloc                             0x08003275   Thumb Code   390  heap_4.o(.text.pvPortMalloc)
-    pxPortInitialiseStack                    0x080033fd   Thumb Code    80  port.o(.text.pxPortInitialiseStack)
-    uxListRemove                             0x0800344d   Thumb Code    72  list.o(.text.uxListRemove)
-    vApplicationIdleHook                     0x08003495   Thumb Code     2  main.o(.text.vApplicationIdleHook)
-    vApplicationStackOverflowHook            0x08003499   Thumb Code    10  main.o(.text.vApplicationStackOverflowHook)
-    vApplicationTickHook                     0x080034a5   Thumb Code     2  main.o(.text.vApplicationTickHook)
-    vListInitialise                          0x080034a9   Thumb Code    46  list.o(.text.vListInitialise)
-    vListInitialiseItem                      0x080034d9   Thumb Code    14  list.o(.text.vListInitialiseItem)
-    vListInsert                              0x080034e9   Thumb Code   106  list.o(.text.vListInsert)
-    vPortEnterCritical                       0x08003555   Thumb Code    48  port.o(.text.vPortEnterCritical)
-    vPortExitCritical                        0x08003585   Thumb Code    38  port.o(.text.vPortExitCritical)
-    vPortFree                                0x080035ad   Thumb Code   118  heap_4.o(.text.vPortFree)
-    vPortSetupTimerInterrupt                 0x08003625   Thumb Code    46  port.o(.text.vPortSetupTimerInterrupt)
-    vQueueWaitForMessageRestricted           0x08003655   Thumb Code   100  queue.o(.text.vQueueWaitForMessageRestricted)
-    vTaskDelay                               0x080036b9   Thumb Code    74  tasks.o(.text.vTaskDelay)
-    vTaskInternalSetTimeOutState             0x08003705   Thumb Code    36  tasks.o(.text.vTaskInternalSetTimeOutState)
-    vTaskMissedYield                         0x08003729   Thumb Code    14  tasks.o(.text.vTaskMissedYield)
-    vTaskPlaceOnEventList                    0x08003739   Thumb Code    38  tasks.o(.text.vTaskPlaceOnEventList)
-    vTaskPlaceOnEventListRestricted          0x08003761   Thumb Code    96  tasks.o(.text.vTaskPlaceOnEventListRestricted)
-    vTaskStartScheduler                      0x080037c1   Thumb Code   148  tasks.o(.text.vTaskStartScheduler)
-    vTaskSuspendAll                          0x08003855   Thumb Code    16  tasks.o(.text.vTaskSuspendAll)
-    vTaskSwitchContext                       0x08003865   Thumb Code   236  tasks.o(.text.vTaskSwitchContext)
-    xPortStartScheduler                      0x08003951   Thumb Code    64  port.o(.text.xPortStartScheduler)
-    xQueueGenericCreate                      0x08003991   Thumb Code   126  queue.o(.text.xQueueGenericCreate)
-    xQueueGenericReset                       0x08003a11   Thumb Code   208  queue.o(.text.xQueueGenericReset)
-    xQueueReceive                            0x08003ae1   Thumb Code   338  queue.o(.text.xQueueReceive)
-    xTaskCheckForTimeOut                     0x08003c35   Thumb Code   154  tasks.o(.text.xTaskCheckForTimeOut)
-    xTaskCreate                              0x08003cd1   Thumb Code   160  tasks.o(.text.xTaskCreate)
-    xTaskGetTickCount                        0x08003d71   Thumb Code    20  tasks.o(.text.xTaskGetTickCount)
-    xTaskIncrementTick                       0x08003d85   Thumb Code   596  tasks.o(.text.xTaskIncrementTick)
-    xTaskRemoveFromEventList                 0x08003fd9   Thumb Code   368  tasks.o(.text.xTaskRemoveFromEventList)
-    xTaskResumeAll                           0x08004149   Thumb Code   510  tasks.o(.text.xTaskResumeAll)
-    xTimerCreateTimerTask                    0x08004349   Thumb Code    80  timers.o(.text.xTimerCreateTimerTask)
-    AHBPrescTable                            0x08004398   Data          16  system_stm32f10x.o(.rodata.AHBPrescTable)
-    vtable for CommonTimer                   0x080043a8   Data          12  common_timer.o(.rodata._ZTV11CommonTimer)
-    vtable for IUpdated1ms                   0x080043b4   Data          12  coil_with_timer.o(.rodata._ZTV11IUpdated1ms)
-    vtable for PulseCommon                   0x080043c0   Data          12  pulse.o(.rodata._ZTV11PulseCommon)
-    vtable for SimpleInput                   0x080043cc   Data          12  simple_input.o(.rodata._ZTV11SimpleInput)
-    vtable for CoilOffDelay                  0x080043d8   Data          48  coil_with_timer.o(.rodata._ZTV12CoilOffDelay)
-    vtable for ProgrammCoil                  0x08004408   Data          16  coil.o(.rodata._ZTV12ProgrammCoil)
-    vtable for OffDelayCommon                0x08004418   Data          12  off_delay.o(.rodata._ZTV14OffDelayCommon)
-    vtable for PulseInterrapt                0x08004424   Data          28  pulse.o(.rodata._ZTV14PulseInterrapt)
-    vtable for SequenceDelayed               0x08004440   Data          28  sequence.o(.rodata._ZTV15SequenceDelayed)
-    vtable for SimpleInputDelayed            0x0800445c   Data          44  simple_input.o(.rodata._ZTV18SimpleInputDelayed)
-    vtable for Coil                          0x08004488   Data          16  coil.o(.rodata._ZTV4Coil)
-    vtable for ISwitch                       0x08004498   Data          12  coil.o(.rodata._ZTV7ISwitch)
-    vtable for CoilPulse                     0x080044a4   Data          48  coil_with_timer.o(.rodata._ZTV9CoilPulse)
-    uxTopUsedPriority                        0x0800450c   Data           4  tasks.o(.rodata.uxTopUsedPriority)
-    Region$$Table$$Base                      0x08004510   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08004530   Number         0  anon$$obj.o(Region$$Table)
-    SHT$$INIT_ARRAY$$Base                    0x08004530   Number         0  main.o(.init_array)
-    SHT$$INIT_ARRAY$$Limit                   0x08004534   Number         0  init_aeabi.o(.init_array)
+    ProgrammCoil::isActive()                 0x08001791   Thumb Code    16  coil.o(.text._ZN12ProgrammCoil8isActiveEv)
+    ProgrammCoil::setValue(bool)             0x080017a1   Thumb Code    24  coil.o(.text._ZN12ProgrammCoil8setValueEb)
+    ProgrammCoil::ProgrammCoil__sub_object() 0x080017b9   Thumb Code    32  coil.o(.text._ZN12ProgrammCoilC2Ev)
+    OffDelayCommon::get()                    0x080017d9   Thumb Code    42  off_delay.o(.text._ZN14OffDelayCommon3getEv)
+    OffDelayCommon::set(bool)                0x08001805   Thumb Code    68  off_delay.o(.text._ZN14OffDelayCommon3setEb)
+    OffDelayCommon::update()                 0x08001849   Thumb Code    36  off_delay.o(.text._ZN14OffDelayCommon6updateEv)
+    OffDelayCommon::OffDelayCommon(unsigned int) 0x0800186d   Thumb Code    36  off_delay.o(.text._ZN14OffDelayCommonC2Ej)
+    OffDelayCommon::OffDelayCommon__sub_object(unsigned int) 0x0800186d   Thumb Code    36  off_delay.o(.text._ZN14OffDelayCommonC2Ej)
+    PulseInterrapt::set(bool)                0x08001891   Thumb Code    48  pulse.o(.text._ZN14PulseInterrapt3setEb)
+    PulseInterrapt::update1ms()              0x080018c1   Thumb Code    16  pulse.o(.text._ZN14PulseInterrapt9update1msEv)
+    PulseInterrapt::PulseInterrapt(unsigned int) 0x080018d1   Thumb Code    50  pulse.o(.text._ZN14PulseInterraptC2Ej)
+    PulseInterrapt::PulseInterrapt__sub_object(unsigned int) 0x080018d1   Thumb Code    50  pulse.o(.text._ZN14PulseInterraptC2Ej)
+    PulseInterrapt::operator=(bool)          0x08001905   Thumb Code    32  pulse.o(.text._ZN14PulseInterraptaSEb)
+    SequenceDelayed::update1ms()             0x08001925   Thumb Code    66  sequence.o(.text._ZN15SequenceDelayed9update1msEv)
+    SequenceDelayed::SequenceDelayed(unsigned char*, unsigned char, unsigned int) 0x08001969   Thumb Code    70  sequence.o(.text._ZN15SequenceDelayedC2EPhhj)
+    SequenceDelayed::SequenceDelayed__sub_object(unsigned char*, unsigned char, unsigned int) 0x08001969   Thumb Code    70  sequence.o(.text._ZN15SequenceDelayedC2EPhhj)
+    SimpleInputDelayed::isActive()           0x080019b1   Thumb Code    16  simple_input.o(.text._ZN18SimpleInputDelayed8isActiveEv)
+    SimpleInputDelayed::update1ms()          0x080019c1   Thumb Code    34  simple_input.o(.text._ZN18SimpleInputDelayed9update1msEv)
+    SimpleInputDelayed::SimpleInputDelayed(GPIO_TypeDef*, unsigned char, unsigned short) 0x080019e5   Thumb Code    80  simple_input.o(.text._ZN18SimpleInputDelayedC2EP12GPIO_TypeDefht)
+    SimpleInputDelayed::SimpleInputDelayed__sub_object(GPIO_TypeDef*, unsigned char, unsigned short) 0x080019e5   Thumb Code    80  simple_input.o(.text._ZN18SimpleInputDelayedC2EP12GPIO_TypeDefht)
+    Coil::isActive()                         0x08001a35   Thumb Code    22  coil.o(.text._ZN4Coil8isActiveEv)
+    Coil::setValue(bool)                     0x08001a4d   Thumb Code    80  coil.o(.text._ZN4Coil8setValueEb)
+    Coil::Coil(GPIO_TypeDef*, unsigned char) 0x08001a9d   Thumb Code   118  coil.o(.text._ZN4CoilC2EP12GPIO_TypeDefh)
+    Coil::Coil__sub_object(GPIO_TypeDef*, unsigned char) 0x08001a9d   Thumb Code   118  coil.o(.text._ZN4CoilC2EP12GPIO_TypeDefh)
+    Coil::operator=(bool)                    0x08001b15   Thumb Code    34  coil.o(.text._ZN4CoilaSEb)
+    ISwitch::ISwitch__sub_object()           0x08001b39   Thumb Code    22  coil.o(.text._ZN7ISwitchC2Ev)
+    Sequence::finishedImpulse()              0x08001b51   Thumb Code    16  sequence.o(.text._ZN8Sequence15finishedImpulseEv)
+    Sequence::lock(bool)                     0x08001b61   Thumb Code    24  sequence.o(.text._ZN8Sequence4lockEb)
+    Sequence::reset()                        0x08001b79   Thumb Code    24  sequence.o(.text._ZN8Sequence5resetEv)
+    Sequence::start(bool)                    0x08001b91   Thumb Code    44  sequence.o(.text._ZN8Sequence5startEb)
+    Sequence::active()                       0x08001bbd   Thumb Code    64  sequence.o(.text._ZN8Sequence6activeEv)
+    Sequence::finish(bool)                   0x08001bfd   Thumb Code    68  sequence.o(.text._ZN8Sequence6finishEb)
+    Sequence::locked()                       0x08001c41   Thumb Code    16  sequence.o(.text._ZN8Sequence6lockedEv)
+    Sequence::started()                      0x08001c51   Thumb Code    16  sequence.o(.text._ZN8Sequence7startedEv)
+    Sequence::finished()                     0x08001c61   Thumb Code    16  sequence.o(.text._ZN8Sequence8finishedEv)
+    Sequence::isMyStep()                     0x08001c71   Thumb Code    24  sequence.o(.text._ZN8Sequence8isMyStepEv)
+    Sequence::Sequence(unsigned char*, unsigned char) 0x08001c89   Thumb Code    38  sequence.o(.text._ZN8SequenceC2EPhh)
+    Sequence::Sequence__sub_object(unsigned char*, unsigned char) 0x08001c89   Thumb Code    38  sequence.o(.text._ZN8SequenceC2EPhh)
+    CoilPulse::setValue(bool)                0x08001cb1   Thumb Code    28  coil_with_timer.o(.text._ZN9CoilPulse8setValueEb)
+    CoilPulse::update1ms()                   0x08001ccd   Thumb Code    38  coil_with_timer.o(.text._ZN9CoilPulse9update1msEv)
+    CoilPulse::CoilPulse(GPIO_TypeDef*, unsigned char, unsigned short) 0x08001cf5   Thumb Code    80  coil_with_timer.o(.text._ZN9CoilPulseC2EP12GPIO_TypeDefht)
+    CoilPulse::CoilPulse__sub_object(GPIO_TypeDef*, unsigned char, unsigned short) 0x08001cf5   Thumb Code    80  coil_with_timer.o(.text._ZN9CoilPulseC2EP12GPIO_TypeDefht)
+    CoilPulse::operator=(bool)               0x08001d45   Thumb Code    34  coil_with_timer.o(.text._ZN9CoilPulseaSEb)
+    RFimpulse::get()                         0x08001d69   Thumb Code    32  rf_impulse.o(.text._ZN9RFimpulse3getEv)
+    RFimpulse::set(bool)                     0x08001d89   Thumb Code   138  rf_impulse.o(.text._ZN9RFimpulse3setEb)
+    RFimpulse::RFimpulse(IMPULSE)            0x08001e15   Thumb Code    20  rf_impulse.o(.text._ZN9RFimpulseC2E7IMPULSE)
+    RFimpulse::RFimpulse__sub_object(IMPULSE) 0x08001e15   Thumb Code    20  rf_impulse.o(.text._ZN9RFimpulseC2E7IMPULSE)
+    non-virtual thunk to CoilOffDelay::setValue(bool) 0x08001e29   Thumb Code    26  coil_with_timer.o(.text._ZThn16_N12CoilOffDelay8setValueEb)
+    non-virtual thunk to PulseInterrapt::update1ms() 0x08001e45   Thumb Code    14  pulse.o(.text._ZThn16_N14PulseInterrapt9update1msEv)
+    non-virtual thunk to SimpleInputDelayed::isActive() 0x08001e55   Thumb Code    14  simple_input.o(.text._ZThn16_N18SimpleInputDelayed8isActiveEv)
+    non-virtual thunk to CoilPulse::setValue(bool) 0x08001e65   Thumb Code    26  coil_with_timer.o(.text._ZThn16_N9CoilPulse8setValueEb)
+    non-virtual thunk to SequenceDelayed::update1ms() 0x08001e81   Thumb Code    14  sequence.o(.text._ZThn28_N15SequenceDelayed9update1msEv)
+    non-virtual thunk to CoilOffDelay::update1ms() 0x08001e91   Thumb Code    14  coil_with_timer.o(.text._ZThn32_N12CoilOffDelay9update1msEv)
+    non-virtual thunk to SimpleInputDelayed::update1ms() 0x08001ea1   Thumb Code    14  simple_input.o(.text._ZThn32_N18SimpleInputDelayed9update1msEv)
+    non-virtual thunk to CoilPulse::update1ms() 0x08001eb1   Thumb Code    14  coil_with_timer.o(.text._ZThn32_N9CoilPulse9update1msEv)
+    __cxa_pure_virtual                       0x08001ec1   Thumb Code     8  cxa_virtual.cpp.o(.text.__cxa_pure_virtual)
+    abort_message                            0x080024ff   Thumb Code     4  abort_message.cpp.o(.text.abort_message)
+    main                                     0x08002505   Thumb Code   284  main.o(.text.main)
+    pvPortMalloc                             0x08003251   Thumb Code   390  heap_4.o(.text.pvPortMalloc)
+    pxPortInitialiseStack                    0x080033d9   Thumb Code    80  port.o(.text.pxPortInitialiseStack)
+    uxListRemove                             0x08003429   Thumb Code    72  list.o(.text.uxListRemove)
+    vApplicationIdleHook                     0x08003471   Thumb Code     2  main.o(.text.vApplicationIdleHook)
+    vApplicationStackOverflowHook            0x08003475   Thumb Code    10  main.o(.text.vApplicationStackOverflowHook)
+    vApplicationTickHook                     0x08003481   Thumb Code     2  main.o(.text.vApplicationTickHook)
+    vListInitialise                          0x08003485   Thumb Code    46  list.o(.text.vListInitialise)
+    vListInitialiseItem                      0x080034b5   Thumb Code    14  list.o(.text.vListInitialiseItem)
+    vListInsert                              0x080034c5   Thumb Code   106  list.o(.text.vListInsert)
+    vPortEnterCritical                       0x08003531   Thumb Code    48  port.o(.text.vPortEnterCritical)
+    vPortExitCritical                        0x08003561   Thumb Code    38  port.o(.text.vPortExitCritical)
+    vPortFree                                0x08003589   Thumb Code   118  heap_4.o(.text.vPortFree)
+    vPortSetupTimerInterrupt                 0x08003601   Thumb Code    46  port.o(.text.vPortSetupTimerInterrupt)
+    vQueueWaitForMessageRestricted           0x08003631   Thumb Code   100  queue.o(.text.vQueueWaitForMessageRestricted)
+    vTaskDelay                               0x08003695   Thumb Code    74  tasks.o(.text.vTaskDelay)
+    vTaskInternalSetTimeOutState             0x080036e1   Thumb Code    36  tasks.o(.text.vTaskInternalSetTimeOutState)
+    vTaskMissedYield                         0x08003705   Thumb Code    14  tasks.o(.text.vTaskMissedYield)
+    vTaskPlaceOnEventList                    0x08003715   Thumb Code    38  tasks.o(.text.vTaskPlaceOnEventList)
+    vTaskPlaceOnEventListRestricted          0x0800373d   Thumb Code    96  tasks.o(.text.vTaskPlaceOnEventListRestricted)
+    vTaskStartScheduler                      0x0800379d   Thumb Code   148  tasks.o(.text.vTaskStartScheduler)
+    vTaskSuspendAll                          0x08003831   Thumb Code    16  tasks.o(.text.vTaskSuspendAll)
+    vTaskSwitchContext                       0x08003841   Thumb Code   236  tasks.o(.text.vTaskSwitchContext)
+    xPortStartScheduler                      0x0800392d   Thumb Code    64  port.o(.text.xPortStartScheduler)
+    xQueueGenericCreate                      0x0800396d   Thumb Code   126  queue.o(.text.xQueueGenericCreate)
+    xQueueGenericReset                       0x080039ed   Thumb Code   208  queue.o(.text.xQueueGenericReset)
+    xQueueReceive                            0x08003abd   Thumb Code   338  queue.o(.text.xQueueReceive)
+    xTaskCheckForTimeOut                     0x08003c11   Thumb Code   154  tasks.o(.text.xTaskCheckForTimeOut)
+    xTaskCreate                              0x08003cad   Thumb Code   160  tasks.o(.text.xTaskCreate)
+    xTaskGetTickCount                        0x08003d4d   Thumb Code    20  tasks.o(.text.xTaskGetTickCount)
+    xTaskIncrementTick                       0x08003d61   Thumb Code   596  tasks.o(.text.xTaskIncrementTick)
+    xTaskRemoveFromEventList                 0x08003fb5   Thumb Code   368  tasks.o(.text.xTaskRemoveFromEventList)
+    xTaskResumeAll                           0x08004125   Thumb Code   510  tasks.o(.text.xTaskResumeAll)
+    xTimerCreateTimerTask                    0x08004325   Thumb Code    80  timers.o(.text.xTimerCreateTimerTask)
+    AHBPrescTable                            0x08004374   Data          16  system_stm32f10x.o(.rodata.AHBPrescTable)
+    vtable for CommonTimer                   0x08004384   Data          12  common_timer.o(.rodata._ZTV11CommonTimer)
+    vtable for IUpdated1ms                   0x08004390   Data          12  coil_with_timer.o(.rodata._ZTV11IUpdated1ms)
+    vtable for PulseCommon                   0x0800439c   Data          12  pulse.o(.rodata._ZTV11PulseCommon)
+    vtable for SimpleInput                   0x080043a8   Data          12  simple_input.o(.rodata._ZTV11SimpleInput)
+    vtable for CoilOffDelay                  0x080043b4   Data          48  coil_with_timer.o(.rodata._ZTV12CoilOffDelay)
+    vtable for ProgrammCoil                  0x080043e4   Data          16  coil.o(.rodata._ZTV12ProgrammCoil)
+    vtable for OffDelayCommon                0x080043f4   Data          12  off_delay.o(.rodata._ZTV14OffDelayCommon)
+    vtable for PulseInterrapt                0x08004400   Data          28  pulse.o(.rodata._ZTV14PulseInterrapt)
+    vtable for SequenceDelayed               0x0800441c   Data          28  sequence.o(.rodata._ZTV15SequenceDelayed)
+    vtable for SimpleInputDelayed            0x08004438   Data          44  simple_input.o(.rodata._ZTV18SimpleInputDelayed)
+    vtable for Coil                          0x08004464   Data          16  coil.o(.rodata._ZTV4Coil)
+    vtable for ISwitch                       0x08004474   Data          12  coil.o(.rodata._ZTV7ISwitch)
+    vtable for CoilPulse                     0x08004480   Data          48  coil_with_timer.o(.rodata._ZTV9CoilPulse)
+    uxTopUsedPriority                        0x080044e8   Data           4  tasks.o(.rodata.uxTopUsedPriority)
+    Region$$Table$$Base                      0x080044ec   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x0800450c   Number         0  anon$$obj.o(Region$$Table)
+    SHT$$INIT_ARRAY$$Base                    0x0800450c   Number         0  main.o(.init_array)
+    SHT$$INIT_ARRAY$$Limit                   0x08004510   Number         0  init_aeabi.o(.init_array)
     SystemCoreClock                          0x20000000   Data           4  system_stm32f10x.o(.data.SystemCoreClock)
     ob1Kit                                   0x20000038   Data          60  main.o(.data.ob1Kit)
     ob2Kit                                   0x20000074   Data          60  main.o(.data.ob2Kit)
@@ -3199,9 +3198,9 @@ Memory Map of the image
 
   Image Entry point : 0x080000ed
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00004698, Max: 0x00010000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00004670, Max: 0x00010000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00004534, Max: 0x00010000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00004510, Max: 0x00010000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -3352,313 +3351,311 @@ Memory Map of the image
     0x0800171c   0x0800171c   0x00000050   Code   RO          776    .text._ZN12CoilOffDelayC2EP12GPIO_TypeDefht  coil_with_timer.o
     0x0800176c   0x0800176c   0x00000022   Code   RO          786    .text._ZN12CoilOffDelayaSEb  coil_with_timer.o
     0x0800178e   0x0800178e   0x00000002   PAD
-    0x08001790   0x08001790   0x00000016   Code   RO          730    .text._ZN12ProgrammCoil11isNotActiveEv  coil.o
-    0x080017a6   0x080017a6   0x00000002   PAD
-    0x080017a8   0x080017a8   0x00000010   Code   RO          726    .text._ZN12ProgrammCoil8isActiveEv  coil.o
-    0x080017b8   0x080017b8   0x00000018   Code   RO          728    .text._ZN12ProgrammCoil8setValueEb  coil.o
-    0x080017d0   0x080017d0   0x00000020   Code   RO          756    .text._ZN12ProgrammCoilC2Ev  coil.o
-    0x080017f0   0x080017f0   0x0000002a   Code   RO          938    .text._ZN14OffDelayCommon3getEv  off_delay.o
-    0x0800181a   0x0800181a   0x00000002   PAD
-    0x0800181c   0x0800181c   0x00000044   Code   RO          936    .text._ZN14OffDelayCommon3setEb  off_delay.o
-    0x08001860   0x08001860   0x00000024   Code   RO          934    .text._ZN14OffDelayCommon6updateEv  off_delay.o
-    0x08001884   0x08001884   0x00000024   Code   RO          932    .text._ZN14OffDelayCommonC2Ej  off_delay.o
-    0x080018a8   0x080018a8   0x00000030   Code   RO         1014    .text._ZN14PulseInterrapt3setEb  pulse.o
-    0x080018d8   0x080018d8   0x00000010   Code   RO         1010    .text._ZN14PulseInterrapt9update1msEv  pulse.o
-    0x080018e8   0x080018e8   0x00000032   Code   RO         1008    .text._ZN14PulseInterraptC2Ej  pulse.o
-    0x0800191a   0x0800191a   0x00000002   PAD
-    0x0800191c   0x0800191c   0x00000020   Code   RO         1016    .text._ZN14PulseInterraptaSEb  pulse.o
-    0x0800193c   0x0800193c   0x00000042   Code   RO         1054    .text._ZN15SequenceDelayed9update1msEv  sequence.o
-    0x0800197e   0x0800197e   0x00000002   PAD
-    0x08001980   0x08001980   0x00000046   Code   RO         1052    .text._ZN15SequenceDelayedC2EPhhj  sequence.o
-    0x080019c6   0x080019c6   0x00000002   PAD
-    0x080019c8   0x080019c8   0x00000010   Code   RO          848    .text._ZN18SimpleInputDelayed8isActiveEv  simple_input.o
-    0x080019d8   0x080019d8   0x00000022   Code   RO          844    .text._ZN18SimpleInputDelayed9update1msEv  simple_input.o
-    0x080019fa   0x080019fa   0x00000002   PAD
-    0x080019fc   0x080019fc   0x00000050   Code   RO          842    .text._ZN18SimpleInputDelayedC2EP12GPIO_TypeDefht  simple_input.o
-    0x08001a4c   0x08001a4c   0x00000016   Code   RO          742    .text._ZN4Coil8isActiveEv  coil.o
-    0x08001a62   0x08001a62   0x00000002   PAD
-    0x08001a64   0x08001a64   0x0000005c   Code   RO          744    .text._ZN4Coil8setValueEb  coil.o
-    0x08001ac0   0x08001ac0   0x00000076   Code   RO          740    .text._ZN4CoilC2EP12GPIO_TypeDefh  coil.o
+    0x08001790   0x08001790   0x00000010   Code   RO          726    .text._ZN12ProgrammCoil8isActiveEv  coil.o
+    0x080017a0   0x080017a0   0x00000018   Code   RO          728    .text._ZN12ProgrammCoil8setValueEb  coil.o
+    0x080017b8   0x080017b8   0x00000020   Code   RO          756    .text._ZN12ProgrammCoilC2Ev  coil.o
+    0x080017d8   0x080017d8   0x0000002a   Code   RO          938    .text._ZN14OffDelayCommon3getEv  off_delay.o
+    0x08001802   0x08001802   0x00000002   PAD
+    0x08001804   0x08001804   0x00000044   Code   RO          936    .text._ZN14OffDelayCommon3setEb  off_delay.o
+    0x08001848   0x08001848   0x00000024   Code   RO          934    .text._ZN14OffDelayCommon6updateEv  off_delay.o
+    0x0800186c   0x0800186c   0x00000024   Code   RO          932    .text._ZN14OffDelayCommonC2Ej  off_delay.o
+    0x08001890   0x08001890   0x00000030   Code   RO         1014    .text._ZN14PulseInterrapt3setEb  pulse.o
+    0x080018c0   0x080018c0   0x00000010   Code   RO         1010    .text._ZN14PulseInterrapt9update1msEv  pulse.o
+    0x080018d0   0x080018d0   0x00000032   Code   RO         1008    .text._ZN14PulseInterraptC2Ej  pulse.o
+    0x08001902   0x08001902   0x00000002   PAD
+    0x08001904   0x08001904   0x00000020   Code   RO         1016    .text._ZN14PulseInterraptaSEb  pulse.o
+    0x08001924   0x08001924   0x00000042   Code   RO         1054    .text._ZN15SequenceDelayed9update1msEv  sequence.o
+    0x08001966   0x08001966   0x00000002   PAD
+    0x08001968   0x08001968   0x00000046   Code   RO         1052    .text._ZN15SequenceDelayedC2EPhhj  sequence.o
+    0x080019ae   0x080019ae   0x00000002   PAD
+    0x080019b0   0x080019b0   0x00000010   Code   RO          848    .text._ZN18SimpleInputDelayed8isActiveEv  simple_input.o
+    0x080019c0   0x080019c0   0x00000022   Code   RO          844    .text._ZN18SimpleInputDelayed9update1msEv  simple_input.o
+    0x080019e2   0x080019e2   0x00000002   PAD
+    0x080019e4   0x080019e4   0x00000050   Code   RO          842    .text._ZN18SimpleInputDelayedC2EP12GPIO_TypeDefht  simple_input.o
+    0x08001a34   0x08001a34   0x00000016   Code   RO          742    .text._ZN4Coil8isActiveEv  coil.o
+    0x08001a4a   0x08001a4a   0x00000002   PAD
+    0x08001a4c   0x08001a4c   0x00000050   Code   RO          744    .text._ZN4Coil8setValueEb  coil.o
+    0x08001a9c   0x08001a9c   0x00000076   Code   RO          740    .text._ZN4CoilC2EP12GPIO_TypeDefh  coil.o
+    0x08001b12   0x08001b12   0x00000002   PAD
+    0x08001b14   0x08001b14   0x00000022   Code   RO          746    .text._ZN4CoilaSEb  coil.o
     0x08001b36   0x08001b36   0x00000002   PAD
-    0x08001b38   0x08001b38   0x00000022   Code   RO          746    .text._ZN4CoilaSEb  coil.o
-    0x08001b5a   0x08001b5a   0x00000002   PAD
-    0x08001b5c   0x08001b5c   0x00000016   Code   RO          760    .text._ZN7ISwitchC2Ev  coil.o
-    0x08001b72   0x08001b72   0x00000002   PAD
-    0x08001b74   0x08001b74   0x00000010   Code   RO         1050    .text._ZN8Sequence15finishedImpulseEv  sequence.o
-    0x08001b84   0x08001b84   0x00000018   Code   RO         1036    .text._ZN8Sequence4lockEb  sequence.o
-    0x08001b9c   0x08001b9c   0x00000018   Code   RO         1032    .text._ZN8Sequence5resetEv  sequence.o
-    0x08001bb4   0x08001bb4   0x0000002c   Code   RO         1034    .text._ZN8Sequence5startEb  sequence.o
-    0x08001be0   0x08001be0   0x00000040   Code   RO         1042    .text._ZN8Sequence6activeEv  sequence.o
-    0x08001c20   0x08001c20   0x00000044   Code   RO         1038    .text._ZN8Sequence6finishEb  sequence.o
-    0x08001c64   0x08001c64   0x00000010   Code   RO         1046    .text._ZN8Sequence6lockedEv  sequence.o
-    0x08001c74   0x08001c74   0x00000010   Code   RO         1044    .text._ZN8Sequence7startedEv  sequence.o
-    0x08001c84   0x08001c84   0x00000010   Code   RO         1048    .text._ZN8Sequence8finishedEv  sequence.o
-    0x08001c94   0x08001c94   0x00000018   Code   RO         1030    .text._ZN8Sequence8isMyStepEv  sequence.o
-    0x08001cac   0x08001cac   0x00000026   Code   RO         1028    .text._ZN8SequenceC2EPhh  sequence.o
-    0x08001cd2   0x08001cd2   0x00000002   PAD
-    0x08001cd4   0x08001cd4   0x0000001c   Code   RO          794    .text._ZN9CoilPulse8setValueEb  coil_with_timer.o
-    0x08001cf0   0x08001cf0   0x00000026   Code   RO          790    .text._ZN9CoilPulse9update1msEv  coil_with_timer.o
-    0x08001d16   0x08001d16   0x00000002   PAD
-    0x08001d18   0x08001d18   0x00000050   Code   RO          788    .text._ZN9CoilPulseC2EP12GPIO_TypeDefht  coil_with_timer.o
-    0x08001d68   0x08001d68   0x00000022   Code   RO          798    .text._ZN9CoilPulseaSEb  coil_with_timer.o
-    0x08001d8a   0x08001d8a   0x00000002   PAD
-    0x08001d8c   0x08001d8c   0x00000020   Code   RO          825    .text._ZN9RFimpulse3getEv  rf_impulse.o
-    0x08001dac   0x08001dac   0x0000008a   Code   RO          823    .text._ZN9RFimpulse3setEb  rf_impulse.o
-    0x08001e36   0x08001e36   0x00000002   PAD
-    0x08001e38   0x08001e38   0x00000014   Code   RO          821    .text._ZN9RFimpulseC2E7IMPULSE  rf_impulse.o
-    0x08001e4c   0x08001e4c   0x0000001a   Code   RO          784    .text._ZThn16_N12CoilOffDelay8setValueEb  coil_with_timer.o
-    0x08001e66   0x08001e66   0x00000002   PAD
-    0x08001e68   0x08001e68   0x0000000e   Code   RO         1012    .text._ZThn16_N14PulseInterrapt9update1msEv  pulse.o
-    0x08001e76   0x08001e76   0x00000002   PAD
-    0x08001e78   0x08001e78   0x0000000e   Code   RO          850    .text._ZThn16_N18SimpleInputDelayed8isActiveEv  simple_input.o
-    0x08001e86   0x08001e86   0x00000002   PAD
-    0x08001e88   0x08001e88   0x0000001a   Code   RO          796    .text._ZThn16_N9CoilPulse8setValueEb  coil_with_timer.o
-    0x08001ea2   0x08001ea2   0x00000002   PAD
-    0x08001ea4   0x08001ea4   0x0000000e   Code   RO         1056    .text._ZThn28_N15SequenceDelayed9update1msEv  sequence.o
-    0x08001eb2   0x08001eb2   0x00000002   PAD
-    0x08001eb4   0x08001eb4   0x0000000e   Code   RO          780    .text._ZThn32_N12CoilOffDelay9update1msEv  coil_with_timer.o
-    0x08001ec2   0x08001ec2   0x00000002   PAD
-    0x08001ec4   0x08001ec4   0x0000000e   Code   RO          846    .text._ZThn32_N18SimpleInputDelayed9update1msEv  simple_input.o
-    0x08001ed2   0x08001ed2   0x00000002   PAD
-    0x08001ed4   0x08001ed4   0x0000000e   Code   RO          792    .text._ZThn32_N9CoilPulse9update1msEv  coil_with_timer.o
-    0x08001ee2   0x08001ee2   0x00000002   PAD
-    0x08001ee4   0x08001ee4   0x00000028   Code   RO         1111    .text.__cxa_pure_virtual  libcppabi_w.l(cxa_virtual.cpp.o)
-    0x08001f0c   0x08001f0c   0x0000001e   Code   RO            2    .text.__cxx_global_var_init  main.o
-    0x08001f2a   0x08001f2a   0x00000002   PAD
-    0x08001f2c   0x08001f2c   0x0000001e   Code   RO            4    .text.__cxx_global_var_init.1  main.o
-    0x08001f4a   0x08001f4a   0x00000002   PAD
-    0x08001f4c   0x08001f4c   0x0000001a   Code   RO           22    .text.__cxx_global_var_init.10  main.o
-    0x08001f66   0x08001f66   0x00000002   PAD
-    0x08001f68   0x08001f68   0x0000001a   Code   RO           24    .text.__cxx_global_var_init.11  main.o
-    0x08001f82   0x08001f82   0x00000002   PAD
-    0x08001f84   0x08001f84   0x0000001e   Code   RO           26    .text.__cxx_global_var_init.12  main.o
-    0x08001fa2   0x08001fa2   0x00000002   PAD
-    0x08001fa4   0x08001fa4   0x0000001a   Code   RO           28    .text.__cxx_global_var_init.13  main.o
-    0x08001fbe   0x08001fbe   0x00000002   PAD
-    0x08001fc0   0x08001fc0   0x0000001a   Code   RO           30    .text.__cxx_global_var_init.14  main.o
-    0x08001fda   0x08001fda   0x00000002   PAD
-    0x08001fdc   0x08001fdc   0x0000001a   Code   RO           32    .text.__cxx_global_var_init.15  main.o
-    0x08001ff6   0x08001ff6   0x00000002   PAD
-    0x08001ff8   0x08001ff8   0x0000001e   Code   RO           34    .text.__cxx_global_var_init.16  main.o
-    0x08002016   0x08002016   0x00000002   PAD
-    0x08002018   0x08002018   0x0000001a   Code   RO           36    .text.__cxx_global_var_init.17  main.o
-    0x08002032   0x08002032   0x00000002   PAD
-    0x08002034   0x08002034   0x0000001a   Code   RO           38    .text.__cxx_global_var_init.18  main.o
-    0x0800204e   0x0800204e   0x00000002   PAD
-    0x08002050   0x08002050   0x0000001a   Code   RO           40    .text.__cxx_global_var_init.19  main.o
-    0x0800206a   0x0800206a   0x00000002   PAD
-    0x0800206c   0x0800206c   0x0000001e   Code   RO            6    .text.__cxx_global_var_init.2  main.o
-    0x0800208a   0x0800208a   0x00000002   PAD
-    0x0800208c   0x0800208c   0x0000001e   Code   RO           42    .text.__cxx_global_var_init.20  main.o
-    0x080020aa   0x080020aa   0x00000002   PAD
-    0x080020ac   0x080020ac   0x0000001a   Code   RO           44    .text.__cxx_global_var_init.21  main.o
-    0x080020c6   0x080020c6   0x00000002   PAD
-    0x080020c8   0x080020c8   0x0000001e   Code   RO           46    .text.__cxx_global_var_init.22  main.o
-    0x080020e6   0x080020e6   0x00000002   PAD
-    0x080020e8   0x080020e8   0x0000001a   Code   RO           48    .text.__cxx_global_var_init.23  main.o
-    0x08002102   0x08002102   0x00000002   PAD
-    0x08002104   0x08002104   0x0000001a   Code   RO           50    .text.__cxx_global_var_init.24  main.o
-    0x0800211e   0x0800211e   0x00000002   PAD
-    0x08002120   0x08002120   0x0000001a   Code   RO           52    .text.__cxx_global_var_init.25  main.o
-    0x0800213a   0x0800213a   0x00000002   PAD
-    0x0800213c   0x0800213c   0x0000001a   Code   RO           54    .text.__cxx_global_var_init.26  main.o
-    0x08002156   0x08002156   0x00000002   PAD
-    0x08002158   0x08002158   0x0000001a   Code   RO           56    .text.__cxx_global_var_init.27  main.o
-    0x08002172   0x08002172   0x00000002   PAD
-    0x08002174   0x08002174   0x0000001a   Code   RO           58    .text.__cxx_global_var_init.28  main.o
+    0x08001b38   0x08001b38   0x00000016   Code   RO          760    .text._ZN7ISwitchC2Ev  coil.o
+    0x08001b4e   0x08001b4e   0x00000002   PAD
+    0x08001b50   0x08001b50   0x00000010   Code   RO         1050    .text._ZN8Sequence15finishedImpulseEv  sequence.o
+    0x08001b60   0x08001b60   0x00000018   Code   RO         1036    .text._ZN8Sequence4lockEb  sequence.o
+    0x08001b78   0x08001b78   0x00000018   Code   RO         1032    .text._ZN8Sequence5resetEv  sequence.o
+    0x08001b90   0x08001b90   0x0000002c   Code   RO         1034    .text._ZN8Sequence5startEb  sequence.o
+    0x08001bbc   0x08001bbc   0x00000040   Code   RO         1042    .text._ZN8Sequence6activeEv  sequence.o
+    0x08001bfc   0x08001bfc   0x00000044   Code   RO         1038    .text._ZN8Sequence6finishEb  sequence.o
+    0x08001c40   0x08001c40   0x00000010   Code   RO         1046    .text._ZN8Sequence6lockedEv  sequence.o
+    0x08001c50   0x08001c50   0x00000010   Code   RO         1044    .text._ZN8Sequence7startedEv  sequence.o
+    0x08001c60   0x08001c60   0x00000010   Code   RO         1048    .text._ZN8Sequence8finishedEv  sequence.o
+    0x08001c70   0x08001c70   0x00000018   Code   RO         1030    .text._ZN8Sequence8isMyStepEv  sequence.o
+    0x08001c88   0x08001c88   0x00000026   Code   RO         1028    .text._ZN8SequenceC2EPhh  sequence.o
+    0x08001cae   0x08001cae   0x00000002   PAD
+    0x08001cb0   0x08001cb0   0x0000001c   Code   RO          794    .text._ZN9CoilPulse8setValueEb  coil_with_timer.o
+    0x08001ccc   0x08001ccc   0x00000026   Code   RO          790    .text._ZN9CoilPulse9update1msEv  coil_with_timer.o
+    0x08001cf2   0x08001cf2   0x00000002   PAD
+    0x08001cf4   0x08001cf4   0x00000050   Code   RO          788    .text._ZN9CoilPulseC2EP12GPIO_TypeDefht  coil_with_timer.o
+    0x08001d44   0x08001d44   0x00000022   Code   RO          798    .text._ZN9CoilPulseaSEb  coil_with_timer.o
+    0x08001d66   0x08001d66   0x00000002   PAD
+    0x08001d68   0x08001d68   0x00000020   Code   RO          825    .text._ZN9RFimpulse3getEv  rf_impulse.o
+    0x08001d88   0x08001d88   0x0000008a   Code   RO          823    .text._ZN9RFimpulse3setEb  rf_impulse.o
+    0x08001e12   0x08001e12   0x00000002   PAD
+    0x08001e14   0x08001e14   0x00000014   Code   RO          821    .text._ZN9RFimpulseC2E7IMPULSE  rf_impulse.o
+    0x08001e28   0x08001e28   0x0000001a   Code   RO          784    .text._ZThn16_N12CoilOffDelay8setValueEb  coil_with_timer.o
+    0x08001e42   0x08001e42   0x00000002   PAD
+    0x08001e44   0x08001e44   0x0000000e   Code   RO         1012    .text._ZThn16_N14PulseInterrapt9update1msEv  pulse.o
+    0x08001e52   0x08001e52   0x00000002   PAD
+    0x08001e54   0x08001e54   0x0000000e   Code   RO          850    .text._ZThn16_N18SimpleInputDelayed8isActiveEv  simple_input.o
+    0x08001e62   0x08001e62   0x00000002   PAD
+    0x08001e64   0x08001e64   0x0000001a   Code   RO          796    .text._ZThn16_N9CoilPulse8setValueEb  coil_with_timer.o
+    0x08001e7e   0x08001e7e   0x00000002   PAD
+    0x08001e80   0x08001e80   0x0000000e   Code   RO         1056    .text._ZThn28_N15SequenceDelayed9update1msEv  sequence.o
+    0x08001e8e   0x08001e8e   0x00000002   PAD
+    0x08001e90   0x08001e90   0x0000000e   Code   RO          780    .text._ZThn32_N12CoilOffDelay9update1msEv  coil_with_timer.o
+    0x08001e9e   0x08001e9e   0x00000002   PAD
+    0x08001ea0   0x08001ea0   0x0000000e   Code   RO          846    .text._ZThn32_N18SimpleInputDelayed9update1msEv  simple_input.o
+    0x08001eae   0x08001eae   0x00000002   PAD
+    0x08001eb0   0x08001eb0   0x0000000e   Code   RO          792    .text._ZThn32_N9CoilPulse9update1msEv  coil_with_timer.o
+    0x08001ebe   0x08001ebe   0x00000002   PAD
+    0x08001ec0   0x08001ec0   0x00000028   Code   RO         1111    .text.__cxa_pure_virtual  libcppabi_w.l(cxa_virtual.cpp.o)
+    0x08001ee8   0x08001ee8   0x0000001e   Code   RO            2    .text.__cxx_global_var_init  main.o
+    0x08001f06   0x08001f06   0x00000002   PAD
+    0x08001f08   0x08001f08   0x0000001e   Code   RO            4    .text.__cxx_global_var_init.1  main.o
+    0x08001f26   0x08001f26   0x00000002   PAD
+    0x08001f28   0x08001f28   0x0000001a   Code   RO           22    .text.__cxx_global_var_init.10  main.o
+    0x08001f42   0x08001f42   0x00000002   PAD
+    0x08001f44   0x08001f44   0x0000001a   Code   RO           24    .text.__cxx_global_var_init.11  main.o
+    0x08001f5e   0x08001f5e   0x00000002   PAD
+    0x08001f60   0x08001f60   0x0000001e   Code   RO           26    .text.__cxx_global_var_init.12  main.o
+    0x08001f7e   0x08001f7e   0x00000002   PAD
+    0x08001f80   0x08001f80   0x0000001a   Code   RO           28    .text.__cxx_global_var_init.13  main.o
+    0x08001f9a   0x08001f9a   0x00000002   PAD
+    0x08001f9c   0x08001f9c   0x0000001a   Code   RO           30    .text.__cxx_global_var_init.14  main.o
+    0x08001fb6   0x08001fb6   0x00000002   PAD
+    0x08001fb8   0x08001fb8   0x0000001a   Code   RO           32    .text.__cxx_global_var_init.15  main.o
+    0x08001fd2   0x08001fd2   0x00000002   PAD
+    0x08001fd4   0x08001fd4   0x0000001e   Code   RO           34    .text.__cxx_global_var_init.16  main.o
+    0x08001ff2   0x08001ff2   0x00000002   PAD
+    0x08001ff4   0x08001ff4   0x0000001a   Code   RO           36    .text.__cxx_global_var_init.17  main.o
+    0x0800200e   0x0800200e   0x00000002   PAD
+    0x08002010   0x08002010   0x0000001a   Code   RO           38    .text.__cxx_global_var_init.18  main.o
+    0x0800202a   0x0800202a   0x00000002   PAD
+    0x0800202c   0x0800202c   0x0000001a   Code   RO           40    .text.__cxx_global_var_init.19  main.o
+    0x08002046   0x08002046   0x00000002   PAD
+    0x08002048   0x08002048   0x0000001e   Code   RO            6    .text.__cxx_global_var_init.2  main.o
+    0x08002066   0x08002066   0x00000002   PAD
+    0x08002068   0x08002068   0x0000001e   Code   RO           42    .text.__cxx_global_var_init.20  main.o
+    0x08002086   0x08002086   0x00000002   PAD
+    0x08002088   0x08002088   0x0000001a   Code   RO           44    .text.__cxx_global_var_init.21  main.o
+    0x080020a2   0x080020a2   0x00000002   PAD
+    0x080020a4   0x080020a4   0x0000001e   Code   RO           46    .text.__cxx_global_var_init.22  main.o
+    0x080020c2   0x080020c2   0x00000002   PAD
+    0x080020c4   0x080020c4   0x0000001a   Code   RO           48    .text.__cxx_global_var_init.23  main.o
+    0x080020de   0x080020de   0x00000002   PAD
+    0x080020e0   0x080020e0   0x0000001a   Code   RO           50    .text.__cxx_global_var_init.24  main.o
+    0x080020fa   0x080020fa   0x00000002   PAD
+    0x080020fc   0x080020fc   0x0000001a   Code   RO           52    .text.__cxx_global_var_init.25  main.o
+    0x08002116   0x08002116   0x00000002   PAD
+    0x08002118   0x08002118   0x0000001a   Code   RO           54    .text.__cxx_global_var_init.26  main.o
+    0x08002132   0x08002132   0x00000002   PAD
+    0x08002134   0x08002134   0x0000001a   Code   RO           56    .text.__cxx_global_var_init.27  main.o
+    0x0800214e   0x0800214e   0x00000002   PAD
+    0x08002150   0x08002150   0x0000001a   Code   RO           58    .text.__cxx_global_var_init.28  main.o
+    0x0800216a   0x0800216a   0x00000002   PAD
+    0x0800216c   0x0800216c   0x00000022   Code   RO           60    .text.__cxx_global_var_init.29  main.o
     0x0800218e   0x0800218e   0x00000002   PAD
-    0x08002190   0x08002190   0x00000022   Code   RO           60    .text.__cxx_global_var_init.29  main.o
-    0x080021b2   0x080021b2   0x00000002   PAD
-    0x080021b4   0x080021b4   0x0000001e   Code   RO            8    .text.__cxx_global_var_init.3  main.o
-    0x080021d2   0x080021d2   0x00000002   PAD
-    0x080021d4   0x080021d4   0x0000001e   Code   RO           62    .text.__cxx_global_var_init.30  main.o
-    0x080021f2   0x080021f2   0x00000002   PAD
-    0x080021f4   0x080021f4   0x0000001a   Code   RO           64    .text.__cxx_global_var_init.31  main.o
+    0x08002190   0x08002190   0x0000001e   Code   RO            8    .text.__cxx_global_var_init.3  main.o
+    0x080021ae   0x080021ae   0x00000002   PAD
+    0x080021b0   0x080021b0   0x0000001e   Code   RO           62    .text.__cxx_global_var_init.30  main.o
+    0x080021ce   0x080021ce   0x00000002   PAD
+    0x080021d0   0x080021d0   0x0000001a   Code   RO           64    .text.__cxx_global_var_init.31  main.o
+    0x080021ea   0x080021ea   0x00000002   PAD
+    0x080021ec   0x080021ec   0x00000022   Code   RO           66    .text.__cxx_global_var_init.32  main.o
     0x0800220e   0x0800220e   0x00000002   PAD
-    0x08002210   0x08002210   0x00000022   Code   RO           66    .text.__cxx_global_var_init.32  main.o
-    0x08002232   0x08002232   0x00000002   PAD
-    0x08002234   0x08002234   0x00000018   Code   RO           68    .text.__cxx_global_var_init.33  main.o
-    0x0800224c   0x0800224c   0x0000001a   Code   RO           70    .text.__cxx_global_var_init.34  main.o
-    0x08002266   0x08002266   0x00000002   PAD
-    0x08002268   0x08002268   0x0000001a   Code   RO           72    .text.__cxx_global_var_init.35  main.o
+    0x08002210   0x08002210   0x00000018   Code   RO           68    .text.__cxx_global_var_init.33  main.o
+    0x08002228   0x08002228   0x0000001a   Code   RO           70    .text.__cxx_global_var_init.34  main.o
+    0x08002242   0x08002242   0x00000002   PAD
+    0x08002244   0x08002244   0x0000001a   Code   RO           72    .text.__cxx_global_var_init.35  main.o
+    0x0800225e   0x0800225e   0x00000002   PAD
+    0x08002260   0x08002260   0x00000022   Code   RO           74    .text.__cxx_global_var_init.36  main.o
     0x08002282   0x08002282   0x00000002   PAD
-    0x08002284   0x08002284   0x00000022   Code   RO           74    .text.__cxx_global_var_init.36  main.o
-    0x080022a6   0x080022a6   0x00000002   PAD
-    0x080022a8   0x080022a8   0x0000001e   Code   RO           76    .text.__cxx_global_var_init.37  main.o
-    0x080022c6   0x080022c6   0x00000002   PAD
-    0x080022c8   0x080022c8   0x0000001a   Code   RO           78    .text.__cxx_global_var_init.38  main.o
+    0x08002284   0x08002284   0x0000001e   Code   RO           76    .text.__cxx_global_var_init.37  main.o
+    0x080022a2   0x080022a2   0x00000002   PAD
+    0x080022a4   0x080022a4   0x0000001a   Code   RO           78    .text.__cxx_global_var_init.38  main.o
+    0x080022be   0x080022be   0x00000002   PAD
+    0x080022c0   0x080022c0   0x00000022   Code   RO           80    .text.__cxx_global_var_init.39  main.o
     0x080022e2   0x080022e2   0x00000002   PAD
-    0x080022e4   0x080022e4   0x00000022   Code   RO           80    .text.__cxx_global_var_init.39  main.o
-    0x08002306   0x08002306   0x00000002   PAD
-    0x08002308   0x08002308   0x0000001e   Code   RO           10    .text.__cxx_global_var_init.4  main.o
-    0x08002326   0x08002326   0x00000002   PAD
-    0x08002328   0x08002328   0x00000018   Code   RO           82    .text.__cxx_global_var_init.40  main.o
-    0x08002340   0x08002340   0x0000001a   Code   RO           84    .text.__cxx_global_var_init.41  main.o
-    0x0800235a   0x0800235a   0x00000002   PAD
-    0x0800235c   0x0800235c   0x0000001a   Code   RO           86    .text.__cxx_global_var_init.42  main.o
+    0x080022e4   0x080022e4   0x0000001e   Code   RO           10    .text.__cxx_global_var_init.4  main.o
+    0x08002302   0x08002302   0x00000002   PAD
+    0x08002304   0x08002304   0x00000018   Code   RO           82    .text.__cxx_global_var_init.40  main.o
+    0x0800231c   0x0800231c   0x0000001a   Code   RO           84    .text.__cxx_global_var_init.41  main.o
+    0x08002336   0x08002336   0x00000002   PAD
+    0x08002338   0x08002338   0x0000001a   Code   RO           86    .text.__cxx_global_var_init.42  main.o
+    0x08002352   0x08002352   0x00000002   PAD
+    0x08002354   0x08002354   0x00000022   Code   RO           88    .text.__cxx_global_var_init.43  main.o
     0x08002376   0x08002376   0x00000002   PAD
-    0x08002378   0x08002378   0x00000022   Code   RO           88    .text.__cxx_global_var_init.43  main.o
-    0x0800239a   0x0800239a   0x00000002   PAD
-    0x0800239c   0x0800239c   0x0000001e   Code   RO           90    .text.__cxx_global_var_init.44  main.o
-    0x080023ba   0x080023ba   0x00000002   PAD
-    0x080023bc   0x080023bc   0x0000001a   Code   RO           92    .text.__cxx_global_var_init.45  main.o
+    0x08002378   0x08002378   0x0000001e   Code   RO           90    .text.__cxx_global_var_init.44  main.o
+    0x08002396   0x08002396   0x00000002   PAD
+    0x08002398   0x08002398   0x0000001a   Code   RO           92    .text.__cxx_global_var_init.45  main.o
+    0x080023b2   0x080023b2   0x00000002   PAD
+    0x080023b4   0x080023b4   0x00000022   Code   RO           94    .text.__cxx_global_var_init.46  main.o
     0x080023d6   0x080023d6   0x00000002   PAD
-    0x080023d8   0x080023d8   0x00000022   Code   RO           94    .text.__cxx_global_var_init.46  main.o
-    0x080023fa   0x080023fa   0x00000002   PAD
-    0x080023fc   0x080023fc   0x00000018   Code   RO           96    .text.__cxx_global_var_init.47  main.o
-    0x08002414   0x08002414   0x0000001a   Code   RO           98    .text.__cxx_global_var_init.48  main.o
-    0x0800242e   0x0800242e   0x00000002   PAD
-    0x08002430   0x08002430   0x0000001a   Code   RO          100    .text.__cxx_global_var_init.49  main.o
-    0x0800244a   0x0800244a   0x00000002   PAD
-    0x0800244c   0x0800244c   0x0000001e   Code   RO           12    .text.__cxx_global_var_init.5  main.o
-    0x0800246a   0x0800246a   0x00000002   PAD
-    0x0800246c   0x0800246c   0x0000001e   Code   RO          102    .text.__cxx_global_var_init.50  main.o
-    0x0800248a   0x0800248a   0x00000002   PAD
-    0x0800248c   0x0800248c   0x0000001a   Code   RO          104    .text.__cxx_global_var_init.51  main.o
-    0x080024a6   0x080024a6   0x00000002   PAD
-    0x080024a8   0x080024a8   0x0000001e   Code   RO           14    .text.__cxx_global_var_init.6  main.o
-    0x080024c6   0x080024c6   0x00000002   PAD
-    0x080024c8   0x080024c8   0x0000001e   Code   RO           16    .text.__cxx_global_var_init.7  main.o
-    0x080024e6   0x080024e6   0x00000002   PAD
-    0x080024e8   0x080024e8   0x0000001e   Code   RO           18    .text.__cxx_global_var_init.8  main.o
-    0x08002506   0x08002506   0x00000002   PAD
-    0x08002508   0x08002508   0x0000001a   Code   RO           20    .text.__cxx_global_var_init.9  main.o
-    0x08002522   0x08002522   0x00000004   Code   RO         1171    .text.abort_message  libcppabi_w.l(abort_message.cpp.o)
-    0x08002526   0x08002526   0x00000002   PAD
-    0x08002528   0x08002528   0x0000011c   Code   RO          116    .text.main          main.o
-    0x08002644   0x08002644   0x0000011a   Code   RO          445    .text.prvAddCurrentTaskToDelayedList  tasks.o
-    0x0800275e   0x0800275e   0x00000002   PAD
-    0x08002760   0x08002760   0x00000154   Code   RO          433    .text.prvAddNewTaskToReadyList  tasks.o
-    0x080028b4   0x080028b4   0x0000006a   Code   RO          581    .text.prvCheckForValidListAndQueue  timers.o
-    0x0800291e   0x0800291e   0x00000002   PAD
-    0x08002920   0x08002920   0x0000005a   Code   RO          547    .text.prvCheckTasksWaitingTermination  tasks.o
-    0x0800297a   0x0800297a   0x00000002   PAD
-    0x0800297c   0x0800297c   0x00000042   Code   RO          335    .text.prvCopyDataFromQueue  queue.o
-    0x080029be   0x080029be   0x00000002   PAD
-    0x080029c0   0x080029c0   0x00000018   Code   RO          439    .text.prvDeleteTCB  tasks.o
-    0x080029d8   0x080029d8   0x00000040   Code   RO          615    .text.prvGetNextExpireTime  timers.o
-    0x08002a18   0x08002a18   0x000000ae   Code   RO          256    .text.prvHeapInit   heap_4.o
-    0x08002ac6   0x08002ac6   0x00000002   PAD
-    0x08002ac8   0x08002ac8   0x0000003c   Code   RO          471    .text.prvIdleTask   tasks.o
-    0x08002b04   0x08002b04   0x00000048   Code   RO          307    .text.prvInitialiseNewQueue  queue.o
-    0x08002b4c   0x08002b4c   0x000000e6   Code   RO          431    .text.prvInitialiseNewTask  tasks.o
-    0x08002c32   0x08002c32   0x00000002   PAD
-    0x08002c34   0x08002c34   0x0000008e   Code   RO          545    .text.prvInitialiseTaskLists  tasks.o
-    0x08002cc2   0x08002cc2   0x00000002   PAD
-    0x08002cc4   0x08002cc4   0x000000c6   Code   RO          258    .text.prvInsertBlockIntoFreeList  heap_4.o
-    0x08002d8a   0x08002d8a   0x00000002   PAD
-    0x08002d8c   0x08002d8c   0x00000086   Code   RO          629    .text.prvInsertTimerInActiveList  timers.o
-    0x08002e12   0x08002e12   0x00000002   PAD
-    0x08002e14   0x08002e14   0x00000028   Code   RO          337    .text.prvIsQueueEmpty  queue.o
-    0x08002e3c   0x08002e3c   0x00000020   Code   RO          202    .text.prvPortStartFirstTask  port.o
-    0x08002e5c   0x08002e5c   0x00000054   Code   RO          623    .text.prvProcessExpiredTimer  timers.o
-    0x08002eb0   0x08002eb0   0x00000126   Code   RO          619    .text.prvProcessReceivedCommands  timers.o
-    0x08002fd6   0x08002fd6   0x00000002   PAD
-    0x08002fd8   0x08002fd8   0x0000009a   Code   RO          617    .text.prvProcessTimerOrBlockTask  timers.o
-    0x08003072   0x08003072   0x00000002   PAD
-    0x08003074   0x08003074   0x00000034   Code   RO          627    .text.prvReloadTimer  timers.o
-    0x080030a8   0x080030a8   0x0000003c   Code   RO          437    .text.prvResetNextTaskUnblockTime  tasks.o
-    0x080030e4   0x080030e4   0x00000044   Code   RO          621    .text.prvSampleTimeNow  timers.o
-    0x08003128   0x08003128   0x00000052   Code   RO          625    .text.prvSwitchTimerLists  timers.o
-    0x0800317a   0x0800317a   0x00000002   PAD
-    0x0800317c   0x0800317c   0x00000026   Code   RO          194    .text.prvTaskExitError  port.o
-    0x080031a2   0x080031a2   0x00000002   PAD
-    0x080031a4   0x080031a4   0x0000001e   Code   RO          583    .text.prvTimerTask  timers.o
-    0x080031c2   0x080031c2   0x00000002   PAD
-    0x080031c4   0x080031c4   0x000000ae   Code   RO          327    .text.prvUnlockQueue  queue.o
-    0x08003272   0x08003272   0x00000002   PAD
-    0x08003274   0x08003274   0x00000186   Code   RO          254    .text.pvPortMalloc  heap_4.o
-    0x080033fa   0x080033fa   0x00000002   PAD
-    0x080033fc   0x080033fc   0x00000050   Code   RO          192    .text.pxPortInitialiseStack  port.o
-    0x0800344c   0x0800344c   0x00000048   Code   RO          294    .text.uxListRemove  list.o
-    0x08003494   0x08003494   0x00000002   Code   RO          106    .text.vApplicationIdleHook  main.o
-    0x08003496   0x08003496   0x00000002   PAD
-    0x08003498   0x08003498   0x0000000a   Code   RO          112    .text.vApplicationStackOverflowHook  main.o
-    0x080034a2   0x080034a2   0x00000002   PAD
-    0x080034a4   0x080034a4   0x00000002   Code   RO          108    .text.vApplicationTickHook  main.o
-    0x080034a6   0x080034a6   0x00000002   PAD
-    0x080034a8   0x080034a8   0x0000002e   Code   RO          286    .text.vListInitialise  list.o
-    0x080034d6   0x080034d6   0x00000002   PAD
-    0x080034d8   0x080034d8   0x0000000e   Code   RO          288    .text.vListInitialiseItem  list.o
-    0x080034e6   0x080034e6   0x00000002   PAD
-    0x080034e8   0x080034e8   0x0000006a   Code   RO          292    .text.vListInsert   list.o
-    0x08003552   0x08003552   0x00000002   PAD
-    0x08003554   0x08003554   0x00000030   Code   RO          206    .text.vPortEnterCritical  port.o
-    0x08003584   0x08003584   0x00000026   Code   RO          208    .text.vPortExitCritical  port.o
-    0x080035aa   0x080035aa   0x00000002   PAD
-    0x080035ac   0x080035ac   0x00000076   Code   RO          260    .text.vPortFree     heap_4.o
-    0x08003622   0x08003622   0x00000002   PAD
-    0x08003624   0x08003624   0x0000002e   Code   RO          200    .text.vPortSetupTimerInterrupt  port.o
-    0x08003652   0x08003652   0x00000002   PAD
-    0x08003654   0x08003654   0x00000064   Code   RO          365    .text.vQueueWaitForMessageRestricted  queue.o
-    0x080036b8   0x080036b8   0x0000004a   Code   RO          449    .text.vTaskDelay    tasks.o
-    0x08003702   0x08003702   0x00000002   PAD
-    0x08003704   0x08003704   0x00000024   Code   RO          503    .text.vTaskInternalSetTimeOutState  tasks.o
-    0x08003728   0x08003728   0x0000000e   Code   RO          507    .text.vTaskMissedYield  tasks.o
-    0x08003736   0x08003736   0x00000002   PAD
-    0x08003738   0x08003738   0x00000026   Code   RO          491    .text.vTaskPlaceOnEventList  tasks.o
-    0x0800375e   0x0800375e   0x00000002   PAD
-    0x08003760   0x08003760   0x00000060   Code   RO          495    .text.vTaskPlaceOnEventListRestricted  tasks.o
-    0x080037c0   0x080037c0   0x00000094   Code   RO          469    .text.vTaskStartScheduler  tasks.o
-    0x08003854   0x08003854   0x00000010   Code   RO          443    .text.vTaskSuspendAll  tasks.o
-    0x08003864   0x08003864   0x000000ec   Code   RO          461    .text.vTaskSwitchContext  tasks.o
-    0x08003950   0x08003950   0x00000040   Code   RO          198    .text.xPortStartScheduler  port.o
-    0x08003990   0x08003990   0x0000007e   Code   RO          305    .text.xQueueGenericCreate  queue.o
-    0x08003a0e   0x08003a0e   0x00000002   PAD
-    0x08003a10   0x08003a10   0x000000d0   Code   RO          303    .text.xQueueGenericReset  queue.o
-    0x08003ae0   0x08003ae0   0x00000152   Code   RO          333    .text.xQueueReceive  queue.o
-    0x08003c32   0x08003c32   0x00000002   PAD
-    0x08003c34   0x08003c34   0x0000009a   Code   RO          505    .text.xTaskCheckForTimeOut  tasks.o
-    0x08003cce   0x08003cce   0x00000002   PAD
-    0x08003cd0   0x08003cd0   0x000000a0   Code   RO          429    .text.xTaskCreate   tasks.o
-    0x08003d70   0x08003d70   0x00000014   Code   RO          477    .text.xTaskGetTickCount  tasks.o
-    0x08003d84   0x08003d84   0x00000254   Code   RO          475    .text.xTaskIncrementTick  tasks.o
-    0x08003fd8   0x08003fd8   0x00000170   Code   RO          497    .text.xTaskRemoveFromEventList  tasks.o
-    0x08004148   0x08004148   0x000001fe   Code   RO          447    .text.xTaskResumeAll  tasks.o
-    0x08004346   0x08004346   0x00000002   PAD
-    0x08004348   0x08004348   0x00000050   Code   RO          579    .text.xTimerCreateTimerTask  timers.o
-    0x08004398   0x08004398   0x00000010   Data   RO         1083    .rodata.AHBPrescTable  system_stm32f10x.o
-    0x080043a8   0x080043a8   0x0000000c   Data   RO          924    .rodata._ZTV11CommonTimer  common_timer.o
-    0x080043b4   0x080043b4   0x0000000c   Data   RO          811    .rodata._ZTV11IUpdated1ms  coil_with_timer.o
-    0x080043c0   0x080043c0   0x0000000c   Data   RO         1026    .rodata._ZTV11PulseCommon  pulse.o
-    0x080043cc   0x080043cc   0x0000000c   Data   RO          852    .rodata._ZTV11SimpleInput  simple_input.o
-    0x080043d8   0x080043d8   0x00000030   Data   RO          801    .rodata._ZTV12CoilOffDelay  coil_with_timer.o
-    0x08004408   0x08004408   0x00000010   Data   RO          749    .rodata._ZTV12ProgrammCoil  coil.o
-    0x08004418   0x08004418   0x0000000c   Data   RO          957    .rodata._ZTV14OffDelayCommon  off_delay.o
-    0x08004424   0x08004424   0x0000001c   Data   RO         1019    .rodata._ZTV14PulseInterrapt  pulse.o
-    0x08004440   0x08004440   0x0000001c   Data   RO         1058    .rodata._ZTV15SequenceDelayed  sequence.o
-    0x0800445c   0x0800445c   0x0000002c   Data   RO          853    .rodata._ZTV18SimpleInputDelayed  simple_input.o
-    0x08004488   0x08004488   0x00000010   Data   RO          748    .rodata._ZTV4Coil   coil.o
-    0x08004498   0x08004498   0x0000000c   Data   RO          762    .rodata._ZTV7ISwitch  coil.o
-    0x080044a4   0x080044a4   0x00000030   Data   RO          802    .rodata._ZTV9CoilPulse  coil_with_timer.o
-    0x080044d4   0x080044d4   0x00000029   Data   RO          182    .rodata.str1.1      main.o
-    0x080044fd   0x080044fd   0x00000005   Data   RO          565    .rodata.str1.1      tasks.o
-    0x08004502   0x08004502   0x00000008   Data   RO          632    .rodata.str1.1      timers.o
-    0x0800450a   0x0800450a   0x00000002   PAD
-    0x0800450c   0x0800450c   0x00000004   Data   RO          550    .rodata.uxTopUsedPriority  tasks.o
-    0x08004510   0x08004510   0x00000020   Data   RO         1293    Region$$Table       anon$$obj.o
-    0x08004530   0x08004530   0x00000004   Data   RO          183    .init_array         main.o
-    0x08004534   0x08004530   0x00000000   Data   RO         1105    .init_array         c_w.l(init_aeabi.o)
+    0x080023d8   0x080023d8   0x00000018   Code   RO           96    .text.__cxx_global_var_init.47  main.o
+    0x080023f0   0x080023f0   0x0000001a   Code   RO           98    .text.__cxx_global_var_init.48  main.o
+    0x0800240a   0x0800240a   0x00000002   PAD
+    0x0800240c   0x0800240c   0x0000001a   Code   RO          100    .text.__cxx_global_var_init.49  main.o
+    0x08002426   0x08002426   0x00000002   PAD
+    0x08002428   0x08002428   0x0000001e   Code   RO           12    .text.__cxx_global_var_init.5  main.o
+    0x08002446   0x08002446   0x00000002   PAD
+    0x08002448   0x08002448   0x0000001e   Code   RO          102    .text.__cxx_global_var_init.50  main.o
+    0x08002466   0x08002466   0x00000002   PAD
+    0x08002468   0x08002468   0x0000001a   Code   RO          104    .text.__cxx_global_var_init.51  main.o
+    0x08002482   0x08002482   0x00000002   PAD
+    0x08002484   0x08002484   0x0000001e   Code   RO           14    .text.__cxx_global_var_init.6  main.o
+    0x080024a2   0x080024a2   0x00000002   PAD
+    0x080024a4   0x080024a4   0x0000001e   Code   RO           16    .text.__cxx_global_var_init.7  main.o
+    0x080024c2   0x080024c2   0x00000002   PAD
+    0x080024c4   0x080024c4   0x0000001e   Code   RO           18    .text.__cxx_global_var_init.8  main.o
+    0x080024e2   0x080024e2   0x00000002   PAD
+    0x080024e4   0x080024e4   0x0000001a   Code   RO           20    .text.__cxx_global_var_init.9  main.o
+    0x080024fe   0x080024fe   0x00000004   Code   RO         1171    .text.abort_message  libcppabi_w.l(abort_message.cpp.o)
+    0x08002502   0x08002502   0x00000002   PAD
+    0x08002504   0x08002504   0x0000011c   Code   RO          116    .text.main          main.o
+    0x08002620   0x08002620   0x0000011a   Code   RO          445    .text.prvAddCurrentTaskToDelayedList  tasks.o
+    0x0800273a   0x0800273a   0x00000002   PAD
+    0x0800273c   0x0800273c   0x00000154   Code   RO          433    .text.prvAddNewTaskToReadyList  tasks.o
+    0x08002890   0x08002890   0x0000006a   Code   RO          581    .text.prvCheckForValidListAndQueue  timers.o
+    0x080028fa   0x080028fa   0x00000002   PAD
+    0x080028fc   0x080028fc   0x0000005a   Code   RO          547    .text.prvCheckTasksWaitingTermination  tasks.o
+    0x08002956   0x08002956   0x00000002   PAD
+    0x08002958   0x08002958   0x00000042   Code   RO          335    .text.prvCopyDataFromQueue  queue.o
+    0x0800299a   0x0800299a   0x00000002   PAD
+    0x0800299c   0x0800299c   0x00000018   Code   RO          439    .text.prvDeleteTCB  tasks.o
+    0x080029b4   0x080029b4   0x00000040   Code   RO          615    .text.prvGetNextExpireTime  timers.o
+    0x080029f4   0x080029f4   0x000000ae   Code   RO          256    .text.prvHeapInit   heap_4.o
+    0x08002aa2   0x08002aa2   0x00000002   PAD
+    0x08002aa4   0x08002aa4   0x0000003c   Code   RO          471    .text.prvIdleTask   tasks.o
+    0x08002ae0   0x08002ae0   0x00000048   Code   RO          307    .text.prvInitialiseNewQueue  queue.o
+    0x08002b28   0x08002b28   0x000000e6   Code   RO          431    .text.prvInitialiseNewTask  tasks.o
+    0x08002c0e   0x08002c0e   0x00000002   PAD
+    0x08002c10   0x08002c10   0x0000008e   Code   RO          545    .text.prvInitialiseTaskLists  tasks.o
+    0x08002c9e   0x08002c9e   0x00000002   PAD
+    0x08002ca0   0x08002ca0   0x000000c6   Code   RO          258    .text.prvInsertBlockIntoFreeList  heap_4.o
+    0x08002d66   0x08002d66   0x00000002   PAD
+    0x08002d68   0x08002d68   0x00000086   Code   RO          629    .text.prvInsertTimerInActiveList  timers.o
+    0x08002dee   0x08002dee   0x00000002   PAD
+    0x08002df0   0x08002df0   0x00000028   Code   RO          337    .text.prvIsQueueEmpty  queue.o
+    0x08002e18   0x08002e18   0x00000020   Code   RO          202    .text.prvPortStartFirstTask  port.o
+    0x08002e38   0x08002e38   0x00000054   Code   RO          623    .text.prvProcessExpiredTimer  timers.o
+    0x08002e8c   0x08002e8c   0x00000126   Code   RO          619    .text.prvProcessReceivedCommands  timers.o
+    0x08002fb2   0x08002fb2   0x00000002   PAD
+    0x08002fb4   0x08002fb4   0x0000009a   Code   RO          617    .text.prvProcessTimerOrBlockTask  timers.o
+    0x0800304e   0x0800304e   0x00000002   PAD
+    0x08003050   0x08003050   0x00000034   Code   RO          627    .text.prvReloadTimer  timers.o
+    0x08003084   0x08003084   0x0000003c   Code   RO          437    .text.prvResetNextTaskUnblockTime  tasks.o
+    0x080030c0   0x080030c0   0x00000044   Code   RO          621    .text.prvSampleTimeNow  timers.o
+    0x08003104   0x08003104   0x00000052   Code   RO          625    .text.prvSwitchTimerLists  timers.o
+    0x08003156   0x08003156   0x00000002   PAD
+    0x08003158   0x08003158   0x00000026   Code   RO          194    .text.prvTaskExitError  port.o
+    0x0800317e   0x0800317e   0x00000002   PAD
+    0x08003180   0x08003180   0x0000001e   Code   RO          583    .text.prvTimerTask  timers.o
+    0x0800319e   0x0800319e   0x00000002   PAD
+    0x080031a0   0x080031a0   0x000000ae   Code   RO          327    .text.prvUnlockQueue  queue.o
+    0x0800324e   0x0800324e   0x00000002   PAD
+    0x08003250   0x08003250   0x00000186   Code   RO          254    .text.pvPortMalloc  heap_4.o
+    0x080033d6   0x080033d6   0x00000002   PAD
+    0x080033d8   0x080033d8   0x00000050   Code   RO          192    .text.pxPortInitialiseStack  port.o
+    0x08003428   0x08003428   0x00000048   Code   RO          294    .text.uxListRemove  list.o
+    0x08003470   0x08003470   0x00000002   Code   RO          106    .text.vApplicationIdleHook  main.o
+    0x08003472   0x08003472   0x00000002   PAD
+    0x08003474   0x08003474   0x0000000a   Code   RO          112    .text.vApplicationStackOverflowHook  main.o
+    0x0800347e   0x0800347e   0x00000002   PAD
+    0x08003480   0x08003480   0x00000002   Code   RO          108    .text.vApplicationTickHook  main.o
+    0x08003482   0x08003482   0x00000002   PAD
+    0x08003484   0x08003484   0x0000002e   Code   RO          286    .text.vListInitialise  list.o
+    0x080034b2   0x080034b2   0x00000002   PAD
+    0x080034b4   0x080034b4   0x0000000e   Code   RO          288    .text.vListInitialiseItem  list.o
+    0x080034c2   0x080034c2   0x00000002   PAD
+    0x080034c4   0x080034c4   0x0000006a   Code   RO          292    .text.vListInsert   list.o
+    0x0800352e   0x0800352e   0x00000002   PAD
+    0x08003530   0x08003530   0x00000030   Code   RO          206    .text.vPortEnterCritical  port.o
+    0x08003560   0x08003560   0x00000026   Code   RO          208    .text.vPortExitCritical  port.o
+    0x08003586   0x08003586   0x00000002   PAD
+    0x08003588   0x08003588   0x00000076   Code   RO          260    .text.vPortFree     heap_4.o
+    0x080035fe   0x080035fe   0x00000002   PAD
+    0x08003600   0x08003600   0x0000002e   Code   RO          200    .text.vPortSetupTimerInterrupt  port.o
+    0x0800362e   0x0800362e   0x00000002   PAD
+    0x08003630   0x08003630   0x00000064   Code   RO          365    .text.vQueueWaitForMessageRestricted  queue.o
+    0x08003694   0x08003694   0x0000004a   Code   RO          449    .text.vTaskDelay    tasks.o
+    0x080036de   0x080036de   0x00000002   PAD
+    0x080036e0   0x080036e0   0x00000024   Code   RO          503    .text.vTaskInternalSetTimeOutState  tasks.o
+    0x08003704   0x08003704   0x0000000e   Code   RO          507    .text.vTaskMissedYield  tasks.o
+    0x08003712   0x08003712   0x00000002   PAD
+    0x08003714   0x08003714   0x00000026   Code   RO          491    .text.vTaskPlaceOnEventList  tasks.o
+    0x0800373a   0x0800373a   0x00000002   PAD
+    0x0800373c   0x0800373c   0x00000060   Code   RO          495    .text.vTaskPlaceOnEventListRestricted  tasks.o
+    0x0800379c   0x0800379c   0x00000094   Code   RO          469    .text.vTaskStartScheduler  tasks.o
+    0x08003830   0x08003830   0x00000010   Code   RO          443    .text.vTaskSuspendAll  tasks.o
+    0x08003840   0x08003840   0x000000ec   Code   RO          461    .text.vTaskSwitchContext  tasks.o
+    0x0800392c   0x0800392c   0x00000040   Code   RO          198    .text.xPortStartScheduler  port.o
+    0x0800396c   0x0800396c   0x0000007e   Code   RO          305    .text.xQueueGenericCreate  queue.o
+    0x080039ea   0x080039ea   0x00000002   PAD
+    0x080039ec   0x080039ec   0x000000d0   Code   RO          303    .text.xQueueGenericReset  queue.o
+    0x08003abc   0x08003abc   0x00000152   Code   RO          333    .text.xQueueReceive  queue.o
+    0x08003c0e   0x08003c0e   0x00000002   PAD
+    0x08003c10   0x08003c10   0x0000009a   Code   RO          505    .text.xTaskCheckForTimeOut  tasks.o
+    0x08003caa   0x08003caa   0x00000002   PAD
+    0x08003cac   0x08003cac   0x000000a0   Code   RO          429    .text.xTaskCreate   tasks.o
+    0x08003d4c   0x08003d4c   0x00000014   Code   RO          477    .text.xTaskGetTickCount  tasks.o
+    0x08003d60   0x08003d60   0x00000254   Code   RO          475    .text.xTaskIncrementTick  tasks.o
+    0x08003fb4   0x08003fb4   0x00000170   Code   RO          497    .text.xTaskRemoveFromEventList  tasks.o
+    0x08004124   0x08004124   0x000001fe   Code   RO          447    .text.xTaskResumeAll  tasks.o
+    0x08004322   0x08004322   0x00000002   PAD
+    0x08004324   0x08004324   0x00000050   Code   RO          579    .text.xTimerCreateTimerTask  timers.o
+    0x08004374   0x08004374   0x00000010   Data   RO         1083    .rodata.AHBPrescTable  system_stm32f10x.o
+    0x08004384   0x08004384   0x0000000c   Data   RO          924    .rodata._ZTV11CommonTimer  common_timer.o
+    0x08004390   0x08004390   0x0000000c   Data   RO          811    .rodata._ZTV11IUpdated1ms  coil_with_timer.o
+    0x0800439c   0x0800439c   0x0000000c   Data   RO         1026    .rodata._ZTV11PulseCommon  pulse.o
+    0x080043a8   0x080043a8   0x0000000c   Data   RO          852    .rodata._ZTV11SimpleInput  simple_input.o
+    0x080043b4   0x080043b4   0x00000030   Data   RO          801    .rodata._ZTV12CoilOffDelay  coil_with_timer.o
+    0x080043e4   0x080043e4   0x00000010   Data   RO          749    .rodata._ZTV12ProgrammCoil  coil.o
+    0x080043f4   0x080043f4   0x0000000c   Data   RO          957    .rodata._ZTV14OffDelayCommon  off_delay.o
+    0x08004400   0x08004400   0x0000001c   Data   RO         1019    .rodata._ZTV14PulseInterrapt  pulse.o
+    0x0800441c   0x0800441c   0x0000001c   Data   RO         1058    .rodata._ZTV15SequenceDelayed  sequence.o
+    0x08004438   0x08004438   0x0000002c   Data   RO          853    .rodata._ZTV18SimpleInputDelayed  simple_input.o
+    0x08004464   0x08004464   0x00000010   Data   RO          748    .rodata._ZTV4Coil   coil.o
+    0x08004474   0x08004474   0x0000000c   Data   RO          762    .rodata._ZTV7ISwitch  coil.o
+    0x08004480   0x08004480   0x00000030   Data   RO          802    .rodata._ZTV9CoilPulse  coil_with_timer.o
+    0x080044b0   0x080044b0   0x00000029   Data   RO          182    .rodata.str1.1      main.o
+    0x080044d9   0x080044d9   0x00000005   Data   RO          565    .rodata.str1.1      tasks.o
+    0x080044de   0x080044de   0x00000008   Data   RO          632    .rodata.str1.1      timers.o
+    0x080044e6   0x080044e6   0x00000002   PAD
+    0x080044e8   0x080044e8   0x00000004   Data   RO          550    .rodata.uxTopUsedPriority  tasks.o
+    0x080044ec   0x080044ec   0x00000020   Data   RO         1293    Region$$Table       anon$$obj.o
+    0x0800450c   0x0800450c   0x00000004   Data   RO          183    .init_array         main.o
+    0x08004510   0x0800450c   0x00000000   Data   RO         1105    .init_array         c_w.l(init_aeabi.o)
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08004538, Size: 0x00003600, Max: 0x00005000, ABSOLUTE)
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08004510, Size: 0x00003600, Max: 0x00005000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x08004538   0x00000004   Data   RW         1082    .data.SystemCoreClock  system_stm32f10x.o
-    0x20000004   0x0800453c   0x00000020   Data   RW          682    .data._ZL10numOfSteps  diag.o
-    0x20000024   0x0800455c   0x00000001   Data   RW          685    .data._ZL3two       diag.o
-    0x20000025   0x0800455d   0x00000001   Data   RW          686    .data._ZL5three     diag.o
-    0x20000026   0x0800455e   0x00000010   Data   RW          683    .data._ZL6serial    diag.o
-    0x20000036   0x0800456e   0x00000002   PAD
-    0x20000038   0x08004570   0x0000003c   Data   RW          176    .data.ob1Kit        main.o
-    0x20000074   0x080045ac   0x0000003c   Data   RW          177    .data.ob2Kit        main.o
-    0x200000b0   0x080045e8   0x0000003c   Data   RW          178    .data.ob3Kit        main.o
-    0x200000ec   0x08004624   0x00000068   Data   RW          180    .data.update1msObjects  main.o
-    0x20000154   0x0800468c   0x00000001   Data   RW          181    .data.updateObjectsSize  main.o
-    0x20000155   0x0800468d   0x00000003   PAD
-    0x20000158   0x08004690   0x00000004   Data   RW          214    .data.uxCriticalNesting  port.o
-    0x2000015c   0x08004694   0x00000004   PAD
+    0x20000000   0x08004510   0x00000004   Data   RW         1082    .data.SystemCoreClock  system_stm32f10x.o
+    0x20000004   0x08004514   0x00000020   Data   RW          682    .data._ZL10numOfSteps  diag.o
+    0x20000024   0x08004534   0x00000001   Data   RW          685    .data._ZL3two       diag.o
+    0x20000025   0x08004535   0x00000001   Data   RW          686    .data._ZL5three     diag.o
+    0x20000026   0x08004536   0x00000010   Data   RW          683    .data._ZL6serial    diag.o
+    0x20000036   0x08004546   0x00000002   PAD
+    0x20000038   0x08004548   0x0000003c   Data   RW          176    .data.ob1Kit        main.o
+    0x20000074   0x08004584   0x0000003c   Data   RW          177    .data.ob2Kit        main.o
+    0x200000b0   0x080045c0   0x0000003c   Data   RW          178    .data.ob3Kit        main.o
+    0x200000ec   0x080045fc   0x00000068   Data   RW          180    .data.update1msObjects  main.o
+    0x20000154   0x08004664   0x00000001   Data   RW          181    .data.updateObjectsSize  main.o
+    0x20000155   0x08004665   0x00000003   PAD
+    0x20000158   0x08004668   0x00000004   Data   RW          214    .data.uxCriticalNesting  port.o
+    0x2000015c   0x0800466c   0x00000004   PAD
     0x20000160        -       0x00000060   Zero   RW         1222    .bss                c_w.l(libspace.o)
     0x200001c0        -       0x00000024   Zero   RW          120    .bss.B1             main.o
     0x200001e4        -       0x00000024   Zero   RW          122    .bss.B2             main.o
@@ -3670,7 +3667,7 @@ Memory Map of the image
     0x20000268        -       0x00000020   Zero   RW          174    .bss.CHBs1          main.o
     0x20000288        -       0x0000000c   Zero   RW          175    .bss.CHBs2          main.o
     0x20000294        -       0x00000001   Zero   RW          172    .bss.CHBstep        main.o
-    0x20000295   0x08004694   0x00000003   PAD
+    0x20000295   0x0800466c   0x00000003   PAD
     0x20000298        -       0x00000010   Zero   RW          131    .bss.D1             main.o
     0x200002a8        -       0x00000010   Zero   RW          135    .bss.D2             main.o
     0x200002b8        -       0x00000010   Zero   RW          139    .bss.D3             main.o
@@ -3697,7 +3694,7 @@ Memory Map of the image
     0x200004bc        -       0x00000014   Zero   RW          154    .bss.OB1s4MeTimer   main.o
     0x200004d0        -       0x0000000c   Zero   RW          155    .bss.OB1s5          main.o
     0x200004dc        -       0x00000001   Zero   RW          148    .bss.OB1step        main.o
-    0x200004dd   0x08004694   0x00000003   PAD
+    0x200004dd   0x0800466c   0x00000003   PAD
     0x200004e0        -       0x0000000c   Zero   RW          157    .bss.OB2s0          main.o
     0x200004ec        -       0x00000020   Zero   RW          158    .bss.OB2s1          main.o
     0x2000050c        -       0x00000020   Zero   RW          159    .bss.OB2s2          main.o
@@ -3706,7 +3703,7 @@ Memory Map of the image
     0x20000558        -       0x00000014   Zero   RW          162    .bss.OB2s4MeTimer   main.o
     0x2000056c        -       0x0000000c   Zero   RW          163    .bss.OB2s5          main.o
     0x20000578        -       0x00000001   Zero   RW          156    .bss.OB2step        main.o
-    0x20000579   0x08004694   0x00000003   PAD
+    0x20000579   0x0800466c   0x00000003   PAD
     0x2000057c        -       0x0000000c   Zero   RW          165    .bss.OB3s0          main.o
     0x20000588        -       0x00000020   Zero   RW          166    .bss.OB3s1          main.o
     0x200005a8        -       0x00000020   Zero   RW          167    .bss.OB3s2          main.o
@@ -3715,12 +3712,12 @@ Memory Map of the image
     0x200005f4        -       0x00000014   Zero   RW          170    .bss.OB3s4MeTimer   main.o
     0x20000608        -       0x0000000c   Zero   RW          171    .bss.OB3s5          main.o
     0x20000614        -       0x00000001   Zero   RW          164    .bss.OB3step        main.o
-    0x20000615   0x08004694   0x00000003   PAD
+    0x20000615   0x0800466c   0x00000003   PAD
     0x20000618        -       0x00000024   Zero   RW          126    .bss.S4             main.o
     0x2000063c        -       0x00000024   Zero   RW          127    .bss.S5             main.o
     0x20000660        -       0x00000024   Zero   RW          128    .bss.S6             main.o
     0x20000684        -       0x00000001   Zero   RW          684    .bss._ZL3one        diag.o
-    0x20000685   0x08004694   0x00000003   PAD
+    0x20000685   0x0800466c   0x00000003   PAD
     0x20000688        -       0x00000010   Zero   RW          147    .bss.led            main.o
     0x20000698        -       0x00000004   Zero   RW          636    .bss.prvSampleTimeNow.xLastTime  timers.o
     0x2000069c        -       0x00000004   Zero   RW          549    .bss.pxCurrentTCB   tasks.o
@@ -3770,7 +3767,7 @@ Image component sizes
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
        320          0          0          0          0       1975   chb.o
-       450          0         44          0          0       4824   coil.o
+       416          0         44          0          0       4813   coil.o
        462          0        108          0          0       5215   coil_with_timer.o
         64          0          0          0          0       1816   common.o
        420          0          0          0          0       2655   common_for_tasks.o
@@ -3795,9 +3792,9 @@ Image component sizes
       1148         10          8          0         60       7648   timers.o
 
     ----------------------------------------------------------------------
-     16138         66        648        348      13380     121598   Object Totals
+     16102         66        648        348      13380     121587   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-       252         12          2          5         19          0   (incl. Padding)
+       250         12          2          5         19          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -3859,15 +3856,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     17068        156        648        348      13476     121970   Grand Totals
-     17068        156        648        348      13476     121970   ELF Image Totals
-     17068        156        648        348          0          0   ROM Totals
+     17032        156        648        348      13476     121959   Grand Totals
+     17032        156        648        348      13476     121959   ELF Image Totals
+     17032        156        648        348          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                17716 (  17.30kB)
+    Total RO  Size (Code + RO Data)                17680 (  17.27kB)
     Total RW  Size (RW Data + ZI Data)             13824 (  13.50kB)
-    Total ROM Size (Code + RO Data + RW Data)      18064 (  17.64kB)
+    Total ROM Size (Code + RO Data + RW Data)      18028 (  17.61kB)
 
 ==============================================================================
 

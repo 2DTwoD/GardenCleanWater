@@ -1,5 +1,5 @@
-#ifndef CUSTOM_TIMER_H
-#define CUSTOM_TIMER_H
+#ifndef COMMON_TIMER_H
+#define COMMON_TIMER_H
 #include "stdint.h"
 #include "interfaces.h"
 
@@ -35,4 +35,4 @@ class CommonTimer {
 		bool isFree();
 };
 
-#endif //CUSTOM_TIMER_H
+#endif //COMMON_TIMER_H

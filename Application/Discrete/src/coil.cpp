@@ -36,13 +36,14 @@ bool Coil::isActive(){
 	return (gpio->ODR & (1 << pin)) > 0;
 }
 void Coil::setValue(bool value){
+	ProgrammCoil::setValue(value);
 	if(value){
 		//if(isNotActive()) 
-			gpio->BSRR |= (1 << pin);
+		gpio->BSRR |= (1 << pin);
 		return;
 	}
 	//if(isActive())
-		gpio->BRR |= (1 << pin);
+	gpio->BRR |= (1 << pin);
 }
 Coil& Coil::operator=(bool value){
 	setValue(value);

@@ -1,5 +1,6 @@
 #include "off_delay.h"
 
+//OffDelayCommon
 OffDelayCommon::OffDelayCommon(uint32_t period): CommonTimer(period){
 }
 void OffDelayCommon::update(){
@@ -25,6 +26,7 @@ void OffDelayCommon::reset(){
 	CommonTimer::finish();
 }
 
+//OffDelay
 OffDelay::OffDelay(uint32_t period): OffDelayCommon(period){
 }
 void OffDelay::update1ms(){
