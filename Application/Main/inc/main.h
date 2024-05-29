@@ -31,10 +31,5 @@ extern "C"{
 			update1msObjects[i]->update1ms();
 		}
 	}
-	/*void ADC1_2_IRQHandler(void){
-		if(ADC1->SR & ADC_SR_EOC){
-			uint16_t val = ADC1->DR;
-		}
-	}*/
 }
 #endif //MAIN_H
