@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\GardenCleanWater.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\GardenCleanWater.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6180002: Last Updated: Tue May 28 15:55:50 2024
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6180002: Last Updated: Thu May 30 13:36:10 2024
 <BR><P>
 <H3>Maximum Stack Usage =        256 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -116,8 +116,8 @@ Function Pointers
  <LI><a href="#[4d]">non-virtual thunk to SimpleInputDelayed::isActive()</a> from simple_input.o(.text._ZThn16_N18SimpleInputDelayed8isActiveEv) referenced from simple_input.o(.rodata._ZTV18SimpleInputDelayed)
  <LI><a href="#[52]">non-virtual thunk to CoilPulse::setValue(bool)</a> from coil_with_timer.o(.text._ZThn16_N9CoilPulse8setValueEb) referenced from coil_with_timer.o(.rodata._ZTV9CoilPulse)
  <LI><a href="#[4a]">non-virtual thunk to SequenceDelayed::update1ms()</a> from sequence.o(.text._ZThn28_N15SequenceDelayed9update1msEv) referenced from sequence.o(.rodata._ZTV15SequenceDelayed)
+ <LI><a href="#[4e]">non-virtual thunk to SimpleInputDelayed::update1ms()</a> from simple_input.o(.text._ZThn28_N18SimpleInputDelayed9update1msEv) referenced from simple_input.o(.rodata._ZTV18SimpleInputDelayed)
  <LI><a href="#[44]">non-virtual thunk to CoilOffDelay::update1ms()</a> from coil_with_timer.o(.text._ZThn32_N12CoilOffDelay9update1msEv) referenced from coil_with_timer.o(.rodata._ZTV12CoilOffDelay)
- <LI><a href="#[4e]">non-virtual thunk to SimpleInputDelayed::update1ms()</a> from simple_input.o(.text._ZThn32_N18SimpleInputDelayed9update1msEv) referenced from simple_input.o(.rodata._ZTV18SimpleInputDelayed)
  <LI><a href="#[53]">non-virtual thunk to CoilPulse::update1ms()</a> from coil_with_timer.o(.text._ZThn32_N9CoilPulse9update1msEv) referenced from coil_with_timer.o(.rodata._ZTV9CoilPulse)
  <LI><a href="#[3e]">__cxa_pure_virtual</a> from cxa_virtual.cpp.o(.text.__cxa_pure_virtual) referenced from coil_with_timer.o(.rodata._ZTV11IUpdated1ms)
  <LI><a href="#[3e]">__cxa_pure_virtual</a> from cxa_virtual.cpp.o(.text.__cxa_pure_virtual) referenced from coil.o(.rodata._ZTV7ISwitch)
@@ -987,20 +987,20 @@ Global Symbols
 <LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;OBTask(void*)
 </UL>
 
-<P><STRONG><a name="[3f]"></a>SimpleInput::isActive()</STRONG> (Thumb, 64 bytes, Stack size 16 bytes, simple_input.o(.text._ZN11SimpleInput8isActiveEv))
-<BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = SimpleInput::isActive()
+<P><STRONG><a name="[3f]"></a>SimpleInput::isActive()</STRONG> (Thumb, 24 bytes, Stack size 4 bytes, simple_input.o(.text._ZN11SimpleInput8isActiveEv))
+<BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = SimpleInput::isActive()
 </UL>
 <BR>[Called By]<UL><LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SimpleInputDelayed::update1ms()
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> simple_input.o(.rodata._ZTV11SimpleInput)
 </UL>
-<P><STRONG><a name="[dc]"></a>SimpleInput::SimpleInput(GPIO_TypeDef*, unsigned char)</STRONG> (Thumb, 152 bytes, Stack size 32 bytes, simple_input.o(.text._ZN11SimpleInputC2EP12GPIO_TypeDefh), UNUSED)
+<P><STRONG><a name="[dc]"></a>SimpleInput::SimpleInput(GPIO_TypeDef*, unsigned char)</STRONG> (Thumb, 146 bytes, Stack size 32 bytes, simple_input.o(.text._ZN11SimpleInputC2EP12GPIO_TypeDefh), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ISwitch::ISwitch__sub_object()
 <LI><a href="#[dd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIOcommon::GPIOcommon__sub_object(GPIO_TypeDef*, unsigned char)
 <LI><a href="#[c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;void setRegister&lang;unsigned int volatile&rang;(unsigned int volatile*, unsigned int, unsigned int)
 </UL>
 
-<P><STRONG><a name="[ee]"></a>SimpleInput::SimpleInput__sub_object(GPIO_TypeDef*, unsigned char)</STRONG> (Thumb, 152 bytes, Stack size 32 bytes, simple_input.o(.text._ZN11SimpleInputC2EP12GPIO_TypeDefh))
+<P><STRONG><a name="[ee]"></a>SimpleInput::SimpleInput__sub_object(GPIO_TypeDef*, unsigned char)</STRONG> (Thumb, 146 bytes, Stack size 32 bytes, simple_input.o(.text._ZN11SimpleInputC2EP12GPIO_TypeDefh))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = SimpleInput::SimpleInput__sub_object(GPIO_TypeDef*, unsigned char)
 </UL>
 <BR>[Called By]<UL><LI><a href="#[ed]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SimpleInputDelayed::SimpleInputDelayed(GPIO_TypeDef*, unsigned char, unsigned short)
@@ -1486,19 +1486,19 @@ Global Symbols
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> sequence.o(.rodata._ZTV15SequenceDelayed)
 </UL>
+<P><STRONG><a name="[4e]"></a>non-virtual thunk to SimpleInputDelayed::update1ms()</STRONG> (Thumb, 14 bytes, Stack size 4 bytes, simple_input.o(.text._ZThn28_N18SimpleInputDelayed9update1msEv))
+<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = non-virtual thunk to SimpleInputDelayed::update1ms() &rArr; SimpleInputDelayed::update1ms() &rArr; CommonTimer::setStart(bool) &rArr; CommonTimer::stop() &rArr; CommonTimer::reset()
+</UL>
+<BR>[Calls]<UL><LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SimpleInputDelayed::update1ms()
+</UL>
+<BR>[Address Reference Count : 1]<UL><LI> simple_input.o(.rodata._ZTV18SimpleInputDelayed)
+</UL>
 <P><STRONG><a name="[44]"></a>non-virtual thunk to CoilOffDelay::update1ms()</STRONG> (Thumb, 14 bytes, Stack size 4 bytes, coil_with_timer.o(.text._ZThn32_N12CoilOffDelay9update1msEv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 80<LI>Call Chain = non-virtual thunk to CoilOffDelay::update1ms() &rArr; CoilOffDelay::update1ms() &rArr; OffDelayCommon::get() &rArr; CommonTimer::inWork() &rArr; CommonTimer::notFinished()
 </UL>
 <BR>[Calls]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;CoilOffDelay::update1ms()
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> coil_with_timer.o(.rodata._ZTV12CoilOffDelay)
-</UL>
-<P><STRONG><a name="[4e]"></a>non-virtual thunk to SimpleInputDelayed::update1ms()</STRONG> (Thumb, 14 bytes, Stack size 4 bytes, simple_input.o(.text._ZThn32_N18SimpleInputDelayed9update1msEv))
-<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = non-virtual thunk to SimpleInputDelayed::update1ms() &rArr; SimpleInputDelayed::update1ms() &rArr; CommonTimer::setStart(bool) &rArr; CommonTimer::stop() &rArr; CommonTimer::reset()
-</UL>
-<BR>[Calls]<UL><LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SimpleInputDelayed::update1ms()
-</UL>
-<BR>[Address Reference Count : 1]<UL><LI> simple_input.o(.rodata._ZTV18SimpleInputDelayed)
 </UL>
 <P><STRONG><a name="[53]"></a>non-virtual thunk to CoilPulse::update1ms()</STRONG> (Thumb, 14 bytes, Stack size 4 bytes, coil_with_timer.o(.text._ZThn32_N9CoilPulse9update1msEv))
 <BR><BR>[Stack]<UL><LI>Max Depth = 72<LI>Call Chain = non-virtual thunk to CoilPulse::update1ms() &rArr; CoilPulse::update1ms() &rArr; PulseCommon::get() &rArr; CommonTimer::inWork() &rArr; CommonTimer::notFinished()

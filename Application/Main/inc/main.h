@@ -1,6 +1,8 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+//#define SIM_ON
+
 #include "FreeRTOS.h"
 #include "task.h"
 

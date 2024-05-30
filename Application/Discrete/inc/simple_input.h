@@ -6,8 +6,6 @@
 #include "gpio_common.h"
 #include "common_timer.h"
 
-#define SIM_ON
-
 //SimpleInput
 class SimpleInput: public GPIOcommon, public ISwitch{
 	#ifdef SIM_ON
